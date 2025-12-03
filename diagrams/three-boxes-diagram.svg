@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;display=swap');
+      .title { font-family: 'Manrope', system-ui, sans-serif; font-size: 24px; font-weight: 700; fill: #182D53; }
+      .box-title { font-family: 'Manrope', system-ui, sans-serif; font-size: 18px; font-weight: 700; fill: white; }
+      .box-subtitle { font-family: 'Manrope', system-ui, sans-serif; font-size: 14px; font-weight: 400; fill: #374151; }
+      .box-number { font-family: 'Manrope', system-ui, sans-serif; font-size: 48px; font-weight: 700; fill: #182D53; opacity: 0.15; }
+      .focus-label { font-family: 'Manrope', system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: #00D866; text-transform: uppercase; letter-spacing: 1px; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="48" text-anchor="middle" class="title">Three Boxes of Innovation</text>
+  
+  <!-- Box 1 -->
+  <g transform="translate(56, 88)">
+    <rect x="0" y="0" width="200" height="240" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="0" y="0" width="200" height="56" rx="8" fill="#6B7280"/>
+    <rect x="0" y="48" width="200" height="8" fill="#6B7280"/>
+    <text x="100" y="36" text-anchor="middle" class="box-title">Box 1</text>
+    <text x="100" y="200" text-anchor="middle" class="box-number">1</text>
+    <text x="100" y="100" text-anchor="middle" class="box-subtitle">Existing</text>
+    <text x="100" y="120" text-anchor="middle" class="box-subtitle">Products</text>
+    <text x="100" y="156" text-anchor="middle" class="box-subtitle" style="font-size: 12px; fill: #6B7280;">Incremental</text>
+    <text x="100" y="172" text-anchor="middle" class="box-subtitle" style="font-size: 12px; fill: #6B7280;">improvements</text>
+  </g>
+  
+  <!-- Box 2 -->
+  <g transform="translate(300, 88)">
+    <rect x="0" y="0" width="200" height="240" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="0" y="0" width="200" height="56" rx="8" fill="#6B7280"/>
+    <rect x="0" y="48" width="200" height="8" fill="#6B7280"/>
+    <text x="100" y="36" text-anchor="middle" class="box-title">Box 2</text>
+    <text x="100" y="200" text-anchor="middle" class="box-number">2</text>
+    <text x="100" y="100" text-anchor="middle" class="box-subtitle">Adjacent</text>
+    <text x="100" y="120" text-anchor="middle" class="box-subtitle">Markets</text>
+    <text x="100" y="156" text-anchor="middle" class="box-subtitle" style="font-size: 12px; fill: #6B7280;">New customers</text>
+    <text x="100" y="172" text-anchor="middle" class="box-subtitle" style="font-size: 12px; fill: #6B7280;">for existing products</text>
+  </g>
+  
+  <!-- Box 3 (Highlighted) -->
+  <g transform="translate(544, 88)">
+    <rect x="0" y="0" width="200" height="240" rx="8" fill="#ECFDF5" stroke="#00D866" stroke-width="2"/>
+    <rect x="0" y="0" width="200" height="56" rx="8" fill="#182D53"/>
+    <rect x="0" y="48" width="200" height="8" fill="#182D53"/>
+    <text x="100" y="36" text-anchor="middle" class="box-title">Box 3</text>
+    <text x="100" y="200" text-anchor="middle" class="box-number" style="fill: #00D866; opacity: 0.3;">3</text>
+    <text x="100" y="100" text-anchor="middle" class="box-subtitle" style="font-weight: 600; fill: #182D53;">New</text>
+    <text x="100" y="120" text-anchor="middle" class="box-subtitle" style="font-weight: 600; fill: #182D53;">Problems</text>
+    <text x="100" y="156" text-anchor="middle" class="box-subtitle" style="font-size: 12px; fill: #374151;">Identify unmet needs</text>
+    <text x="100" y="172" text-anchor="middle" class="box-subtitle" style="font-size: 12px; fill: #374151;">and create solutions</text>
+  </g>
+  
+  <!-- HLV Focus indicator -->
+  <g transform="translate(544, 340)">
+    <rect x="50" y="0" width="100" height="24" rx="12" fill="#00D866"/>
+    <text x="100" y="16" text-anchor="middle" class="focus-label" style="fill: white; font-size: 11px;">HLV FOCUS</text>
+  </g>
+  
+  <!-- Arrow pointing to Box 3 -->
+  <path d="M 644 350 L 644 332" stroke="#00D866" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00D866"/>
+    </marker>
+  </defs>
+</svg>
