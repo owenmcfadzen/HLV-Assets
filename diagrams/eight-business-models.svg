@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap');
+      text { font-family: 'Manrope', sans-serif; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="560" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" font-size="24" font-weight="700" fill="#182D53">The 8 Business Models</text>
+  <text x="450" y="54" text-anchor="middle" font-size="13" font-weight="500" fill="#6B7280">How does the business generate revenue?</text>
+  
+  <!-- Grid: 4 columns x 2 rows -->
+  <!-- Card dimensions: 200w x 210h, gap: 16px -->
+  <!-- Total width: 4*200 + 3*16 = 848, start at (900-848)/2 = 26 -->
+  <!-- Row 1 y: 80, Row 2 y: 306 -->
+  
+  <!-- Row 1 -->
+  
+  <!-- 1. Price Per User -->
+  <g transform="translate(126, 80)">
+    <rect x="-100" y="0" width="200" height="210" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="-100" y="0" width="200" height="40" rx="8" fill="#182D53"/>
+    <rect x="-100" y="32" width="200" height="8" fill="#182D53"/>
+    <text x="0" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">1. Price Per User</text>
+    <!-- Description -->
+    <text x="0" y="62" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">Sell a product or service,</text>
+    <text x="0" y="76" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">receive payment per unit.</text>
+    <!-- Divider -->
+    <line x1="-80" y1="92" x2="80" y2="92" stroke="#D1D5DB" stroke-width="1"/>
+    <!-- Revenue -->
+    <text x="0" y="112" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">REVENUE</text>
+    <text x="0" y="128" text-anchor="middle" font-size="10" font-weight="500" fill="#182D53">One-time transaction</text>
+    <!-- Example -->
+    <text x="0" y="156" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">EXAMPLES</text>
+    <text x="0" y="172" text-anchor="middle" font-size="10" font-weight="500" fill="#059669">Adobe, Microsoft Office</text>
+  </g>
+  
+  <!-- 2. Ecommerce -->
+  <g transform="translate(342, 80)">
+    <rect x="-100" y="0" width="200" height="210" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="-100" y="0" width="200" height="40" rx="8" fill="#182D53"/>
+    <rect x="-100" y="32" width="200" height="8" fill="#182D53"/>
+    <text x="0" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">2. Ecommerce</text>
+    <text x="0" y="62" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">Sell tangible products</text>
+    <text x="0" y="76" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">online, ship to customers.</text>
+    <line x1="-80" y1="92" x2="80" y2="92" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="0" y="112" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">REVENUE</text>
+    <text x="0" y="128" text-anchor="middle" font-size="10" font-weight="500" fill="#182D53">Product margins</text>
+    <text x="0" y="156" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">EXAMPLES</text>
+    <text x="0" y="172" text-anchor="middle" font-size="10" font-weight="500" fill="#059669">Amazon, Alibaba</text>
+  </g>
+  
+  <!-- 3. Advertising -->
+  <g transform="translate(558, 80)">
+    <rect x="-100" y="0" width="200" height="210" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="-100" y="0" width="200" height="40" rx="8" fill="#182D53"/>
+    <rect x="-100" y="32" width="200" height="8" fill="#182D53"/>
+    <text x="0" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">3. Advertising</text>
+    <text x="0" y="62" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">Free service to users,</text>
+    <text x="0" y="76" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">sell attention to advertisers.</text>
+    <line x1="-80" y1="92" x2="80" y2="92" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="0" y="112" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">REVENUE</text>
+    <text x="0" y="128" text-anchor="middle" font-size="10" font-weight="500" fill="#182D53">Ad impressions/clicks</text>
+    <text x="0" y="156" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">EXAMPLES</text>
+    <text x="0" y="172" text-anchor="middle" font-size="10" font-weight="500" fill="#059669">Google, Twitter</text>
+  </g>
+  
+  <!-- 4. Subscriptions -->
+  <g transform="translate(774, 80)">
+    <rect x="-100" y="0" width="200" height="210" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="-100" y="0" width="200" height="40" rx="8" fill="#182D53"/>
+    <rect x="-100" y="32" width="200" height="8" fill="#182D53"/>
+    <text x="0" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">4. Subscriptions</text>
+    <text x="0" y="62" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">Recurring payments for</text>
+    <text x="0" y="76" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">ongoing access or delivery.</text>
+    <line x1="-80" y1="92" x2="80" y2="92" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="0" y="112" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">REVENUE</text>
+    <text x="0" y="128" text-anchor="middle" font-size="10" font-weight="500" fill="#182D53">Monthly/annual fees</text>
+    <text x="0" y="156" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">EXAMPLES</text>
+    <text x="0" y="172" text-anchor="middle" font-size="10" font-weight="500" fill="#059669">Netflix, Spotify</text>
+  </g>
+  
+  <!-- Row 2 -->
+  
+  <!-- 5. Freemium -->
+  <g transform="translate(126, 306)">
+    <rect x="-100" y="0" width="200" height="210" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="-100" y="0" width="200" height="40" rx="8" fill="#00D866"/>
+    <rect x="-100" y="32" width="200" height="8" fill="#00D866"/>
+    <text x="0" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">5. Freemium</text>
+    <text x="0" y="62" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">Free base product,</text>
+    <text x="0" y="76" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">pay for premium features.</text>
+    <line x1="-80" y1="92" x2="80" y2="92" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="0" y="112" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">REVENUE</text>
+    <text x="0" y="128" text-anchor="middle" font-size="10" font-weight="500" fill="#182D53">Upgrade conversions</text>
+    <text x="0" y="156" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">EXAMPLES</text>
+    <text x="0" y="172" text-anchor="middle" font-size="10" font-weight="500" fill="#059669">Skype, Evernote</text>
+  </g>
+  
+  <!-- 6. Lead Generation -->
+  <g transform="translate(342, 306)">
+    <rect x="-100" y="0" width="200" height="210" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="-100" y="0" width="200" height="40" rx="8" fill="#00D866"/>
+    <rect x="-100" y="32" width="200" height="8" fill="#00D866"/>
+    <text x="0" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">6. Lead Generation</text>
+    <text x="0" y="62" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">Connect users to relevant</text>
+    <text x="0" y="76" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">products or services.</text>
+    <line x1="-80" y1="92" x2="80" y2="92" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="0" y="112" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">REVENUE</text>
+    <text x="0" y="128" text-anchor="middle" font-size="10" font-weight="500" fill="#182D53">Referral fees</text>
+    <text x="0" y="156" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">EXAMPLES</text>
+    <text x="0" y="172" text-anchor="middle" font-size="10" font-weight="500" fill="#059669">Mint, LegalZoom</text>
+  </g>
+  
+  <!-- 7. Brokerage -->
+  <g transform="translate(558, 306)">
+    <rect x="-100" y="0" width="200" height="210" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="-100" y="0" width="200" height="40" rx="8" fill="#00D866"/>
+    <rect x="-100" y="32" width="200" height="8" fill="#00D866"/>
+    <text x="0" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">7. Brokerage</text>
+    <text x="0" y="62" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">Facilitate transactions</text>
+    <text x="0" y="76" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">between buyers and sellers.</text>
+    <line x1="-80" y1="92" x2="80" y2="92" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="0" y="112" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">REVENUE</text>
+    <text x="0" y="128" text-anchor="middle" font-size="10" font-weight="500" fill="#182D53">Transaction fees</text>
+    <text x="0" y="156" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">EXAMPLES</text>
+    <text x="0" y="172" text-anchor="middle" font-size="10" font-weight="500" fill="#059669">Uber, Airbnb, eBay</text>
+  </g>
+  
+  <!-- 8. Infomediary -->
+  <g transform="translate(774, 306)">
+    <rect x="-100" y="0" width="200" height="210" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="-100" y="0" width="200" height="40" rx="8" fill="#00D866"/>
+    <rect x="-100" y="32" width="200" height="8" fill="#00D866"/>
+    <text x="0" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">8. Infomediary</text>
+    <text x="0" y="62" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">Gather and link information</text>
+    <text x="0" y="76" text-anchor="middle" font-size="10" font-weight="500" fill="#374151">to create knowledge.</text>
+    <line x1="-80" y1="92" x2="80" y2="92" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="0" y="112" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">REVENUE</text>
+    <text x="0" y="128" text-anchor="middle" font-size="10" font-weight="500" fill="#182D53">Data/insight licensing</text>
+    <text x="0" y="156" text-anchor="middle" font-size="9" font-weight="600" fill="#6B7280">EXAMPLES</text>
+    <text x="0" y="172" text-anchor="middle" font-size="10" font-weight="500" fill="#059669">Cloudera, Chartbeat</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="450" y="540" text-anchor="middle" font-size="11" font-weight="500" fill="#6B7280">Most ventures combine 2-3 models. Which fit your solution?</text>
+  
+</svg>
