@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap');
+      .title { font-family: 'Manrope', system-ui, sans-serif; font-size: 24px; font-weight: 700; fill: #182D53; }
+      .subtitle { font-family: 'Manrope', system-ui, sans-serif; font-size: 14px; font-weight: 500; fill: #6B7280; }
+      .heading { font-family: 'Manrope', system-ui, sans-serif; font-size: 14px; font-weight: 700; fill: #FFFFFF; }
+      .label { font-family: 'Manrope', system-ui, sans-serif; font-size: 12px; font-weight: 500; fill: #374151; }
+      .labelBold { font-family: 'Manrope', system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: #182D53; }
+      .labelSm { font-family: 'Manrope', system-ui, sans-serif; font-size: 11px; font-weight: 400; fill: #6B7280; }
+      .problem { font-family: 'Manrope', system-ui, sans-serif; font-size: 12px; font-weight: 500; fill: #374151; }
+      .tag { font-family: 'Manrope', system-ui, sans-serif; font-size: 9px; font-weight: 600; fill: #FFFFFF; }
+      .caption { font-family: 'Manrope', system-ui, sans-serif; font-size: 11px; font-weight: 500; fill: #6B7280; }
+      .check { font-family: 'Manrope', sans-serif; font-size: 14px; fill: #059669; }
+      .cross { font-family: 'Manrope', sans-serif; font-size: 14px; fill: #DC2626; }
+      .weak { font-family: 'Manrope', system-ui, sans-serif; font-size: 12px; font-weight: 500; fill: #DC2626; }
+      .good { font-family: 'Manrope', system-ui, sans-serif; font-size: 12px; font-weight: 500; fill: #059669; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="title">Good vs Weak Problems</text>
+  <text x="450" y="58" text-anchor="middle" class="subtitle">See the 5 criteria in action — before and after</text>
+  
+  <!-- Column Headers -->
+  <g transform="translate(60, 85)">
+    <rect x="0" y="0" width="350" height="36" rx="6" fill="#FEE2E2"/>
+    <text x="175" y="24" text-anchor="middle" class="weak">✗ WEAK PROBLEMS</text>
+  </g>
+  <g transform="translate(490, 85)">
+    <rect x="0" y="0" width="350" height="36" rx="6" fill="#D1FAE5"/>
+    <text x="175" y="24" text-anchor="middle" class="good">✓ GOOD PROBLEMS</text>
+  </g>
+  
+  <!-- Row 1: Personal -->
+  <g transform="translate(60, 135)">
+    <rect x="0" y="0" width="350" height="75" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <rect x="10" y="8" width="60" height="18" rx="4" fill="#DC2626"/>
+    <text x="40" y="20" text-anchor="middle" class="tag">GENERIC</text>
+    <text x="15" y="45" class="problem">"People waste food."</text>
+    <text x="15" y="62" class="labelSm">No personal connection — why do YOU care?</text>
+  </g>
+  <g transform="translate(490, 135)">
+    <rect x="0" y="0" width="350" height="75" rx="6" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+    <rect x="10" y="8" width="60" height="18" rx="4" fill="#059669"/>
+    <text x="40" y="20" text-anchor="middle" class="tag">PERSONAL</text>
+    <text x="15" y="45" class="problem">"My family throws away $50 of groceries weekly."</text>
+    <text x="15" y="62" class="labelSm">Connected to your life — motivation to persist</text>
+  </g>
+  
+  <!-- Row 2: Specific -->
+  <g transform="translate(60, 220)">
+    <rect x="0" y="0" width="350" height="75" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <rect x="10" y="8" width="50" height="18" rx="4" fill="#DC2626"/>
+    <text x="35" y="20" text-anchor="middle" class="tag">VAGUE</text>
+    <text x="15" y="45" class="problem">"Traffic is terrible."</text>
+    <text x="15" y="62" class="labelSm">Where? When? For whom? Too broad to solve</text>
+  </g>
+  <g transform="translate(490, 220)">
+    <rect x="0" y="0" width="350" height="75" rx="6" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+    <rect x="10" y="8" width="55" height="18" rx="4" fill="#059669"/>
+    <text x="38" y="20" text-anchor="middle" class="tag">SPECIFIC</text>
+    <text x="15" y="45" class="problem">"Parents at Lincoln Elementary wait 25 min in</text>
+    <text x="15" y="60" class="problem">pickup line daily because of single exit lane."</text>
+  </g>
+  
+  <!-- Row 3: Deeply Felt -->
+  <g transform="translate(60, 305)">
+    <rect x="0" y="0" width="350" height="75" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <rect x="10" y="8" width="50" height="18" rx="4" fill="#DC2626"/>
+    <text x="35" y="20" text-anchor="middle" class="tag">MILD</text>
+    <text x="15" y="45" class="problem">"It's annoying when my phone dies."</text>
+    <text x="15" y="62" class="labelSm">Minor inconvenience — won't pay to solve</text>
+  </g>
+  <g transform="translate(490, 305)">
+    <rect x="0" y="0" width="350" height="75" rx="6" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+    <rect x="10" y="8" width="75" height="18" rx="4" fill="#059669"/>
+    <text x="48" y="20" text-anchor="middle" class="tag">DEEPLY FELT</text>
+    <text x="15" y="45" class="problem">"Nurses miss family emergencies because</text>
+    <text x="15" y="60" class="problem">hospital policy blocks personal phones."</text>
+  </g>
+  
+  <!-- Row 4: Happens Often -->
+  <g transform="translate(60, 390)">
+    <rect x="0" y="0" width="350" height="75" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <rect x="10" y="8" width="45" height="18" rx="4" fill="#DC2626"/>
+    <text x="33" y="20" text-anchor="middle" class="tag">RARE</text>
+    <text x="15" y="45" class="problem">"I lost my luggage on a flight once."</text>
+    <text x="15" y="62" class="labelSm">Happened once — not worth building for</text>
+  </g>
+  <g transform="translate(490, 390)">
+    <rect x="0" y="0" width="350" height="75" rx="6" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+    <rect x="10" y="8" width="60" height="18" rx="4" fill="#059669"/>
+    <text x="40" y="20" text-anchor="middle" class="tag">FREQUENT</text>
+    <text x="15" y="45" class="problem">"Students forget homework assignments</text>
+    <text x="15" y="60" class="problem">3-4 times per week across multiple classes."</text>
+  </g>
+  
+  <!-- Row 5: Not Well-Solved -->
+  <g transform="translate(60, 475)">
+    <rect x="0" y="0" width="350" height="75" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <rect x="10" y="8" width="55" height="18" rx="4" fill="#DC2626"/>
+    <text x="38" y="20" text-anchor="middle" class="tag">SOLVED</text>
+    <text x="15" y="45" class="problem">"I need a way to order food online."</text>
+    <text x="15" y="62" class="labelSm">DoorDash, UberEats, etc. — already done well</text>
+  </g>
+  <g transform="translate(490, 475)">
+    <rect x="0" y="0" width="350" height="75" rx="6" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+    <rect x="10" y="8" width="70" height="18" rx="4" fill="#059669"/>
+    <text x="45" y="20" text-anchor="middle" class="tag">UNSOLVED</text>
+    <text x="15" y="45" class="problem">"Elderly patients can't track multiple</text>
+    <text x="15" y="60" class="problem">medications — existing apps are too complex."</text>
+  </g>
+  
+  <!-- Middle divider line -->
+  <line x1="450" y1="125" x2="450" y2="560" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="6,4"/>
+  
+  <!-- Footer -->
+  <text x="450" y="590" text-anchor="middle" class="caption">Transform weak problems into good ones by sharpening each criterion</text>
+</svg>
