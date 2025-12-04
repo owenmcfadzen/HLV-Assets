@@ -949,38 +949,18 @@ const GoodVsWeakProblems = () => {
 };
 
 // ============================================================================
+// DIAGRAM REGISTRY
+// ============================================================================
+
+// ============================================================================
 // ORID FRAMEWORK
 // ============================================================================
 const ORIDFramework = () => {
   const stages = [
-    {
-      letter: 'O',
-      name: 'Objective',
-      focus: 'Data, facts, sensory impressions',
-      questions: ['What did you observe?', 'What words stood out?', 'What happened?'],
-      color: '#3B82F6' // blue
-    },
-    {
-      letter: 'R',
-      name: 'Reflective',
-      focus: 'Personal reactions, emotions, associations',
-      questions: ['How did it make you feel?', 'What surprised you?', 'What does it remind you of?'],
-      color: '#8B5CF6' // purple
-    },
-    {
-      letter: 'I',
-      name: 'Interpretive',
-      focus: 'Meaning, significance, implications',
-      questions: ['What does this mean?', 'What are the key insights?', 'Why does this matter?'],
-      color: '#F59E0B' // amber
-    },
-    {
-      letter: 'D',
-      name: 'Decisional',
-      focus: 'Next steps, actions, decisions',
-      questions: ['What should we do?', 'What are our options?', 'What will you commit to?'],
-      color: T.emerald
-    }
+    { letter: 'O', name: 'Objective', focus: 'Data, facts, sensory impressions', questions: ['What did you observe?', 'What words stood out?', 'What happened?'], color: '#3B82F6' },
+    { letter: 'R', name: 'Reflective', focus: 'Personal reactions, emotions', questions: ['How did it make you feel?', 'What surprised you?', 'What does it remind you of?'], color: '#8B5CF6' },
+    { letter: 'I', name: 'Interpretive', focus: 'Meaning, significance, implications', questions: ['What does this mean?', 'What are the key insights?', 'Why does this matter?'], color: '#F59E0B' },
+    { letter: 'D', name: 'Decisional', focus: 'Next steps, actions, decisions', questions: ['What should we do?', 'What are our options?', 'What will you commit to?'], color: T.emerald }
   ];
   
   return (
@@ -992,35 +972,18 @@ const ORIDFramework = () => {
         const y = 100 + i * 100;
         return (
           <g key={stage.letter}>
-            {/* Letter circle */}
             <circle cx={70} cy={y + 30} r={32} fill={stage.color} />
             <text x={70} y={y + 40} textAnchor="middle" style={{ ...S.heading, fontSize: 28 }}>{stage.letter}</text>
-            
-            {/* Name and focus */}
             <text x={130} y={y + 20} style={{ ...S.headingNavy, fontSize: 18 }}>{stage.name}</text>
             <text x={130} y={y + 42} style={S.label}>{stage.focus}</text>
-            
-            {/* Questions */}
             <rect x={420} y={y} width={460} height={60} rx={8} fill={T.lightGray} stroke={stage.color} strokeWidth={2} />
             {stage.questions.map((q, qi) => (
               <text key={qi} x={440} y={y + 20 + qi * 18} style={S.labelSm}>• {q}</text>
             ))}
-            
-            {/* Connector arrow (except last) */}
-            {i < 3 && (
-              <path d={`M 70 ${y + 62} L 70 ${y + 88}`} stroke={T.border} strokeWidth={2} markerEnd="url(#arrowDown)" />
-            )}
+            {i < 3 && <line x1={70} y1={y + 62} x2={70} y2={y + 98} stroke={T.border} strokeWidth={2} />}
           </g>
         );
       })}
-      
-      {/* Arrow marker */}
-      <defs>
-        <marker id="arrowDown" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
-          <path d="M 0 0 L 10 5 L 0 10 Z" fill={T.border} />
-        </marker>
-      </defs>
-      
       <text x={450} y={505} textAnchor="middle" style={S.caption}>Move through all four stages to facilitate meaningful group reflection</text>
     </svg>
   );
@@ -1030,21 +993,11 @@ const ORIDFramework = () => {
 // FOUR STEPS TO EPIPHANY
 // ============================================================================
 const FourStepsEpiphany = () => {
-  const phases = [
-    { name: 'PRODUCT/MARKET FIT', color: T.navy, steps: [0, 1] },
-    { name: 'MAXIMIZE PROFIT', color: '#6366F1', steps: [2] },
-    { name: 'SCALE UP', color: T.emerald, steps: [3] }
-  ];
-  
   const steps = [
-    { num: 1, name: 'Customer
-Discovery', desc: 'Find who has the problem' },
-    { num: 2, name: 'Customer
-Validation', desc: 'Prove they will pay' },
-    { num: 3, name: 'Customer
-Creation', desc: 'Create end-user demand' },
-    { num: 4, name: 'Company
-Building', desc: 'Scale the organization' }
+    { num: 1, name: 'Customer Discovery', desc: 'Find who has the problem', phase: T.navy },
+    { num: 2, name: 'Customer Validation', desc: 'Prove they will pay', phase: T.navy },
+    { num: 3, name: 'Customer Creation', desc: 'Create end-user demand', phase: '#6366F1' },
+    { num: 4, name: 'Company Building', desc: 'Scale the organization', phase: T.emerald }
   ];
   
   return (
@@ -1052,63 +1005,30 @@ Building', desc: 'Scale the organization' }
       <text x={450} y={40} textAnchor="middle" style={S.title}>Four Steps to the Epiphany</text>
       <text x={450} y={65} textAnchor="middle" style={S.subtitle}>Steve Blank's Customer Development Process</text>
       
-      {/* Phase brackets */}
-      <g>
-        {/* Product/Market Fit bracket */}
-        <rect x={60} y={95} width={360} height={24} rx={4} fill={T.navy} />
-        <text x={240} y={112} textAnchor="middle" style={{ ...S.tag, fontSize: 11 }}>PRODUCT/MARKET FIT</text>
-        
-        {/* Maximize Profit bracket */}
-        <rect x={440} y={95} width={170} height={24} rx={4} fill="#6366F1" />
-        <text x={525} y={112} textAnchor="middle" style={{ ...S.tag, fontSize: 11 }}>MAXIMIZE PROFIT</text>
-        
-        {/* Scale Up bracket */}
-        <rect x={630} y={95} width={170} height={24} rx={4} fill={T.emerald} />
-        <text x={715} y={112} textAnchor="middle" style={{ ...S.tag, fontSize: 11 }}>SCALE UP</text>
-      </g>
+      <rect x={60} y={95} width={360} height={24} rx={4} fill={T.navy} />
+      <text x={240} y={112} textAnchor="middle" style={{ ...S.tag, fontSize: 11 }}>PRODUCT/MARKET FIT</text>
+      <rect x={440} y={95} width={170} height={24} rx={4} fill="#6366F1" />
+      <text x={525} y={112} textAnchor="middle" style={{ ...S.tag, fontSize: 11 }}>MAXIMIZE PROFIT</text>
+      <rect x={630} y={95} width={170} height={24} rx={4} fill={T.emerald} />
+      <text x={715} y={112} textAnchor="middle" style={{ ...S.tag, fontSize: 11 }}>SCALE UP</text>
       
-      {/* Step boxes */}
       {steps.map((step, i) => {
         const x = 80 + i * 190;
-        const phaseColor = i < 2 ? T.navy : i === 2 ? '#6366F1' : T.emerald;
         return (
           <g key={step.num}>
-            <rect x={x} y={140} width={170} height={140} rx={8} fill={T.white} stroke={phaseColor} strokeWidth={2} />
-            
-            {/* Step number */}
-            <circle cx={x + 85} cy={175} r={24} fill={phaseColor} />
+            <rect x={x} y={140} width={170} height={140} rx={8} fill={T.white} stroke={step.phase} strokeWidth={2} />
+            <circle cx={x + 85} cy={175} r={24} fill={step.phase} />
             <text x={x + 85} y={183} textAnchor="middle" style={{ ...S.heading, fontSize: 20 }}>{step.num}</text>
-            
-            {/* Step name */}
-            {step.name.split('
-').map((line, li) => (
-              <text key={li} x={x + 85} y={218 + li * 20} textAnchor="middle" style={S.labelBold}>{line}</text>
-            ))}
-            
-            {/* Description */}
+            <text x={x + 85} y={218} textAnchor="middle" style={S.labelBold}>{step.name.split(' ')[0]}</text>
+            <text x={x + 85} y={236} textAnchor="middle" style={S.labelBold}>{step.name.split(' ')[1]}</text>
             <text x={x + 85} y={265} textAnchor="middle" style={S.labelSm}>{step.desc}</text>
-            
-            {/* Arrow to next (except last) */}
-            {i < 3 && (
-              <path d={`M ${x + 175} 210 L ${x + 195} 210`} stroke={T.gray} strokeWidth={2} markerEnd="url(#arrowRight)" />
-            )}
           </g>
         );
       })}
       
-      {/* Arrow marker */}
-      <defs>
-        <marker id="arrowRight" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-          <path d="M 0 0 L 10 5 L 0 10 Z" fill={T.gray} />
-        </marker>
-      </defs>
-      
-      {/* Iteration arrows for first two steps */}
-      <path d="M 165 285 Q 165 320 260 320 Q 355 320 355 285" fill="none" stroke={T.navy} strokeWidth={2} strokeDasharray="4,3" />
-      <text x={260} y={340} textAnchor="middle" style={{ ...S.caption, fill: T.navy }}>Iterate until validated</text>
-      
-      {/* Footer */}
-      <text x={450} y={380} textAnchor="middle" style={S.caption}>From "The Four Steps to the Epiphany" by Steve Blank — Focus on the first 100 days</text>
+      <path d="M 165 285 Q 165 330 260 330 Q 355 330 355 285" fill="none" stroke={T.navy} strokeWidth={2} strokeDasharray="4,3" />
+      <text x={260} y={355} textAnchor="middle" style={{ ...S.caption, fill: T.navy }}>Iterate until validated</text>
+      <text x={450} y={385} textAnchor="middle" style={S.caption}>From "The Four Steps to the Epiphany" by Steve Blank — Focus on the first 100 days</text>
     </svg>
   );
 };
@@ -1118,24 +1038,9 @@ Building', desc: 'Scale the organization' }
 // ============================================================================
 const InterviewNoteGrid = () => {
   const columns = [
-    {
-      title: 'Needs / Goals',
-      prompt: '"I need..."',
-      color: '#3B82F6',
-      examples: ['What are they trying to achieve?', 'What matters most to them?', 'What does success look like?']
-    },
-    {
-      title: 'Challenges / Pains',
-      prompt: '"I can\'t because..."',
-      color: '#EF4444',
-      examples: ['What frustrates them?', 'What blocks their goals?', 'What takes too long?']
-    },
-    {
-      title: 'Bright Spots',
-      prompt: '"I\'m happy when..."',
-      color: T.emerald,
-      examples: ['What\'s working today?', 'What do they enjoy?', 'What would they keep?']
-    }
+    { title: 'Needs / Goals', prompt: '"I need..."', color: '#3B82F6', hints: ['What are they trying to achieve?', 'What matters most?', 'What does success look like?'] },
+    { title: 'Challenges / Pains', prompt: '"I can\'t because..."', color: '#EF4444', hints: ['What frustrates them?', 'What blocks their goals?', 'What takes too long?'] },
+    { title: 'Bright Spots', prompt: '"I\'m happy when..."', color: T.emerald, hints: ["What's working today?", 'What do they enjoy?', 'What would they keep?'] }
   ];
   
   return (
@@ -1147,33 +1052,22 @@ const InterviewNoteGrid = () => {
         const x = 50 + i * 280;
         return (
           <g key={col.title}>
-            {/* Column header */}
             <rect x={x} y={90} width={260} height={50} rx={8} fill={col.color} />
             <text x={x + 130} y={115} textAnchor="middle" style={S.heading}>{col.title}</text>
             <text x={x + 130} y={132} textAnchor="middle" style={{ ...S.tag, opacity: 0.9, fontSize: 10 }}>{col.prompt}</text>
-            
-            {/* Note area */}
             <rect x={x} y={145} width={260} height={260} rx={8} fill={T.white} stroke={col.color} strokeWidth={2} />
-            
-            {/* Lined paper effect */}
-            {[0, 1, 2, 3, 4, 5, 6, 7].map(line => (
+            {[0,1,2,3,4,5,6,7].map(line => (
               <line key={line} x1={x + 15} y1={175 + line * 30} x2={x + 245} y2={175 + line * 30} stroke="#E5E7EB" strokeWidth={1} />
             ))}
-            
-            {/* Example prompts (faded) */}
-            {col.examples.map((ex, ei) => (
-              <text key={ei} x={x + 20} y={195 + ei * 60} style={{ ...S.labelSm, fill: T.gray, fontStyle: 'italic', opacity: 0.6 }}>{ex}</text>
+            {col.hints.map((hint, hi) => (
+              <text key={hi} x={x + 20} y={195 + hi * 60} style={{ ...S.labelSm, fill: T.gray, fontStyle: 'italic', opacity: 0.6 }}>{hint}</text>
             ))}
           </g>
         );
       })}
       
-      {/* Instructions */}
       <rect x={50} y={420} width={800} height={45} rx={8} fill={T.lightGray} />
-      <text x={450} y={440} textAnchor="middle" style={S.labelSm}>
-        <tspan style={{ fontWeight: 600 }}>Tips:</tspan> Use one post-it per insight • Listen for stories, not statistics • Capture exact quotes when possible
-      </text>
-      <text x={450} y={458} textAnchor="middle" style={S.labelSm}>After interviews, cluster notes by theme to identify patterns and key learnings</text>
+      <text x={450} y={445} textAnchor="middle" style={S.labelSm}>Tips: Use one post-it per insight • Listen for stories, not statistics • Capture exact quotes when possible</text>
     </svg>
   );
 };
@@ -1183,9 +1077,9 @@ const InterviewNoteGrid = () => {
 // ============================================================================
 const AffinityMapping = () => {
   const steps = [
-    { num: 1, title: 'Capture', desc: 'One insight per sticky note', icon: '📝' },
-    { num: 2, title: 'Cluster', desc: 'Group related notes together', icon: '🔀' },
-    { num: 3, title: 'Label', desc: 'Name each theme/cluster', icon: '🏷️' },
+    { num: 1, title: 'Capture', desc: 'One insight per sticky', icon: '📝' },
+    { num: 2, title: 'Cluster', desc: 'Group related notes', icon: '🔀' },
+    { num: 3, title: 'Label', desc: 'Name each theme', icon: '🏷️' },
     { num: 4, title: 'Prioritize', desc: 'Identify top insights', icon: '⭐' }
   ];
   
@@ -1194,100 +1088,61 @@ const AffinityMapping = () => {
       <text x={450} y={40} textAnchor="middle" style={S.title}>Affinity Mapping Process</text>
       <text x={450} y={65} textAnchor="middle" style={S.subtitle}>Synthesize interview data into actionable insights</text>
       
-      {/* Process steps */}
       {steps.map((step, i) => {
         const x = 70 + i * 205;
         return (
           <g key={step.num}>
-            {/* Step card */}
             <rect x={x} y={100} width={180} height={120} rx={12} fill={T.white} stroke={T.navy} strokeWidth={2} />
-            
-            {/* Number badge */}
             <circle cx={x + 25} cy={100} r={18} fill={T.navy} />
             <text x={x + 25} y={106} textAnchor="middle" style={{ ...S.tag, fontSize: 14 }}>{step.num}</text>
-            
-            {/* Icon and content */}
             <text x={x + 90} y={145} textAnchor="middle" style={{ fontSize: 32 }}>{step.icon}</text>
             <text x={x + 90} y={175} textAnchor="middle" style={S.labelBold}>{step.title}</text>
             <text x={x + 90} y={195} textAnchor="middle" style={S.labelSm}>{step.desc}</text>
-            
-            {/* Arrow (except last) */}
             {i < 3 && (
-              <path d={`M ${x + 185} 160 L ${x + 210} 160`} stroke={T.emerald} strokeWidth={3} markerEnd="url(#arrowGreen)" />
+              <g>
+                <line x1={x + 185} y1={160} x2={x + 210} y2={160} stroke={T.emerald} strokeWidth={3} />
+                <polygon points={`${x+210},155 ${x+225},160 ${x+210},165`} fill={T.emerald} />
+              </g>
             )}
           </g>
         );
       })}
       
-      {/* Visual example section */}
       <text x={450} y={260} textAnchor="middle" style={{ ...S.labelBold, fontSize: 13 }}>Example: From scattered notes to key learnings</text>
       
-      {/* Before: scattered notes */}
-      <g>
-        <text x={180} y={295} textAnchor="middle" style={S.captionBold}>Before</text>
-        {[
-          { x: 80, y: 310, color: '#FEF3C7', text: 'Note' },
-          { x: 140, y: 330, color: '#DBEAFE', text: 'Note' },
-          { x: 100, y: 360, color: '#FCE7F3', text: 'Note' },
-          { x: 170, y: 345, color: '#FEF3C7', text: 'Note' },
-          { x: 220, y: 320, color: '#D1FAE5', text: 'Note' },
-          { x: 190, y: 370, color: '#DBEAFE', text: 'Note' },
-          { x: 250, y: 355, color: '#FCE7F3', text: 'Note' },
-        ].map((note, i) => (
-          <g key={i} transform={`rotate(${(i * 7) - 15} ${note.x + 30} ${note.y + 20})`}>
-            <rect x={note.x} y={note.y} width={55} height={40} fill={note.color} stroke="#D1D5DB" />
-            <text x={note.x + 27} y={note.y + 25} textAnchor="middle" style={{ fontSize: 9, fill: T.gray }}>{note.text}</text>
-          </g>
-        ))}
-      </g>
+      <text x={180} y={295} textAnchor="middle" style={S.captionBold}>Before</text>
+      <rect x={80} y={310} width={55} height={40} fill="#FEF3C7" stroke="#D1D5DB" transform="rotate(-8 107 330)" />
+      <rect x={140} y={330} width={55} height={40} fill="#DBEAFE" stroke="#D1D5DB" transform="rotate(5 167 350)" />
+      <rect x={100} y={360} width={55} height={40} fill="#FCE7F3" stroke="#D1D5DB" transform="rotate(-3 127 380)" />
+      <rect x={170} y={345} width={55} height={40} fill="#FEF3C7" stroke="#D1D5DB" transform="rotate(10 197 365)" />
+      <rect x={220} y={320} width={55} height={40} fill="#D1FAE5" stroke="#D1D5DB" transform="rotate(-5 247 340)" />
       
-      {/* Arrow */}
-      <path d="M 320 350 L 380 350" stroke={T.navy} strokeWidth={3} markerEnd="url(#arrowNavy)" />
+      <line x1={320} y1={350} x2={380} y2={350} stroke={T.navy} strokeWidth={3} />
+      <polygon points="380,345 395,350 380,355" fill={T.navy} />
       
-      {/* After: clustered */}
-      <g>
-        <text x={600} y={295} textAnchor="middle" style={S.captionBold}>After</text>
-        {/* Cluster 1 */}
-        <rect x={420} y={310} width={120} height={90} rx={8} fill={T.lightGray} stroke={T.border} strokeDasharray="4,2" />
-        <rect x={435} y={325} width={40} height={30} fill="#FEF3C7" stroke="#D1D5DB" />
-        <rect x={480} y={330} width={40} height={30} fill="#FEF3C7" stroke="#D1D5DB" />
-        <rect x={455} y={360} width={40} height={30} fill="#FEF3C7" stroke="#D1D5DB" />
-        <text x={480} y={405} textAnchor="middle" style={{ ...S.caption, fill: T.navy, fontWeight: 600 }}>Theme A</text>
-        
-        {/* Cluster 2 */}
-        <rect x={560} y={310} width={120} height={90} rx={8} fill={T.lightGray} stroke={T.border} strokeDasharray="4,2" />
-        <rect x={575} y={325} width={40} height={30} fill="#DBEAFE" stroke="#D1D5DB" />
-        <rect x={620} y={330} width={40} height={30} fill="#DBEAFE" stroke="#D1D5DB" />
-        <rect x={595} y={360} width={40} height={30} fill="#DBEAFE" stroke="#D1D5DB" />
-        <text x={620} y={405} textAnchor="middle" style={{ ...S.caption, fill: T.navy, fontWeight: 600 }}>Theme B</text>
-        
-        {/* Cluster 3 */}
-        <rect x={700} y={310} width={120} height={90} rx={8} fill={T.lightGray} stroke={T.border} strokeDasharray="4,2" />
-        <rect x={715} y={330} width={40} height={30} fill="#FCE7F3" stroke="#D1D5DB" />
-        <rect x={760} y={330} width={40} height={30} fill="#D1FAE5" stroke="#D1D5DB" />
-        <text x={760} y={405} textAnchor="middle" style={{ ...S.caption, fill: T.navy, fontWeight: 600 }}>Theme C</text>
-      </g>
+      <text x={600} y={295} textAnchor="middle" style={S.captionBold}>After</text>
+      <rect x={420} y={310} width={120} height={90} rx={8} fill={T.lightGray} stroke={T.border} strokeDasharray="4,2" />
+      <rect x={435} y={325} width={40} height={30} fill="#FEF3C7" stroke="#D1D5DB" />
+      <rect x={480} y={330} width={40} height={30} fill="#FEF3C7" stroke="#D1D5DB" />
+      <text x={480} y={415} textAnchor="middle" style={{ ...S.caption, fill: T.navy, fontWeight: 600 }}>Theme A</text>
       
-      {/* Key learning box */}
-      <rect x={420} y={430} width={400} height={50} rx={8} fill={T.successBg} stroke={T.success} strokeWidth={2} />
-      <text x={620} y={452} textAnchor="middle" style={{ ...S.labelBold, fill: T.success }}>KEY LEARNING</text>
-      <text x={620} y={470} textAnchor="middle" style={{ ...S.labelSm, fill: T.slate }}>Synthesized insight from clustered data</text>
+      <rect x={560} y={310} width={120} height={90} rx={8} fill={T.lightGray} stroke={T.border} strokeDasharray="4,2" />
+      <rect x={575} y={325} width={40} height={30} fill="#DBEAFE" stroke="#D1D5DB" />
+      <rect x={620} y={330} width={40} height={30} fill="#DBEAFE" stroke="#D1D5DB" />
+      <text x={620} y={415} textAnchor="middle" style={{ ...S.caption, fill: T.navy, fontWeight: 600 }}>Theme B</text>
       
-      {/* Arrow markers */}
-      <defs>
-        <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-          <path d="M 0 0 L 10 5 L 0 10 Z" fill={T.emerald} />
-        </marker>
-        <marker id="arrowNavy" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-          <path d="M 0 0 L 10 5 L 0 10 Z" fill={T.navy} />
-        </marker>
-      </defs>
+      <rect x={700} y={310} width={120} height={90} rx={8} fill={T.lightGray} stroke={T.border} strokeDasharray="4,2" />
+      <rect x={715} y={330} width={40} height={30} fill="#FCE7F3" stroke="#D1D5DB" />
+      <rect x={760} y={330} width={40} height={30} fill="#D1FAE5" stroke="#D1D5DB" />
+      <text x={760} y={415} textAnchor="middle" style={{ ...S.caption, fill: T.navy, fontWeight: 600 }}>Theme C</text>
+      
+      <rect x={420} y={435} width={400} height={50} rx={8} fill={T.successBg} stroke={T.success} strokeWidth={2} />
+      <text x={620} y={457} textAnchor="middle" style={{ ...S.labelBold, fill: T.success }}>KEY LEARNING</text>
+      <text x={620} y={475} textAnchor="middle" style={{ ...S.labelSm, fill: T.slate }}>Synthesized insight from clustered data</text>
     </svg>
   );
 };
-// ============================================================================
-// DIAGRAM REGISTRY
-// ============================================================================
+
 const DIAGRAMS = {
   'three-boxes': { name: 'Three Boxes of Innovation', usage: 'Introduces Box 3 thinking - finding new problems rather than improving existing solutions', viewBox: '0 0 800 400' },
   'build-measure-learn': { name: 'Build-Measure-Learn Loop', usage: 'Lean Startup cycle - emphasizes MVP and rapid iteration', viewBox: '0 0 600 520' },
@@ -1308,12 +1163,13 @@ const DIAGRAMS = {
   'four-steps-epiphany': { name: 'Four Steps to Epiphany', usage: 'Steve Blank customer development - Discovery to Company Building', viewBox: '0 0 900 400' },
   'interview-note-grid': { name: 'Interview Note-Taking Grid', usage: 'Capture stakeholder insights: Needs, Challenges, Bright Spots', viewBox: '0 0 900 480' },
   'affinity-mapping': { name: 'Affinity Mapping Process', usage: 'Synthesize interview data into clustered themes and key learnings', viewBox: '0 0 900 500' },
+
 };
 
 const UPCOMING = [
-  
+  { name: 'ORID Framework', priority: 'P2' },
   { name: 'Specific Target Behavior (Verb+Noun)', priority: 'P2' },
-  
+  { name: 'Four Steps to Epiphany', priority: 'P3' },
   { name: 'Interview Flow Diagram', priority: 'P3' },
 ];
 
@@ -1340,6 +1196,7 @@ const RENDERERS = {
   'four-steps-epiphany': FourStepsEpiphany,
   'interview-note-grid': InterviewNoteGrid,
   'affinity-mapping': AffinityMapping,
+
 };
 
 // ============================================================================
