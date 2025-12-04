@@ -5,6 +5,32 @@ All notable changes to the HLV Asset Library artifact are documented here.
 Format: Each version includes date, summary, and detailed changes.
 
 ---
+## v8.0 — 2024-12-04
+
+**Summary:** Added 4 facilitation and research diagrams
+
+### Added
+- `orid-framework` — ORID Framework (900×520) - Focused conversation technique
+- `four-steps-epiphany` — Four Steps to Epiphany (900×400) - Steve Blank's customer development
+- `interview-note-grid` — Interview Note-Taking Grid (900×480) - Needs/Challenges/Bright Spots capture
+- `affinity-mapping` — Affinity Mapping Process (900×500) - Synthesize data into themes
+
+### Changed
+- Version string updated to v8.0
+- DIAGRAMS registry: 4 entries added (now 19 total)
+- RENDERERS map: 4 entries added
+- UPCOMING list: Removed ORID and Four Steps (now complete)
+
+### Preserved (no changes)
+- All 15 existing v7 diagram components
+- Design tokens (T)
+- Shared styles (S)
+- Shared components (Card, TextBlock)
+
+**Total diagrams:** 19
+
+---
+
 
 ## v7.0 — 2024-12-04
 
@@ -62,6 +88,7 @@ Format: Each version includes date, summary, and detailed changes.
 
 | Version | Date | Diagrams | Key Changes |
 |---------|------|----------|-------------|
+| v8.0 | 2024-12-04 | 19 | +4 facilitation diagrams |
 | v7.0 | 2024-12-04 | 15 | +4 Lesson 5 diagrams |
 | v6.0 | 2024-12-03 | 11 | Baseline release |
 
@@ -71,6 +98,7 @@ Format: Each version includes date, summary, and detailed changes.
 
 | Version | GitHub | Project File |
 |---------|--------|--------------|
+| v8.0 | `artifacts/hlv-asset-library-v8.jsx` | `/mnt/project/hlv-asset-library-v8.jsx` |
 | v7.0 | `artifacts/hlv-asset-library-v7.jsx` | `/mnt/project/hlv-asset-library-v7.jsx` |
 | v6.0 | `artifacts/hlv-asset-library-v6.jsx` | `/mnt/project/hlv-asset-library-v6.jsx` |
 
