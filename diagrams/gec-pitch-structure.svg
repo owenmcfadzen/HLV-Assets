@@ -1,0 +1,132 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Manrope', sans-serif; font-size: 24px; font-weight: 700; fill: #182D53; }
+      .subtitle { font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 500; fill: #6B7280; }
+      .section-title { font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 700; fill: white; }
+      .section-time { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; fill: white; }
+      .prompt { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 600; fill: #374151; }
+      .example { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 400; fill: #6B7280; font-style: italic; }
+      .tip-title { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; fill: #92400E; }
+      .tip { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 400; fill: #92400E; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="white"/>
+  
+  <!-- Header -->
+  <text x="400" y="36" text-anchor="middle" class="title">60-Second Pitch Structure</text>
+  <text x="400" y="56" text-anchor="middle" class="subtitle">Every second counts — here's how to use them</text>
+  
+  <!-- Timeline Bar -->
+  <g transform="translate(50, 80)">
+    <!-- Background bar -->
+    <rect x="0" y="0" width="700" height="40" rx="20" fill="#F3F4F6"/>
+    
+    <!-- Section 1: Problem (15s = 25%) -->
+    <rect x="0" y="0" width="175" height="40" rx="20" fill="#EC4899"/>
+    <text x="87" y="25" text-anchor="middle" class="section-time">15 sec</text>
+    
+    <!-- Section 2: Insight (15s = 25%) -->
+    <rect x="175" y="0" width="175" height="40" fill="#3B82F6"/>
+    <text x="262" y="25" text-anchor="middle" class="section-time">15 sec</text>
+    
+    <!-- Section 3: Solution (20s = 33%) -->
+    <rect x="350" y="0" width="233" height="40" fill="#10B981"/>
+    <text x="467" y="25" text-anchor="middle" class="section-time">20 sec</text>
+    
+    <!-- Section 4: Impact (10s = 17%) -->
+    <rect x="583" y="0" width="117" height="40" rx="20" fill="#8B5CF6"/>
+    <rect x="583" y="0" width="20" height="40" fill="#8B5CF6"/>
+    <text x="641" y="25" text-anchor="middle" class="section-time">10 sec</text>
+  </g>
+  
+  <!-- Labels below bar -->
+  <g transform="translate(50, 130)">
+    <text x="87" y="0" text-anchor="middle" font-family="Manrope" font-size="11" font-weight="600" fill="#EC4899">THE PROBLEM</text>
+    <text x="262" y="0" text-anchor="middle" font-family="Manrope" font-size="11" font-weight="600" fill="#3B82F6">THE INSIGHT</text>
+    <text x="467" y="0" text-anchor="middle" font-family="Manrope" font-size="11" font-weight="600" fill="#10B981">THE SOLUTION</text>
+    <text x="641" y="0" text-anchor="middle" font-family="Manrope" font-size="11" font-weight="600" fill="#8B5CF6">WHY IT MATTERS</text>
+  </g>
+  
+  <!-- Section Cards -->
+  <!-- Card 1: Problem -->
+  <g transform="translate(50, 155)">
+    <rect x="0" y="0" width="170" height="130" rx="8" fill="#FDF2F8" stroke="#EC4899" stroke-width="2"/>
+    <rect x="0" y="0" width="170" height="32" rx="8" fill="#EC4899"/>
+    <rect x="0" y="24" width="170" height="8" fill="#EC4899"/>
+    <circle cx="20" cy="16" r="10" fill="white" fill-opacity="0.2"/>
+    <text x="20" y="20" text-anchor="middle" font-family="Manrope" font-size="11" font-weight="700" fill="white">1</text>
+    <text x="95" y="20" text-anchor="middle" class="section-title">THE PROBLEM</text>
+    <text x="12" y="52" class="prompt">Answer this:</text>
+    <text x="12" y="68" font-family="Manrope" font-size="11" fill="#374151">What specific problem?</text>
+    <text x="12" y="82" font-family="Manrope" font-size="11" fill="#374151">For whom?</text>
+    <text x="12" y="105" class="example">"Students at Lincoln High</text>
+    <text x="12" y="118" class="example">struggle to find study partners..."</text>
+  </g>
+  
+  <!-- Card 2: Insight -->
+  <g transform="translate(230, 155)">
+    <rect x="0" y="0" width="170" height="130" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+    <rect x="0" y="0" width="170" height="32" rx="8" fill="#3B82F6"/>
+    <rect x="0" y="24" width="170" height="8" fill="#3B82F6"/>
+    <circle cx="20" cy="16" r="10" fill="white" fill-opacity="0.2"/>
+    <text x="20" y="20" text-anchor="middle" font-family="Manrope" font-size="11" font-weight="700" fill="white">2</text>
+    <text x="95" y="20" text-anchor="middle" class="section-title">THE INSIGHT</text>
+    <text x="12" y="52" class="prompt">Answer this:</text>
+    <text x="12" y="68" font-family="Manrope" font-size="11" fill="#374151">What did you learn</text>
+    <text x="12" y="82" font-family="Manrope" font-size="11" fill="#374151">from interviews?</text>
+    <text x="12" y="105" class="example">"When I talked to students,</text>
+    <text x="12" y="118" class="example">73% study better with others..."</text>
+  </g>
+  
+  <!-- Card 3: Solution -->
+  <g transform="translate(410, 155)">
+    <rect x="0" y="0" width="170" height="130" rx="8" fill="#ECFDF5" stroke="#10B981" stroke-width="2"/>
+    <rect x="0" y="0" width="170" height="32" rx="8" fill="#10B981"/>
+    <rect x="0" y="24" width="170" height="8" fill="#10B981"/>
+    <circle cx="20" cy="16" r="10" fill="white" fill-opacity="0.2"/>
+    <text x="20" y="20" text-anchor="middle" font-family="Manrope" font-size="11" font-weight="700" fill="white">3</text>
+    <text x="95" y="20" text-anchor="middle" class="section-title">THE SOLUTION</text>
+    <text x="12" y="52" class="prompt">Answer this:</text>
+    <text x="12" y="68" font-family="Manrope" font-size="11" fill="#374151">What are you</text>
+    <text x="12" y="82" font-family="Manrope" font-size="11" fill="#374151">proposing?</text>
+    <text x="12" y="105" class="example">"StudyMatch — an app that</text>
+    <text x="12" y="118" class="example">connects students by subject..."</text>
+  </g>
+  
+  <!-- Card 4: Impact -->
+  <g transform="translate(590, 155)">
+    <rect x="0" y="0" width="160" height="130" rx="8" fill="#F5F3FF" stroke="#8B5CF6" stroke-width="2"/>
+    <rect x="0" y="0" width="160" height="32" rx="8" fill="#8B5CF6"/>
+    <rect x="0" y="24" width="160" height="8" fill="#8B5CF6"/>
+    <circle cx="20" cy="16" r="10" fill="white" fill-opacity="0.2"/>
+    <text x="20" y="20" text-anchor="middle" font-family="Manrope" font-size="11" font-weight="700" fill="white">4</text>
+    <text x="85" y="20" text-anchor="middle" class="section-title">WHY IT MATTERS</text>
+    <text x="12" y="52" class="prompt">Answer this:</text>
+    <text x="12" y="68" font-family="Manrope" font-size="11" fill="#374151">What's the impact?</text>
+    <text x="12" y="105" class="example">"Better grades and</text>
+    <text x="12" y="118" class="example">more connected students..."</text>
+  </g>
+  
+  <!-- Tips Box -->
+  <g transform="translate(50, 310)">
+    <rect x="0" y="0" width="700" height="80" rx="8" fill="#FEF3C7" stroke="#F59E0B"/>
+    <text x="20" y="24" class="tip-title">💡 Pro Tips</text>
+    <text x="20" y="44" class="tip">• Practice with a timer until it's natural</text>
+    <text x="20" y="60" class="tip">• Start with the problem, NOT your solution</text>
+    <text x="350" y="44" class="tip">• Include one real quote from interviews</text>
+    <text x="350" y="60" class="tip">• Eye contact with camera = connection</text>
+  </g>
+  
+  <!-- Checklist -->
+  <g transform="translate(50, 410)">
+    <rect x="0" y="0" width="700" height="70" rx="8" fill="#F9FAFB" stroke="#E5E7EB"/>
+    <text x="20" y="24" font-family="Manrope" font-size="12" font-weight="700" fill="#374151">Before You Record ✓</text>
+    <text x="20" y="48" font-family="Manrope" font-size="11" fill="#6B7280">□ Timed myself (under 60s)</text>
+    <text x="180" y="48" font-family="Manrope" font-size="11" fill="#6B7280">□ Said it out loud 5+ times</text>
+    <text x="370" y="48" font-family="Manrope" font-size="11" fill="#6B7280">□ Got feedback from someone</text>
+    <text x="560" y="48" font-family="Manrope" font-size="11" fill="#6B7280">□ Know first sentence cold</text>
+  </g>
+</svg>
