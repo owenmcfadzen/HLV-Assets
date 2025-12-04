@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap');
+      .title { font-family: 'Manrope', system-ui, sans-serif; font-size: 24px; font-weight: 700; fill: #182D53; }
+      .subtitle { font-family: 'Manrope', system-ui, sans-serif; font-size: 14px; font-weight: 500; fill: #6B7280; }
+      .heading { font-family: 'Manrope', system-ui, sans-serif; font-size: 16px; font-weight: 700; fill: #182D53; }
+      .label { font-family: 'Manrope', system-ui, sans-serif; font-size: 13px; font-weight: 400; fill: #374151; }
+      .labelSm { font-family: 'Manrope', system-ui, sans-serif; font-size: 11px; font-weight: 400; fill: #6B7280; }
+      .tag { font-family: 'Manrope', system-ui, sans-serif; font-size: 14px; font-weight: 700; fill: #FFFFFF; }
+      .caption { font-family: 'Manrope', system-ui, sans-serif; font-size: 11px; font-weight: 500; fill: #6B7280; }
+      .question { font-family: 'Manrope', system-ui, sans-serif; font-size: 12px; font-weight: 500; fill: #059669; font-style: italic; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" class="title">5 Criteria for a Good Problem</text>
+  <text x="450" y="65" text-anchor="middle" class="subtitle">Not all problems are worth solving — use these filters</text>
+  
+  <!-- Criteria rows -->
+  <!-- Row 1: Personal -->
+  <g transform="translate(60, 100)">
+    <rect x="0" y="0" width="780" height="80" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <circle cx="45" cy="40" r="24" fill="#182D53"/>
+    <text x="45" y="47" text-anchor="middle" class="tag">1</text>
+    <text x="90" y="32" class="heading">Personal or Interesting</text>
+    <text x="90" y="52" class="label">You genuinely care about this problem — it connects to your life or curiosity</text>
+    <text x="90" y="70" class="question">"Would I still want to work on this in 3 months?"</text>
+  </g>
+  
+  <!-- Row 2: Specific -->
+  <g transform="translate(60, 190)">
+    <rect x="0" y="0" width="780" height="80" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <circle cx="45" cy="40" r="24" fill="#182D53"/>
+    <text x="45" y="47" text-anchor="middle" class="tag">2</text>
+    <text x="90" y="32" class="heading">Specific</text>
+    <text x="90" y="52" class="label">Clear who has it, where it happens, and what causes it — not vague or too broad</text>
+    <text x="90" y="70" class="question">"Can I describe exactly who struggles with this and when?"</text>
+  </g>
+  
+  <!-- Row 3: Deeply Felt (Highlighted) -->
+  <g transform="translate(60, 280)">
+    <rect x="0" y="0" width="780" height="80" rx="8" fill="#ECFDF5" stroke="#00D866" stroke-width="2"/>
+    <circle cx="45" cy="40" r="24" fill="#00D866"/>
+    <text x="45" y="47" text-anchor="middle" class="tag">3</text>
+    <text x="90" y="32" class="heading">Deeply Felt</text>
+    <text x="90" y="52" class="label">It really matters to someone — causes frustration, pain, or significant friction</text>
+    <text x="90" y="70" class="question">"Does this keep someone up at night or make their day harder?"</text>
+    <rect x="690" y="28" width="70" height="24" rx="12" fill="#00D866"/>
+    <text x="725" y="44" text-anchor="middle" style="font-family: 'Manrope', sans-serif; font-size: 9px; font-weight: 600; fill: #FFFFFF;">KEY TEST</text>
+  </g>
+  
+  <!-- Row 4: Happens Often -->
+  <g transform="translate(60, 370)">
+    <rect x="0" y="0" width="780" height="80" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <circle cx="45" cy="40" r="24" fill="#182D53"/>
+    <text x="45" y="47" text-anchor="middle" class="tag">4</text>
+    <text x="90" y="32" class="heading">Happens Often</text>
+    <text x="90" y="52" class="label">Recurring and frequent — not a rare, one-time annoyance</text>
+    <text x="90" y="70" class="question">"How many times per day/week does this happen?"</text>
+  </g>
+  
+  <!-- Row 5: Not Well-Solved -->
+  <g transform="translate(60, 460)">
+    <rect x="0" y="0" width="780" height="80" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <circle cx="45" cy="40" r="24" fill="#182D53"/>
+    <text x="45" y="47" text-anchor="middle" class="tag">5</text>
+    <text x="90" y="32" class="heading">Not Well-Solved</text>
+    <text x="90" y="52" class="label">Current solutions are missing, inadequate, or too expensive/complex</text>
+    <text x="90" y="70" class="question">"What do people do now, and why isn't it good enough?"</text>
+  </g>
+  
+  <!-- Footer caption -->
+  <text x="450" y="565" text-anchor="middle" class="caption">A problem that passes all 5 criteria is worth your time to solve</text>
+</svg>
