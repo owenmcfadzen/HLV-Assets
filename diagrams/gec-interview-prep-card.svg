@@ -1,0 +1,72 @@
+<svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap');
+      .title { font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 700; fill: #182D53; }
+      .subtitle { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500; fill: #6B7280; }
+      .heading { font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 700; fill: #182D53; }
+      .body { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 400; fill: #374151; }
+      .small { font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 400; fill: #6B7280; }
+      .number { font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 700; fill: white; }
+      .tip { font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 500; fill: #059669; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="600" fill="white"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="400" height="60" fill="#182D53"/>
+  <text x="200" y="32" text-anchor="middle" class="title" fill="white">Interview Prep Card</text>
+  <text x="200" y="48" text-anchor="middle" class="subtitle" fill="#A5B4C3">Module 3: Customer Validation</text>
+  
+  <!-- Section 1: Before -->
+  <rect x="16" y="76" width="368" height="140" rx="8" fill="#F3F4F6"/>
+  <circle cx="36" cy="96" r="12" fill="#3B82F6"/>
+  <text x="36" y="100" text-anchor="middle" class="number">1</text>
+  <text x="56" y="100" class="heading">BEFORE THE INTERVIEW</text>
+  
+  <text x="32" y="124" class="body">□ Choose someone who experiences the problem</text>
+  <text x="32" y="140" class="body">□ Schedule 20-30 minutes in a quiet place</text>
+  <text x="32" y="156" class="body">□ Prepare 5-7 open-ended questions</text>
+  <text x="32" y="172" class="body">□ Bring notebook or notes app ready</text>
+  <text x="32" y="188" class="body">□ Have recording permission if needed</text>
+  
+  <rect x="24" y="198" width="352" height="12" rx="4" fill="#DBEAFE"/>
+  <text x="32" y="207" class="tip">💡 Best questions start with "Tell me about..." or "What's the hardest part..."</text>
+  
+  <!-- Section 2: During -->
+  <rect x="16" y="226" width="368" height="160" rx="8" fill="#F3F4F6"/>
+  <circle cx="36" cy="246" r="12" fill="#10B981"/>
+  <text x="36" y="250" text-anchor="middle" class="number">2</text>
+  <text x="56" y="250" class="heading">DURING THE INTERVIEW</text>
+  
+  <text x="32" y="274" class="body">• Start with easy questions (background, context)</text>
+  <text x="32" y="290" class="body">• Listen more than you talk (80/20 rule)</text>
+  <text x="32" y="306" class="body">• Follow up with "Why?" and "Tell me more"</text>
+  <text x="32" y="322" class="body">• Capture exact quotes — don't paraphrase</text>
+  <text x="32" y="338" class="body">• Notice body language and emotions</text>
+  <text x="32" y="354" class="body">• Ask: "What else should I know?"</text>
+  
+  <rect x="24" y="366" width="352" height="12" rx="4" fill="#D1FAE5"/>
+  <text x="32" y="375" class="tip">💡 Silence is okay. Let them think. Don't rush to fill gaps.</text>
+  
+  <!-- Section 3: After -->
+  <rect x="16" y="396" width="368" height="120" rx="8" fill="#F3F4F6"/>
+  <circle cx="36" cy="416" r="12" fill="#8B5CF6"/>
+  <text x="36" y="420" text-anchor="middle" class="number">3</text>
+  <text x="56" y="420" class="heading">AFTER THE INTERVIEW</text>
+  
+  <text x="32" y="444" class="body">□ Write up notes within 24 hours</text>
+  <text x="32" y="460" class="body">□ Highlight surprising moments</text>
+  <text x="32" y="476" class="body">□ Note what confirmed vs challenged assumptions</text>
+  <text x="32" y="492" class="body">□ Identify follow-up questions for next interview</text>
+  
+  <rect x="24" y="502" width="352" height="12" rx="4" fill="#EDE9FE"/>
+  <text x="32" y="511" class="tip">💡 3-5 interviews reveals patterns. One interview is just a data point.</text>
+  
+  <!-- Footer -->
+  <rect x="16" y="532" width="368" height="52" rx="8" fill="#182D53"/>
+  <text x="200" y="552" text-anchor="middle" class="body" fill="white">Remember: You're not selling. You're learning.</text>
+  <text x="200" y="570" text-anchor="middle" class="small" fill="#A5B4C3">GEC 2025-2026 | hudsonlabventures.com</text>
+</svg>
