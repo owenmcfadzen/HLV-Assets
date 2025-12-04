@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap');
+      .title { font-family: 'Manrope', system-ui, sans-serif; font-size: 24px; font-weight: 700; fill: #182D53; }
+      .subtitle { font-family: 'Manrope', system-ui, sans-serif; font-size: 14px; font-weight: 500; fill: #6B7280; }
+      .heading { font-family: 'Manrope', system-ui, sans-serif; font-size: 14px; font-weight: 700; fill: #FFFFFF; }
+      .label { font-family: 'Manrope', system-ui, sans-serif; font-size: 12px; font-weight: 500; fill: #374151; }
+      .labelBold { font-family: 'Manrope', system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: #182D53; }
+      .labelSm { font-family: 'Manrope', system-ui, sans-serif; font-size: 11px; font-weight: 400; fill: #6B7280; }
+      .example { font-family: 'Manrope', system-ui, sans-serif; font-size: 11px; font-weight: 400; fill: #374151; font-style: italic; }
+      .tag { font-family: 'Manrope', system-ui, sans-serif; font-size: 10px; font-weight: 600; fill: #FFFFFF; }
+      .caption { font-family: 'Manrope', system-ui, sans-serif; font-size: 11px; font-weight: 500; fill: #6B7280; }
+      .hmw { font-family: 'Manrope', system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: #059669; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#182D53"/>
+    </marker>
+    <marker id="arrowheadGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00D866"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="title">Problem → Opportunity Flow</text>
+  <text x="450" y="58" text-anchor="middle" class="subtitle">Transform validated problems into actionable opportunities</text>
+  
+  <!-- Stage 1: Raw Problem -->
+  <g transform="translate(40, 100)">
+    <rect x="0" y="0" width="180" height="40" rx="8" fill="#6B7280"/>
+    <text x="90" y="25" text-anchor="middle" class="heading">1. RAW PROBLEM</text>
+    <rect x="0" y="48" width="180" height="100" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="90" y="75" text-anchor="middle" class="labelBold">Observation</text>
+    <text x="90" y="95" text-anchor="middle" class="labelSm">"Something seems wrong"</text>
+    <text x="90" y="125" text-anchor="middle" class="example">"Students seem stressed"</text>
+  </g>
+  
+  <!-- Arrow 1 -->
+  <line x1="230" y1="170" x2="275" y2="170" stroke="#182D53" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Stage 2: Validated Problem -->
+  <g transform="translate(285, 100)">
+    <rect x="0" y="0" width="180" height="40" rx="8" fill="#182D53"/>
+    <text x="90" y="25" text-anchor="middle" class="heading">2. VALIDATED</text>
+    <rect x="0" y="48" width="180" height="100" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="90" y="75" text-anchor="middle" class="labelBold">Evidence-Based</text>
+    <text x="90" y="95" text-anchor="middle" class="labelSm">Passes 5 criteria + interviews</text>
+    <text x="90" y="125" text-anchor="middle" class="example">"80% of seniors report..."</text>
+  </g>
+  
+  <!-- Arrow 2 -->
+  <line x1="475" y1="170" x2="520" y2="170" stroke="#182D53" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Stage 3: Reframed Problem -->
+  <g transform="translate(530, 100)">
+    <rect x="0" y="0" width="180" height="40" rx="8" fill="#182D53"/>
+    <text x="90" y="25" text-anchor="middle" class="heading">3. REFRAMED</text>
+    <rect x="0" y="48" width="180" height="100" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="90" y="75" text-anchor="middle" class="labelBold">Better Angle</text>
+    <text x="90" y="95" text-anchor="middle" class="labelSm">6 lenses applied</text>
+    <text x="90" y="125" text-anchor="middle" class="example">"They lack agency, not time"</text>
+  </g>
+  
+  <!-- Arrow 3 (special - leads to opportunity) -->
+  <line x1="720" y1="170" x2="765" y2="170" stroke="#00D866" stroke-width="3" marker-end="url(#arrowheadGreen)"/>
+  
+  <!-- Stage 4: Opportunity (HMW) -->
+  <g transform="translate(775, 85)">
+    <rect x="0" y="0" width="110" height="170" rx="8" fill="#ECFDF5" stroke="#00D866" stroke-width="2"/>
+    <rect x="0" y="0" width="110" height="40" rx="8" fill="#00D866"/>
+    <rect x="0" y="32" width="110" height="8" fill="#00D866"/>
+    <text x="55" y="25" text-anchor="middle" class="heading">OPPORTUNITY</text>
+    <text x="55" y="70" text-anchor="middle" class="hmw">How might</text>
+    <text x="55" y="86" text-anchor="middle" class="hmw">we...</text>
+    <text x="55" y="115" text-anchor="middle" class="labelSm" style="fill: #059669;">Actionable</text>
+    <text x="55" y="130" text-anchor="middle" class="labelSm" style="fill: #059669;">question that</text>
+    <text x="55" y="145" text-anchor="middle" class="labelSm" style="fill: #059669;">invites solutions</text>
+  </g>
+  
+  <!-- Process labels below -->
+  <g transform="translate(40, 280)">
+    <rect x="0" y="0" width="180" height="24" rx="4" fill="#E5E7EB"/>
+    <text x="90" y="16" text-anchor="middle" class="labelSm">Observation</text>
+  </g>
+  <g transform="translate(285, 280)">
+    <rect x="0" y="0" width="180" height="24" rx="4" fill="#E5E7EB"/>
+    <text x="90" y="16" text-anchor="middle" class="labelSm">5 Criteria + Interviews</text>
+  </g>
+  <g transform="translate(530, 280)">
+    <rect x="0" y="0" width="180" height="24" rx="4" fill="#E5E7EB"/>
+    <text x="90" y="16" text-anchor="middle" class="labelSm">6 Reframing Lenses</text>
+  </g>
+  <g transform="translate(775, 280)">
+    <rect x="0" y="0" width="110" height="24" rx="4" fill="#D1FAE5"/>
+    <text x="55" y="16" text-anchor="middle" class="labelSm" style="fill: #059669;">HMW Format</text>
+  </g>
+  
+  <!-- Example flow at bottom -->
+  <rect x="40" y="330" width="845" height="60" rx="8" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="60" y="355" class="labelBold">Example:</text>
+  <text x="140" y="355" class="example">"Stressed students"</text>
+  <text x="260" y="355" class="label">→</text>
+  <text x="280" y="355" class="example">"80% seniors report anxiety about deadlines"</text>
+  <text x="530" y="355" class="label">→</text>
+  <text x="550" y="355" class="example">"Lack agency over schedule"</text>
+  <text x="715" y="355" class="label">→</text>
+  <text x="735" y="355" class="hmw">"HMW give students more control?"</text>
+  
+  <!-- Footer -->
+  <text x="450" y="410" text-anchor="middle" class="caption">Each stage builds on the previous — don't skip steps</text>
+</svg>
