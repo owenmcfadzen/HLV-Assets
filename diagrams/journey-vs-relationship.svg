@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap');
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="550" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" font-family="Manrope, sans-serif" font-size="24" font-weight="700" fill="#182D53">Journey vs Relationship Approach</text>
+  <text x="450" y="65" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="500" fill="#6B7280">Two methods for stakeholder analysis — same outcome, different paths</text>
+  
+  <!-- Left Column - Journey Driven -->
+  <g transform="translate(70, 100)">
+    <!-- Header -->
+    <rect x="0" y="0" width="380" height="50" rx="8" fill="#182D53"/>
+    <text x="190" y="32" text-anchor="middle" font-family="Manrope, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">Journey-Driven</text>
+    
+    <!-- Usage badge -->
+    <rect x="310" y="10" width="60" height="24" rx="12" fill="#00D866"/>
+    <text x="340" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF">~20%</text>
+    
+    <!-- Content box -->
+    <rect x="0" y="55" width="380" height="310" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    
+    <!-- Focus -->
+    <text x="16" y="80" font-family="Manrope, sans-serif" font-size="14" font-weight="600" fill="#182D53">Focus:</text>
+    <text x="16" y="100" font-family="Manrope, sans-serif" font-size="14" font-weight="400" fill="#374151">Experience over time — what happens</text>
+    <text x="16" y="116" font-family="Manrope, sans-serif" font-size="14" font-weight="400" fill="#374151">at each stage of the journey</text>
+    
+    <!-- Mini journey diagram -->
+    <g transform="translate(16, 135)">
+      <line x1="0" y1="20" x2="340" y2="20" stroke="#182D53" stroke-width="3"/>
+      <circle cx="30" cy="20" r="8" fill="#182D53"/>
+      <text x="30" y="45" text-anchor="middle" font-family="Manrope, sans-serif" font-size="9" font-weight="500" fill="#6B7280">Diagnosis</text>
+      <circle cx="100" cy="20" r="8" fill="#182D53"/>
+      <text x="100" y="45" text-anchor="middle" font-family="Manrope, sans-serif" font-size="9" font-weight="500" fill="#6B7280">Treatment</text>
+      <circle cx="170" cy="20" r="8" fill="#182D53"/>
+      <text x="170" y="45" text-anchor="middle" font-family="Manrope, sans-serif" font-size="9" font-weight="500" fill="#6B7280">Recovery</text>
+      <circle cx="240" cy="20" r="8" fill="#182D53"/>
+      <text x="240" y="45" text-anchor="middle" font-family="Manrope, sans-serif" font-size="9" font-weight="500" fill="#6B7280">Follow-up</text>
+      <circle cx="310" cy="20" r="8" fill="#00D866"/>
+      <text x="310" y="45" text-anchor="middle" font-family="Manrope, sans-serif" font-size="9" font-weight="500" fill="#6B7280">Cured</text>
+      <text x="170" y="-5" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" font-weight="500" fill="#6B7280">→ Timeline progression →</text>
+    </g>
+    
+    <!-- When to use -->
+    <text x="16" y="210" font-family="Manrope, sans-serif" font-size="14" font-weight="600" fill="#182D53">Best When:</text>
+    <text x="24" y="230" font-family="Manrope, sans-serif" font-size="12" font-weight="400" fill="#6B7280">• Clear progression or timeline exists</text>
+    <text x="24" y="248" font-family="Manrope, sans-serif" font-size="12" font-weight="400" fill="#6B7280">• Cyclical events (annual, monthly)</text>
+    <text x="24" y="266" font-family="Manrope, sans-serif" font-size="12" font-weight="400" fill="#6B7280">• Subscriptions or recurring use</text>
+    <text x="24" y="284" font-family="Manrope, sans-serif" font-size="12" font-weight="400" fill="#6B7280">• Disease/treatment progression</text>
+    
+    <!-- Examples -->
+    <text x="16" y="310" font-family="Manrope, sans-serif" font-size="14" font-weight="600" fill="#182D53">Examples:</text>
+    <text x="24" y="330" font-family="Manrope, sans-serif" font-size="11" font-weight="500" fill="#6B7280">Patient journey • Startup funding rounds</text>
+    <text x="24" y="346" font-family="Manrope, sans-serif" font-size="11" font-weight="500" fill="#6B7280">Annual planning cycles • Onboarding</text>
+  </g>
+  
+  <!-- Right Column - Relationship Driven -->
+  <g transform="translate(490, 100)">
+    <!-- Header -->
+    <rect x="0" y="0" width="380" height="50" rx="8" fill="#00D866"/>
+    <text x="190" y="32" text-anchor="middle" font-family="Manrope, sans-serif" font-size="18" font-weight="700" fill="#182D53">Relationship-Driven</text>
+    
+    <!-- Usage badge -->
+    <rect x="310" y="10" width="60" height="24" rx="12" fill="#182D53"/>
+    <text x="340" y="26" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF">~75%</text>
+    
+    <!-- Content box - highlighted -->
+    <rect x="0" y="55" width="380" height="310" rx="8" fill="#ECFDF5" stroke="#00D866" stroke-width="2"/>
+    
+    <!-- Preferred tag -->
+    <rect x="150" y="48" width="80" height="18" rx="9" fill="#00D866"/>
+    <text x="190" y="60" text-anchor="middle" font-family="Manrope, sans-serif" font-size="9" font-weight="600" fill="#FFFFFF">PREFERRED</text>
+    
+    <!-- Focus -->
+    <text x="16" y="80" font-family="Manrope, sans-serif" font-size="14" font-weight="600" fill="#182D53">Focus:</text>
+    <text x="16" y="100" font-family="Manrope, sans-serif" font-size="14" font-weight="400" fill="#374151">Ecosystem of relationships — who</text>
+    <text x="16" y="116" font-family="Manrope, sans-serif" font-size="14" font-weight="400" fill="#374151">interacts with whom and how</text>
+    
+    <!-- Mini ecosystem diagram -->
+    <g transform="translate(190, 165)">
+      <!-- Center -->
+      <circle cx="0" cy="0" r="25" fill="#00D866"/>
+      <text x="0" y="5" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" font-weight="600" fill="#FFFFFF">MAIN</text>
+      
+      <!-- Connections and outer nodes -->
+      <line x1="0" y1="0" x2="24" y2="0" stroke="#D1D5DB" stroke-width="1"/>
+      <circle cx="60" cy="0" r="12" fill="#182D53" opacity="0.7"/>
+      
+      <line x1="0" y1="0" x2="12" y2="20.78" stroke="#D1D5DB" stroke-width="1"/>
+      <circle cx="30" cy="51.96" r="12" fill="#182D53" opacity="0.7"/>
+      
+      <line x1="0" y1="0" x2="-12" y2="20.78" stroke="#D1D5DB" stroke-width="1"/>
+      <circle cx="-30" cy="51.96" r="12" fill="#182D53" opacity="0.7"/>
+      
+      <line x1="0" y1="0" x2="-24" y2="0" stroke="#D1D5DB" stroke-width="1"/>
+      <circle cx="-60" cy="0" r="12" fill="#182D53" opacity="0.7"/>
+      
+      <line x1="0" y1="0" x2="-12" y2="-20.78" stroke="#D1D5DB" stroke-width="1"/>
+      <circle cx="-30" cy="-51.96" r="12" fill="#182D53" opacity="0.7"/>
+      
+      <line x1="0" y1="0" x2="12" y2="-20.78" stroke="#D1D5DB" stroke-width="1"/>
+      <circle cx="30" cy="-51.96" r="12" fill="#182D53" opacity="0.7"/>
+      
+      <text x="0" y="-75" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" font-weight="500" fill="#6B7280">← Web of connections →</text>
+    </g>
+    
+    <!-- When to use -->
+    <text x="16" y="210" font-family="Manrope, sans-serif" font-size="14" font-weight="600" fill="#182D53">Best When:</text>
+    <text x="24" y="230" font-family="Manrope, sans-serif" font-size="12" font-weight="400" fill="#6B7280">• Clear stakeholders to identify</text>
+    <text x="24" y="248" font-family="Manrope, sans-serif" font-size="12" font-weight="400" fill="#6B7280">• Decision moments with multiple parties</text>
+    <text x="24" y="266" font-family="Manrope, sans-serif" font-size="12" font-weight="400" fill="#6B7280">• Single events or repeating interactions</text>
+    <text x="24" y="284" font-family="Manrope, sans-serif" font-size="12" font-weight="400" fill="#6B7280">• "Who talks to whom" matters most</text>
+    
+    <!-- Examples -->
+    <text x="16" y="310" font-family="Manrope, sans-serif" font-size="14" font-weight="600" fill="#182D53">Examples:</text>
+    <text x="24" y="330" font-family="Manrope, sans-serif" font-size="11" font-weight="500" fill="#6B7280">Student ecosystem • Family dynamics</text>
+    <text x="24" y="346" font-family="Manrope, sans-serif" font-size="11" font-weight="500" fill="#6B7280">Workplace relationships • Community</text>
+  </g>
+  
+  <!-- VS divider -->
+  <g transform="translate(470, 280)">
+    <circle cx="0" cy="0" r="24" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="2"/>
+    <text x="0" y="6" text-anchor="middle" font-family="Manrope, sans-serif" font-size="16" font-weight="600" fill="#182D53">VS</text>
+  </g>
+  
+  <!-- Bottom insight -->
+  <g transform="translate(450, 480)">
+    <rect x="-280" y="-15" width="560" height="50" rx="8" fill="#F3F4F6"/>
+    <text y="5" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="600" fill="#182D53">Same Outcome: Both approaches lead to problem identification → reframing → solutions</text>
+    <text y="25" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" font-weight="500" fill="#6B7280">Choose based on whether time or relationships define your problem space</text>
+  </g>
+</svg>
