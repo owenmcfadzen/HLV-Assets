@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" style="font-family: Manrope, system-ui, sans-serif;">
+  <text x="450" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#182D53">Interview Note-Taking Grid</text>
+  <text x="450" y="65" text-anchor="middle" font-size="14" font-weight="500" fill="#6B7280">Capture stakeholder insights during empathy interviews</text>
+  
+  <!-- Column 1: Needs -->
+  <rect x="50" y="90" width="260" height="50" rx="8" fill="#3B82F6"/>
+  <text x="180" y="115" text-anchor="middle" font-size="18" font-weight="700" fill="white">Needs / Goals</text>
+  <text x="180" y="132" text-anchor="middle" font-size="10" font-weight="600" fill="white" opacity="0.9">"I need..."</text>
+  <rect x="50" y="145" width="260" height="260" rx="8" fill="white" stroke="#3B82F6" stroke-width="2"/>
+  <line x1="65" y1="175" x2="295" y2="175" stroke="#E5E7EB"/>
+  <line x1="65" y1="205" x2="295" y2="205" stroke="#E5E7EB"/>
+  <line x1="65" y1="235" x2="295" y2="235" stroke="#E5E7EB"/>
+  <line x1="65" y1="265" x2="295" y2="265" stroke="#E5E7EB"/>
+  <line x1="65" y1="295" x2="295" y2="295" stroke="#E5E7EB"/>
+  <line x1="65" y1="325" x2="295" y2="325" stroke="#E5E7EB"/>
+  <line x1="65" y1="355" x2="295" y2="355" stroke="#E5E7EB"/>
+  <line x1="65" y1="385" x2="295" y2="385" stroke="#E5E7EB"/>
+  <text x="70" y="195" font-size="12" font-style="italic" fill="#6B7280" opacity="0.6">What are they trying to achieve?</text>
+  <text x="70" y="255" font-size="12" font-style="italic" fill="#6B7280" opacity="0.6">What matters most to them?</text>
+  <text x="70" y="315" font-size="12" font-style="italic" fill="#6B7280" opacity="0.6">What does success look like?</text>
+  
+  <!-- Column 2: Challenges -->
+  <rect x="330" y="90" width="260" height="50" rx="8" fill="#EF4444"/>
+  <text x="460" y="115" text-anchor="middle" font-size="18" font-weight="700" fill="white">Challenges / Pains</text>
+  <text x="460" y="132" text-anchor="middle" font-size="10" font-weight="600" fill="white" opacity="0.9">"I can't because..."</text>
+  <rect x="330" y="145" width="260" height="260" rx="8" fill="white" stroke="#EF4444" stroke-width="2"/>
+  <line x1="345" y1="175" x2="575" y2="175" stroke="#E5E7EB"/>
+  <line x1="345" y1="205" x2="575" y2="205" stroke="#E5E7EB"/>
+  <line x1="345" y1="235" x2="575" y2="235" stroke="#E5E7EB"/>
+  <line x1="345" y1="265" x2="575" y2="265" stroke="#E5E7EB"/>
+  <line x1="345" y1="295" x2="575" y2="295" stroke="#E5E7EB"/>
+  <line x1="345" y1="325" x2="575" y2="325" stroke="#E5E7EB"/>
+  <line x1="345" y1="355" x2="575" y2="355" stroke="#E5E7EB"/>
+  <line x1="345" y1="385" x2="575" y2="385" stroke="#E5E7EB"/>
+  <text x="350" y="195" font-size="12" font-style="italic" fill="#6B7280" opacity="0.6">What frustrates them?</text>
+  <text x="350" y="255" font-size="12" font-style="italic" fill="#6B7280" opacity="0.6">What blocks their goals?</text>
+  <text x="350" y="315" font-size="12" font-style="italic" fill="#6B7280" opacity="0.6">What takes too long?</text>
+  
+  <!-- Column 3: Bright Spots -->
+  <rect x="610" y="90" width="260" height="50" rx="8" fill="#00D866"/>
+  <text x="740" y="115" text-anchor="middle" font-size="18" font-weight="700" fill="white">Bright Spots</text>
+  <text x="740" y="132" text-anchor="middle" font-size="10" font-weight="600" fill="white" opacity="0.9">"I'm happy when..."</text>
+  <rect x="610" y="145" width="260" height="260" rx="8" fill="white" stroke="#00D866" stroke-width="2"/>
+  <line x1="625" y1="175" x2="855" y2="175" stroke="#E5E7EB"/>
+  <line x1="625" y1="205" x2="855" y2="205" stroke="#E5E7EB"/>
+  <line x1="625" y1="235" x2="855" y2="235" stroke="#E5E7EB"/>
+  <line x1="625" y1="265" x2="855" y2="265" stroke="#E5E7EB"/>
+  <line x1="625" y1="295" x2="855" y2="295" stroke="#E5E7EB"/>
+  <line x1="625" y1="325" x2="855" y2="325" stroke="#E5E7EB"/>
+  <line x1="625" y1="355" x2="855" y2="355" stroke="#E5E7EB"/>
+  <line x1="625" y1="385" x2="855" y2="385" stroke="#E5E7EB"/>
+  <text x="630" y="195" font-size="12" font-style="italic" fill="#6B7280" opacity="0.6">What's working today?</text>
+  <text x="630" y="255" font-size="12" font-style="italic" fill="#6B7280" opacity="0.6">What do they enjoy?</text>
+  <text x="630" y="315" font-size="12" font-style="italic" fill="#6B7280" opacity="0.6">What would they keep?</text>
+  
+  <!-- Footer tips -->
+  <rect x="50" y="420" width="800" height="45" rx="8" fill="#F3F4F6"/>
+  <text x="450" y="440" text-anchor="middle" font-size="12" fill="#374151"><tspan font-weight="600">Tips:</tspan> Use one post-it per insight • Listen for stories, not statistics • Capture exact quotes when possible</text>
+  <text x="450" y="458" text-anchor="middle" font-size="12" fill="#374151">After interviews, cluster notes by theme to identify patterns and key learnings</text>
+</svg>
