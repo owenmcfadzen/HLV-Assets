@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap');
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#FFFFFF"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Manrope, sans-serif" font-size="24" font-weight="700" fill="#182D53">Three Levels of Listening</text>
+  <text x="400" y="65" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="500" fill="#6B7280">From shallow to deep — an essential facilitation skill</text>
+  
+  <!-- Depth indicator arrow (vertical on left) -->
+  <line x1="50" y1="110" x2="50" y2="430" stroke="#D1D5DB" stroke-width="2"/>
+  <polygon points="50,430 44,410 56,410" fill="#D1D5DB"/>
+  <text x="55" y="115" font-family="Manrope, sans-serif" font-size="10" font-weight="500" fill="#6B7280">Shallow</text>
+  <text x="55" y="440" font-family="Manrope, sans-serif" font-size="10" font-weight="500" fill="#00D866">Deep</text>
+  
+  <!-- Level 1: Internal / Self -->
+  <g transform="translate(100, 100)">
+    <rect x="0" y="0" width="600" height="100" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    
+    <!-- Number -->
+    <text x="30" y="70" font-family="Manrope, sans-serif" font-size="48" font-weight="700" fill="#182D53" opacity="0.15">1</text>
+    
+    <!-- Icon: Person with thought bubble -->
+    <circle cx="85" cy="50" r="20" fill="#6B7280" opacity="0.3"/>
+    <circle cx="85" cy="40" r="12" fill="#6B7280" opacity="0.5"/>
+    <ellipse cx="110" cy="30" rx="12" ry="8" fill="#D1D5DB"/>
+    
+    <!-- Content -->
+    <text x="140" y="35" font-family="Manrope, sans-serif" font-size="16" font-weight="700" fill="#182D53">LEVEL 1: Internal</text>
+    <text x="140" y="55" font-family="Manrope, sans-serif" font-size="14" font-weight="500" fill="#6B7280">Listening to Self (Own Thoughts)</text>
+    <text x="140" y="80" font-family="Manrope, sans-serif" font-size="12" font-weight="400" fill="#374151">"What will I say next?" — focus is on your own reaction, not the speaker</text>
+    
+    <!-- Quality indicator -->
+    <rect x="520" y="35" width="70" height="24" rx="12" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="555" y="51" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" font-weight="600" fill="#6B7280">Surface</text>
+  </g>
+  
+  <!-- Level 2: Focused / Meaning -->
+  <g transform="translate(100, 220)">
+    <rect x="0" y="0" width="600" height="100" rx="8" fill="#ECFDF5" stroke="#00D866" stroke-width="1"/>
+    
+    <!-- Number -->
+    <text x="30" y="70" font-family="Manrope, sans-serif" font-size="48" font-weight="700" fill="#182D53" opacity="0.15">2</text>
+    
+    <!-- Icon: Two people with arrow -->
+    <circle cx="75" cy="50" r="15" fill="#182D53" opacity="0.4"/>
+    <circle cx="75" cy="40" r="10" fill="#182D53" opacity="0.6"/>
+    <line x1="95" y1="50" x2="115" y2="50" stroke="#00D866" stroke-width="2" marker-end="url(#greenArrow)"/>
+    
+    <!-- Content -->
+    <text x="140" y="35" font-family="Manrope, sans-serif" font-size="16" font-weight="700" fill="#182D53">LEVEL 2: Focused</text>
+    <text x="140" y="55" font-family="Manrope, sans-serif" font-size="14" font-weight="500" fill="#059669">Listening for Meaning (Content)</text>
+    <text x="140" y="80" font-family="Manrope, sans-serif" font-size="12" font-weight="400" fill="#374151">Understanding what's being said — the words, facts, and logical content</text>
+    
+    <!-- Quality indicator -->
+    <rect x="520" y="35" width="70" height="24" rx="12" fill="#ECFDF5" stroke="#00D866" stroke-width="1"/>
+    <text x="555" y="51" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" font-weight="600" fill="#059669">Active</text>
+  </g>
+  
+  <!-- Level 3: Global / Depth -->
+  <g transform="translate(100, 340)">
+    <rect x="0" y="0" width="600" height="100" rx="8" fill="#182D53"/>
+    
+    <!-- Number -->
+    <text x="30" y="70" font-family="Manrope, sans-serif" font-size="48" font-weight="700" fill="#FFFFFF" opacity="0.15">3</text>
+    
+    <!-- Icon: Person with emanating waves -->
+    <circle cx="80" cy="50" r="18" fill="#00D866" opacity="0.6"/>
+    <circle cx="80" cy="40" r="10" fill="#00D866" opacity="0.8"/>
+    <path d="M 60 50 Q 55 40, 60 30" fill="none" stroke="#00D866" stroke-width="2" opacity="0.5"/>
+    <path d="M 100 50 Q 105 40, 100 30" fill="none" stroke="#00D866" stroke-width="2" opacity="0.5"/>
+    
+    <!-- Content -->
+    <text x="140" y="35" font-family="Manrope, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">LEVEL 3: Global</text>
+    <text x="140" y="55" font-family="Manrope, sans-serif" font-size="14" font-weight="500" fill="#00D866">Listening for Depth (Intent, Emotion, Intuition)</text>
+    <text x="140" y="80" font-family="Manrope, sans-serif" font-size="12" font-weight="400" fill="#FFFFFF" opacity="0.9">Beyond words — sensing what's unsaid, body language, tone, and underlying needs</text>
+    
+    <!-- Quality indicator -->
+    <rect x="520" y="35" width="70" height="24" rx="12" fill="#00D866"/>
+    <text x="555" y="51" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" font-weight="600" fill="#182D53">Deep</text>
+  </g>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="greenArrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#00D866"/>
+    </marker>
+  </defs>
+  
+  <!-- Footer -->
+  <rect x="150" y="460" width="500" height="30" rx="4" fill="#F3F4F6"/>
+  <text x="400" y="480" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" font-weight="500" fill="#6B7280">Great facilitators operate at Level 3 — listening with the whole body, without judgment</text>
+</svg>
