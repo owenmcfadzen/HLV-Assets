@@ -1,0 +1,112 @@
+{
+  "$schema": "hlv-diagram-v1",
+  "meta": {
+    "id": "reframing-process-flow",
+    "name": "Reframing Process Flow",
+    "description": "Comparison of direct problem-solving vs reframing approach",
+    "lesson": "lesson-5-problem-reframing",
+    "priority": 1,
+    "created": "2025-12-04",
+    "updated": "2025-12-04"
+  },
+
+  "type": "comparison",
+  "variant": "before-after",
+  "canvas": "diagram_wide",
+
+  "content": {
+    "title": "Two Paths to Solutions",
+    
+    "columns": [
+      {
+        "id": "wrong-way",
+        "header": {
+          "text": "The Direct Path",
+          "variant": "error",
+          "icon": "x-circle"
+        },
+        "flow": {
+          "type": "flow",
+          "direction": "horizontal",
+          "steps": [
+            {
+              "id": "problem-1",
+              "label": "Problem",
+              "variant": "default"
+            },
+            {
+              "id": "solution-1", 
+              "label": "Solution",
+              "variant": "muted"
+            }
+          ],
+          "connector": "arrow"
+        },
+        "annotation": {
+          "text": "Solves the wrong problem well",
+          "position": "below"
+        }
+      },
+      {
+        "id": "right-way",
+        "header": {
+          "text": "The Reframing Path",
+          "variant": "success",
+          "icon": "check-circle"
+        },
+        "flow": {
+          "type": "flow",
+          "direction": "horizontal",
+          "steps": [
+            {
+              "id": "problem-2",
+              "label": "Problem",
+              "variant": "default"
+            },
+            {
+              "id": "reframe-1",
+              "label": "Reframe",
+              "variant": "highlight",
+              "icon": "refresh-cw"
+            },
+            {
+              "id": "reframe-2",
+              "label": "Reframe",
+              "variant": "highlight",
+              "icon": "refresh-cw"
+            },
+            {
+              "id": "better-problem",
+              "label": "Better\nProblem",
+              "variant": "primary"
+            },
+            {
+              "id": "solution-2",
+              "label": "Solution",
+              "variant": "success"
+            }
+          ],
+          "connector": "arrow"
+        },
+        "annotation": {
+          "text": "Finds the right problem first",
+          "position": "below"
+        }
+      }
+    ],
+
+    "divider": {
+      "style": "vs",
+      "label": "vs"
+    }
+  },
+
+  "modifiers": ["icons"],
+
+  "export": {
+    "svg": true,
+    "png": true,
+    "pptx": true,
+    "slideType": "comparisonSlide"
+  }
+}

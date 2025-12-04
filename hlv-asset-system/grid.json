@@ -1,0 +1,95 @@
+{
+  "$schema": "hlv-grid-v1",
+  "meta": {
+    "name": "HLV Grid System",
+    "version": "1.0.0",
+    "note": "All values in pixels, export at 2x for retina"
+  },
+
+  "canvas": {
+    "presets": {
+      "slide": {
+        "width": 1920,
+        "height": 1080,
+        "aspect": "16:9",
+        "use": "Full-bleed slide backgrounds, presentation assets"
+      },
+      "diagram_wide": {
+        "width": 1200,
+        "height": 600,
+        "aspect": "2:1",
+        "use": "Horizontal flows, timelines, comparisons"
+      },
+      "diagram_standard": {
+        "width": 1200,
+        "height": 800,
+        "aspect": "3:2",
+        "use": "Most diagrams, frameworks, matrices"
+      },
+      "diagram_square": {
+        "width": 1000,
+        "height": 1000,
+        "aspect": "1:1",
+        "use": "Wheels, cycles, centered compositions"
+      },
+      "diagram_tall": {
+        "width": 800,
+        "height": 1200,
+        "aspect": "2:3",
+        "use": "Vertical flows, funnels, hierarchies"
+      },
+      "icon": {
+        "width": 64,
+        "height": 64,
+        "aspect": "1:1",
+        "use": "Icon assets (export at 128px for 2x)"
+      }
+    },
+    "default": "diagram_standard"
+  },
+
+  "grid": {
+    "columns": 12,
+    "gutter": 24,
+    "margin": 48,
+    
+    "columnWidth": {
+      "slide": 132,
+      "diagram_wide": 76,
+      "diagram_standard": 76,
+      "diagram_square": 59,
+      "diagram_tall": 42
+    },
+    
+    "contentWidth": {
+      "slide": 1824,
+      "diagram_wide": 1104,
+      "diagram_standard": 1104,
+      "diagram_square": 904,
+      "diagram_tall": 704
+    }
+  },
+
+  "baseline": {
+    "unit": 8,
+    "note": "All vertical spacing should be multiples of 8px"
+  },
+
+  "zones": {
+    "safe": {
+      "description": "Content should stay within this area",
+      "inset": 48
+    },
+    "bleed": {
+      "description": "Background elements can extend to edges",
+      "inset": 0
+    }
+  },
+
+  "alignment": {
+    "snap": true,
+    "snapTo": 8,
+    "allowHalfUnit": true,
+    "halfUnit": 4
+  }
+}

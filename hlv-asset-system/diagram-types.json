@@ -1,0 +1,327 @@
+{
+  "$schema": "hlv-diagram-types-v1",
+  "meta": {
+    "name": "HLV Diagram Type Definitions",
+    "version": "1.0.0",
+    "note": "Each type defines layout rules, valid components, and generation logic"
+  },
+
+  "types": {
+    "flow": {
+      "name": "Flow Diagram",
+      "description": "Sequential process showing steps in order",
+      "canvas": "diagram_wide",
+      "variants": ["horizontal", "vertical"],
+      "defaultVariant": "horizontal",
+      "constraints": {
+        "minSteps": 2,
+        "maxSteps": 7,
+        "boxType": "standard",
+        "connector": "arrow"
+      },
+      "layout": {
+        "horizontal": {
+          "direction": "left-to-right",
+          "alignment": "center",
+          "distribution": "equal",
+          "connectorPosition": "middle"
+        },
+        "vertical": {
+          "direction": "top-to-bottom",
+          "alignment": "center",
+          "distribution": "equal",
+          "connectorPosition": "middle"
+        }
+      },
+      "examples": ["reframing-process", "build-measure-learn", "customer-journey"]
+    },
+
+    "comparison": {
+      "name": "Comparison Diagram",
+      "description": "Side-by-side comparison of approaches, options, or states",
+      "canvas": "diagram_wide",
+      "variants": ["two-column", "three-column", "before-after"],
+      "defaultVariant": "two-column",
+      "constraints": {
+        "minColumns": 2,
+        "maxColumns": 3,
+        "headerRequired": true,
+        "boxType": "large"
+      },
+      "layout": {
+        "two-column": {
+          "columns": 2,
+          "gutter": 48,
+          "headerPosition": "top",
+          "alignment": "top"
+        },
+        "three-column": {
+          "columns": 3,
+          "gutter": 32,
+          "headerPosition": "top",
+          "alignment": "top"
+        },
+        "before-after": {
+          "columns": 2,
+          "gutter": 48,
+          "headerPosition": "top",
+          "divider": true,
+          "dividerStyle": "arrow"
+        }
+      },
+      "examples": ["elevator-comparison", "reframe-vs-direct", "old-new-approach"]
+    },
+
+    "wheel": {
+      "name": "Wheel/Cycle Diagram",
+      "description": "Circular arrangement showing interconnected concepts or cycle",
+      "canvas": "diagram_square",
+      "variants": ["segmented", "orbital", "hub-spoke"],
+      "defaultVariant": "segmented",
+      "constraints": {
+        "minSegments": 3,
+        "maxSegments": 8,
+        "centerLabel": "optional",
+        "boxType": "pill"
+      },
+      "layout": {
+        "segmented": {
+          "radius": "40%",
+          "segmentGap": 4,
+          "labelPosition": "inside",
+          "rotation": -90
+        },
+        "orbital": {
+          "radius": "35%",
+          "itemSize": "standard",
+          "centerSize": "large",
+          "connectors": "circular-arrows"
+        },
+        "hub-spoke": {
+          "radius": "35%",
+          "itemSize": "standard",
+          "centerSize": "large",
+          "connectors": "lines"
+        }
+      },
+      "examples": ["reframing-strategies", "lean-cycle", "feedback-loop"]
+    },
+
+    "matrix": {
+      "name": "Matrix/Grid Diagram",
+      "description": "2D arrangement for categorization or positioning",
+      "canvas": "diagram_standard",
+      "variants": ["2x2", "3x3", "table"],
+      "defaultVariant": "2x2",
+      "constraints": {
+        "minRows": 2,
+        "maxRows": 4,
+        "minCols": 2,
+        "maxCols": 4,
+        "axisLabels": "optional"
+      },
+      "layout": {
+        "2x2": {
+          "rows": 2,
+          "cols": 2,
+          "cellGutter": 8,
+          "axisPosition": "outside",
+          "quadrantLabels": true
+        },
+        "3x3": {
+          "rows": 3,
+          "cols": 3,
+          "cellGutter": 8,
+          "axisPosition": "outside"
+        },
+        "table": {
+          "rows": "dynamic",
+          "cols": "dynamic",
+          "cellGutter": 1,
+          "headerRow": true,
+          "headerCol": "optional"
+        }
+      },
+      "examples": ["priority-matrix", "effort-impact", "stakeholder-map"]
+    },
+
+    "hierarchy": {
+      "name": "Hierarchy/Tree Diagram",
+      "description": "Branching structure showing relationships or breakdown",
+      "canvas": "diagram_standard",
+      "variants": ["top-down", "left-right", "org-chart"],
+      "defaultVariant": "top-down",
+      "constraints": {
+        "maxDepth": 4,
+        "maxChildren": 5,
+        "boxType": "standard",
+        "connector": "elbow"
+      },
+      "layout": {
+        "top-down": {
+          "direction": "vertical",
+          "rootPosition": "top",
+          "alignment": "center",
+          "levelSpacing": 80,
+          "siblingSpacing": 24
+        },
+        "left-right": {
+          "direction": "horizontal",
+          "rootPosition": "left",
+          "alignment": "center",
+          "levelSpacing": 120,
+          "siblingSpacing": 16
+        },
+        "org-chart": {
+          "direction": "vertical",
+          "rootPosition": "top",
+          "alignment": "center",
+          "boxType": "wide",
+          "connectorStyle": "stepped"
+        }
+      },
+      "examples": ["problem-tree", "solution-breakdown", "team-structure"]
+    },
+
+    "funnel": {
+      "name": "Funnel Diagram",
+      "description": "Narrowing stages showing filtering or progression",
+      "canvas": "diagram_tall",
+      "variants": ["standard", "horizontal", "pipeline"],
+      "defaultVariant": "standard",
+      "constraints": {
+        "minStages": 3,
+        "maxStages": 6,
+        "showMetrics": "optional"
+      },
+      "layout": {
+        "standard": {
+          "direction": "top-to-bottom",
+          "widthRatio": [1, 0.8, 0.6, 0.4, 0.3],
+          "stageGap": 8,
+          "labelPosition": "inside"
+        },
+        "horizontal": {
+          "direction": "left-to-right",
+          "heightRatio": [1, 0.8, 0.6, 0.4, 0.3],
+          "stageGap": 8
+        },
+        "pipeline": {
+          "direction": "left-to-right",
+          "uniform": true,
+          "stageGap": 4,
+          "connectors": "arrows"
+        }
+      },
+      "examples": ["shelter-dog-funnel", "sales-pipeline", "user-journey"]
+    },
+
+    "timeline": {
+      "name": "Timeline Diagram",
+      "description": "Chronological sequence of events or milestones",
+      "canvas": "diagram_wide",
+      "variants": ["linear", "alternating", "milestone"],
+      "defaultVariant": "linear",
+      "constraints": {
+        "minEvents": 3,
+        "maxEvents": 10,
+        "dateFormat": "flexible"
+      },
+      "layout": {
+        "linear": {
+          "direction": "horizontal",
+          "linePosition": "center",
+          "eventPosition": "above",
+          "connector": "dot"
+        },
+        "alternating": {
+          "direction": "horizontal",
+          "linePosition": "center",
+          "eventPosition": "alternate",
+          "connector": "dot"
+        },
+        "milestone": {
+          "direction": "horizontal",
+          "linePosition": "bottom",
+          "eventPosition": "above",
+          "connector": "flag"
+        }
+      },
+      "examples": ["innovation-timeline", "project-phases", "company-history"]
+    },
+
+    "stack": {
+      "name": "Stack/Layer Diagram",
+      "description": "Layered view showing hierarchy or dependencies",
+      "canvas": "diagram_standard",
+      "variants": ["horizontal", "pyramid", "concentric"],
+      "defaultVariant": "horizontal",
+      "constraints": {
+        "minLayers": 2,
+        "maxLayers": 6
+      },
+      "layout": {
+        "horizontal": {
+          "direction": "bottom-to-top",
+          "layerHeight": 80,
+          "layerGap": 4,
+          "fullWidth": true
+        },
+        "pyramid": {
+          "direction": "bottom-to-top",
+          "widthRatio": [1, 0.75, 0.5, 0.25],
+          "layerGap": 4
+        },
+        "concentric": {
+          "direction": "outside-in",
+          "shape": "circle",
+          "ringGap": 8
+        }
+      },
+      "examples": ["tech-stack", "maslow-hierarchy", "value-layers"]
+    }
+  },
+
+  "modifiers": {
+    "numbered": {
+      "description": "Add step numbers to boxes",
+      "applies_to": ["flow", "timeline", "funnel"],
+      "style": {
+        "position": "top-left",
+        "format": "badge",
+        "startAt": 1
+      }
+    },
+    "icons": {
+      "description": "Add icons to boxes",
+      "applies_to": ["all"],
+      "style": {
+        "position": "top-center",
+        "size": "container"
+      }
+    },
+    "metrics": {
+      "description": "Add numerical metrics or percentages",
+      "applies_to": ["funnel", "flow", "comparison"],
+      "style": {
+        "position": "below",
+        "format": "annotation"
+      }
+    },
+    "highlight": {
+      "description": "Emphasize specific elements",
+      "applies_to": ["all"],
+      "style": {
+        "variant": "highlight"
+      }
+    },
+    "annotations": {
+      "description": "Add explanatory notes",
+      "applies_to": ["all"],
+      "style": {
+        "position": "adjacent",
+        "connector": "dashed"
+      }
+    }
+  }
+}

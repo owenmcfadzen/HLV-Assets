@@ -1,0 +1,227 @@
+{
+  "$schema": "hlv-components-v1",
+  "meta": {
+    "name": "HLV Component Library",
+    "version": "1.0.0",
+    "note": "All measurements in pixels, colors reference tokens.json"
+  },
+
+  "boxes": {
+    "standard": {
+      "width": 160,
+      "height": 80,
+      "padding": 16,
+      "radius": "@borders.radius.md",
+      "fill": "@colors.neutral.white",
+      "stroke": "@colors.neutral.light",
+      "strokeWidth": "@borders.width.thin",
+      "use": "Default content container"
+    },
+    "large": {
+      "width": 240,
+      "height": 120,
+      "padding": 24,
+      "radius": "@borders.radius.md",
+      "fill": "@colors.neutral.white",
+      "stroke": "@colors.neutral.light",
+      "strokeWidth": "@borders.width.thin",
+      "use": "Primary/hero elements"
+    },
+    "small": {
+      "width": 120,
+      "height": 60,
+      "padding": 12,
+      "radius": "@borders.radius.sm",
+      "fill": "@colors.neutral.white",
+      "stroke": "@colors.neutral.light",
+      "strokeWidth": "@borders.width.thin",
+      "use": "Secondary steps, compact layouts"
+    },
+    "wide": {
+      "width": 320,
+      "height": 80,
+      "padding": 16,
+      "radius": "@borders.radius.md",
+      "fill": "@colors.neutral.white",
+      "stroke": "@colors.neutral.light",
+      "strokeWidth": "@borders.width.thin",
+      "use": "Text-heavy content, descriptions"
+    },
+    "pill": {
+      "width": "auto",
+      "height": 40,
+      "paddingX": 20,
+      "paddingY": 8,
+      "radius": "@borders.radius.full",
+      "fill": "@colors.neutral.pale",
+      "stroke": "none",
+      "use": "Tags, labels, categories"
+    }
+  },
+
+  "boxVariants": {
+    "default": {
+      "fill": "@colors.neutral.white",
+      "stroke": "@colors.neutral.light",
+      "textColor": "@colors.neutral.dark"
+    },
+    "primary": {
+      "fill": "@colors.primary.navy",
+      "stroke": "none",
+      "textColor": "@colors.neutral.white"
+    },
+    "highlight": {
+      "fill": "@colors.tints.emerald_bg",
+      "stroke": "@colors.primary.emerald",
+      "strokeWidth": "@borders.width.medium",
+      "textColor": "@colors.neutral.dark"
+    },
+    "muted": {
+      "fill": "@colors.neutral.pale",
+      "stroke": "none",
+      "textColor": "@colors.neutral.gray"
+    },
+    "success": {
+      "fill": "#ECFDF5",
+      "stroke": "@colors.semantic.success",
+      "textColor": "@colors.neutral.dark"
+    },
+    "error": {
+      "fill": "#FEF2F2",
+      "stroke": "@colors.semantic.error",
+      "textColor": "@colors.neutral.dark"
+    }
+  },
+
+  "connectors": {
+    "arrow": {
+      "stroke": "@colors.primary.navy",
+      "strokeWidth": 2,
+      "headSize": 10,
+      "headStyle": "filled",
+      "style": "straight",
+      "use": "Default directional connection"
+    },
+    "arrowLight": {
+      "stroke": "@colors.neutral.gray",
+      "strokeWidth": 2,
+      "headSize": 8,
+      "headStyle": "filled",
+      "style": "straight",
+      "use": "Secondary/supporting flows"
+    },
+    "line": {
+      "stroke": "@colors.neutral.light",
+      "strokeWidth": 1,
+      "headSize": 0,
+      "headStyle": "none",
+      "style": "straight",
+      "use": "Non-directional connections, grouping"
+    },
+    "dashed": {
+      "stroke": "@colors.neutral.gray",
+      "strokeWidth": 2,
+      "dashArray": "6,4",
+      "headSize": 0,
+      "headStyle": "none",
+      "style": "straight",
+      "use": "Optional paths, potential connections"
+    },
+    "elbow": {
+      "stroke": "@colors.primary.navy",
+      "strokeWidth": 2,
+      "headSize": 10,
+      "headStyle": "filled",
+      "style": "elbow",
+      "cornerRadius": 8,
+      "use": "Right-angle connections"
+    }
+  },
+
+  "connectorSpacing": {
+    "minLength": 24,
+    "preferredLength": 48,
+    "maxLength": 120,
+    "gap": 8
+  },
+
+  "labels": {
+    "boxTitle": {
+      "font": "@typography.family",
+      "size": 16,
+      "weight": "@typography.weights.semibold",
+      "color": "@colors.primary.navy",
+      "align": "center"
+    },
+    "boxBody": {
+      "font": "@typography.family",
+      "size": 14,
+      "weight": "@typography.weights.regular",
+      "color": "@colors.neutral.dark",
+      "align": "center"
+    },
+    "connectorLabel": {
+      "font": "@typography.family",
+      "size": 12,
+      "weight": "@typography.weights.medium",
+      "color": "@colors.neutral.gray",
+      "align": "center",
+      "background": "@colors.neutral.white",
+      "padding": 4
+    },
+    "badge": {
+      "font": "@typography.family",
+      "size": 11,
+      "weight": "@typography.weights.semibold",
+      "color": "@colors.neutral.white",
+      "background": "@colors.primary.navy",
+      "padding": "4 8",
+      "radius": "@borders.radius.sm"
+    },
+    "annotation": {
+      "font": "@typography.family",
+      "size": 12,
+      "weight": "@typography.weights.regular",
+      "color": "@colors.neutral.gray",
+      "style": "italic"
+    }
+  },
+
+  "icons": {
+    "container": {
+      "size": 32,
+      "padding": 8,
+      "radius": "@borders.radius.sm",
+      "background": "@colors.neutral.pale"
+    },
+    "inline": {
+      "size": 20,
+      "strokeWidth": 2,
+      "color": "inherit"
+    },
+    "large": {
+      "size": 48,
+      "strokeWidth": 2,
+      "color": "@colors.primary.navy"
+    }
+  },
+
+  "dividers": {
+    "horizontal": {
+      "height": 1,
+      "color": "@colors.neutral.light",
+      "margin": 24
+    },
+    "vertical": {
+      "width": 1,
+      "color": "@colors.neutral.light",
+      "margin": 24
+    },
+    "decorative": {
+      "height": 3,
+      "width": 48,
+      "color": "@colors.primary.emerald",
+      "radius": "@borders.radius.full"
+    }
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "$schema": "hlv-slide-export-v1",
+  "meta": {
+    "name": "HLV Slide Export Specification",
+    "version": "1.0.0",
+    "note": "Defines how diagram components map to native slide shapes"
+  },
+
+  "targets": {
+    "pptx": {
+      "name": "PowerPoint",
+      "library": "pptxgenjs",
+      "dimensions": {
+        "width": 10,
+        "height": 5.625,
+        "unit": "inches"
+      },
+      "scaleFactor": 0.00520833,
+      "note": "1920px / 10in = 192dpi, scale = 1/192"
+    },
+    "keynote": {
+      "name": "Keynote",
+      "format": "export via PPTX or native",
+      "dimensions": {
+        "width": 1920,
+        "height": 1080,
+        "unit": "pixels"
+      }
+    },
+    "googleSlides": {
+      "name": "Google Slides",
+      "format": "export via PPTX",
+      "dimensions": {
+        "width": 10,
+        "height": 5.625,
+        "unit": "inches"
+      }
+    }
+  },
+
+  "componentMapping": {
+    "box": {
+      "pptx": {
+        "type": "shape",
+        "shape": "roundRect",
+        "properties": {
+          "x": "@position.x * scaleFactor",
+          "y": "@position.y * scaleFactor", 
+          "w": "@size.width * scaleFactor",
+          "h": "@size.height * scaleFactor",
+          "fill": "@variant.fill",
+          "line": {
+            "color": "@variant.stroke",
+            "width": "@variant.strokeWidth"
+          },
+          "rectRadius": "@radius * scaleFactor"
+        }
+      }
+    },
+
+    "text": {
+      "pptx": {
+        "type": "text",
+        "properties": {
+          "x": "@position.x * scaleFactor",
+          "y": "@position.y * scaleFactor",
+          "w": "@size.width * scaleFactor",
+          "h": "@size.height * scaleFactor",
+          "text": "@content",
+          "fontFace": "@font.family",
+          "fontSize": "@font.size * 0.75",
+          "fontBold": "@font.weight >= 600",
+          "color": "@font.color",
+          "align": "@align",
+          "valign": "@valign"
+        }
+      }
+    },
+
+    "arrow": {
+      "pptx": {
+        "type": "shape",
+        "shape": "line",
+        "properties": {
+          "x": "@start.x * scaleFactor",
+          "y": "@start.y * scaleFactor",
+          "w": "(@end.x - @start.x) * scaleFactor",
+          "h": "(@end.y - @start.y) * scaleFactor",
+          "line": {
+            "color": "@stroke",
+            "width": "@strokeWidth",
+            "endArrowType": "triangle"
+          }
+        }
+      }
+    },
+
+    "circle": {
+      "pptx": {
+        "type": "shape",
+        "shape": "ellipse",
+        "properties": {
+          "x": "(@position.x - @radius) * scaleFactor",
+          "y": "(@position.y - @radius) * scaleFactor",
+          "w": "@radius * 2 * scaleFactor",
+          "h": "@radius * 2 * scaleFactor",
+          "fill": "@fill",
+          "line": {
+            "color": "@stroke",
+            "width": "@strokeWidth"
+          }
+        }
+      }
+    },
+
+    "group": {
+      "pptx": {
+        "note": "pptxgenjs doesn't support native grouping, render as individual shapes",
+        "approach": "flatten"
+      }
+    }
+  },
+
+  "fontMapping": {
+    "Manrope": {
+      "pptx": {
+        "primary": "Manrope",
+        "fallback": ["Segoe UI", "Arial", "sans-serif"],
+        "embedRequired": true,
+        "note": "Recipient needs Manrope installed or embedded"
+      }
+    }
+  },
+
+  "colorMapping": {
+    "format": "hex",
+    "stripHash": true,
+    "note": "pptxgenjs expects colors without # prefix"
+  },
+
+  "exportOptions": {
+    "embedFonts": true,
+    "compressImages": true,
+    "imageFormat": "png",
+    "imageQuality": 0.9
+  },
+
+  "slideTypes": {
+    "diagramSlide": {
+      "layout": "blank",
+      "content": {
+        "diagram": {
+          "x": 0.5,
+          "y": 0.5,
+          "w": 9,
+          "h": 4.625,
+          "unit": "inches"
+        }
+      }
+    },
+    "titleAndDiagram": {
+      "layout": "custom",
+      "content": {
+        "title": {
+          "x": 0.5,
+          "y": 0.3,
+          "w": 9,
+          "h": 0.6,
+          "unit": "inches",
+          "style": "@typography.scale.h2"
+        },
+        "diagram": {
+          "x": 0.5,
+          "y": 1.1,
+          "w": 9,
+          "h": 4,
+          "unit": "inches"
+        }
+      }
+    },
+    "comparisonSlide": {
+      "layout": "custom",
+      "content": {
+        "title": {
+          "x": 0.5,
+          "y": 0.3,
+          "w": 9,
+          "h": 0.6
+        },
+        "left": {
+          "x": 0.5,
+          "y": 1.1,
+          "w": 4.25,
+          "h": 4
+        },
+        "right": {
+          "x": 5.25,
+          "y": 1.1,
+          "w": 4.25,
+          "h": 4
+        }
+      }
+    }
+  },
+
+  "updateStrategy": {
+    "approach": "regenerate",
+    "note": "When tokens change, regenerate all PPTX files from diagram specs",
+    "workflow": [
+      "1. Update tokens.json",
+      "2. Run build command",
+      "3. All SVGs regenerated with new values",
+      "4. All PPTXs regenerated with new values",
+      "5. Commit to repo",
+      "6. Assets served from same URLs"
+    ]
+  }
+}
