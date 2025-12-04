@@ -274,6 +274,32 @@ class SVGGenerator {
   }
 
   /**
+   * Generate a standalone flow diagram with title
+   */
+  generateFlowDiagram(diagram, canvas) {
+    let svg = '';
+    const content = diagram.content;
+
+    // Title
+    if (content.title) {
+      svg += `  <text x="${canvas.width/2}" y="60" text-anchor="middle" `;
+      svg += `font-size="28" font-weight="700" fill="${this.tokens.get('colors.primary.navy')}">${content.title}</text>\n`;
+    }
+
+    // Subtitle/description
+    if (content.subtitle) {
+      svg += `  <text x="${canvas.width/2}" y="90" text-anchor="middle" `;
+      svg += `font-size="14" font-weight="400" fill="${this.tokens.get('colors.neutral.gray')}">${content.subtitle}</text>\n`;
+    }
+
+    // Flow positioned in center
+    const flowY = content.title ? 160 : 100;
+    svg += this.generateFlow(canvas, content, canvas.margin, flowY, canvas.contentWidth);
+
+    return svg;
+  }
+
+  /**
    * Main generate function
    */
   generate(diagramSpec) {
@@ -288,10 +314,10 @@ class SVGGenerator {
         svg += this.generateComparison(diagramSpec, canvas);
         break;
       case 'flow':
-        svg += this.generateFlow(canvas, diagramSpec.content, canvas.margin, canvas.height / 3, canvas.contentWidth);
+        svg += this.generateFlowDiagram(diagramSpec, canvas);
         break;
       default:
-        throw new Error(`Unsupported diagram type: ${diagramSpec.type}`);
+        throw new Error(`Unsupported diagram type: ${diagramSpec.type}. Supported: comparison, flow`);
     }
 
     svg += this.generateFooter(canvas);

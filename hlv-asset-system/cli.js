@@ -4,11 +4,15 @@
  * HLV Asset System CLI
  * Build SVG, PNG, and PPTX from diagram specifications
  *
- * Usage:
- *   node cli.js build <diagram.json>         # Build all formats
- *   node cli.js build <diagram.json> --svg   # SVG only
- *   node cli.js build-all                    # Build all diagrams
- *   node cli.js list                         # List available diagrams
+ * Commands:
+ *   build <diagram.json>     Build a specific diagram
+ *   build-all                Build all diagrams in diagrams/
+ *   new <type> <name>        Create a new diagram from template
+ *   validate <diagram.json>  Validate a diagram spec
+ *   types                    List available diagram types
+ *   variants                 List available box variants
+ *   tokens                   Show current token values
+ *   list                     List existing diagrams
  */
 
 const fs = require('fs');
@@ -16,6 +20,7 @@ const path = require('path');
 const SVGGenerator = require('./lib/svg-generator');
 const PNGConverter = require('./lib/png-converter');
 const PPTXGenerator = require('./lib/pptx-generator');
+const DiagramValidator = require('./lib/validator');
 
 const DIST_DIR = path.join(__dirname, 'dist');
 const DIAGRAMS_DIR = path.join(__dirname, 'diagrams');
@@ -43,11 +48,50 @@ function loadDiagram(diagramPath) {
   return JSON.parse(fs.readFileSync(fullPath, 'utf8'));
 }
 
+// Validate a diagram
+function validateDiagram(diagramPath) {
+  console.log(`\n🔍 Validating: ${diagramPath}\n`);
+
+  const diagram = loadDiagram(diagramPath);
+  const validator = new DiagramValidator();
+  const result = validator.validate(diagram);
+
+  if (result.errors.length > 0) {
+    console.log('❌ Errors:');
+    result.errors.forEach(e => console.log(`   • ${e}`));
+  }
+
+  if (result.warnings.length > 0) {
+    console.log('⚠️  Warnings:');
+    result.warnings.forEach(w => console.log(`   • ${w}`));
+  }
+
+  if (result.valid) {
+    console.log('✅ Diagram spec is valid!');
+  }
+
+  return result;
+}
+
 // Build a single diagram
 async function buildDiagram(diagramPath, options = {}) {
   console.log(`\n📊 Building: ${diagramPath}`);
 
+  // Validate first
+  const validator = new DiagramValidator();
   const diagram = loadDiagram(diagramPath);
+  const validation = validator.validate(diagram);
+
+  if (!validation.valid) {
+    console.log('\n❌ Validation failed:');
+    validation.errors.forEach(e => console.log(`   • ${e}`));
+    return [];
+  }
+
+  if (validation.warnings.length > 0) {
+    validation.warnings.forEach(w => console.log(`   ⚠️  ${w}`));
+  }
+
   const id = diagram.meta?.id || path.basename(diagramPath, '.json');
   const exportConfig = diagram.export || { svg: true, png: true, pptx: true };
 
@@ -105,9 +149,19 @@ async function buildDiagram(diagramPath, options = {}) {
 async function buildAll() {
   console.log('🔄 Building all diagrams...\n');
 
+  if (!fs.existsSync(DIAGRAMS_DIR)) {
+    console.log('No diagrams directory found.');
+    return [];
+  }
+
   const diagramFiles = fs.readdirSync(DIAGRAMS_DIR)
     .filter(f => f.endsWith('.json'))
     .map(f => path.join('diagrams', f));
+
+  if (diagramFiles.length === 0) {
+    console.log('No diagram files found in diagrams/');
+    return [];
+  }
 
   const allResults = [];
 
@@ -126,12 +180,63 @@ async function buildAll() {
   return allResults;
 }
 
+// Create a new diagram from template
+function createNew(type, name) {
+  const validator = new DiagramValidator();
+  const template = validator.getTemplate(type);
+
+  if (!template) {
+    console.log(`\n❌ Unknown diagram type: "${type}"`);
+    console.log('\nAvailable types:');
+    validator.listTypes().forEach(t => {
+      console.log(`   ${t.type} - ${t.description}`);
+    });
+    return;
+  }
+
+  // Generate ID from name
+  const id = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  template.meta.id = id;
+  template.meta.name = name;
+  template.meta.created = new Date().toISOString().split('T')[0];
+
+  const filePath = path.join(DIAGRAMS_DIR, `${id}.json`);
+
+  // Check if file exists
+  if (fs.existsSync(filePath)) {
+    console.log(`\n❌ File already exists: ${filePath}`);
+    return;
+  }
+
+  // Ensure diagrams directory exists
+  if (!fs.existsSync(DIAGRAMS_DIR)) {
+    fs.mkdirSync(DIAGRAMS_DIR, { recursive: true });
+  }
+
+  fs.writeFileSync(filePath, JSON.stringify(template, null, 2));
+  console.log(`\n✅ Created: diagrams/${id}.json`);
+  console.log(`\nNext steps:`);
+  console.log(`   1. Edit the file to add your content`);
+  console.log(`   2. Run: node cli.js build diagrams/${id}.json`);
+}
+
 // List available diagrams
 function listDiagrams() {
-  console.log('📋 Available diagrams:\n');
+  console.log('\n📋 Existing diagrams:\n');
+
+  if (!fs.existsSync(DIAGRAMS_DIR)) {
+    console.log('   No diagrams directory found.');
+    return;
+  }
 
   const diagramFiles = fs.readdirSync(DIAGRAMS_DIR)
     .filter(f => f.endsWith('.json'));
+
+  if (diagramFiles.length === 0) {
+    console.log('   No diagram files found.');
+    console.log('\n   Create one with: node cli.js new <type> "<name>"');
+    return;
+  }
 
   diagramFiles.forEach(file => {
     const diagram = loadDiagram(path.join('diagrams', file));
@@ -144,29 +249,63 @@ function listDiagrams() {
   });
 }
 
-// Verify tokens are being resolved
-function verifyTokens() {
-  console.log('🔍 Verifying token resolution...\n');
+// List available diagram types
+function listTypes() {
+  console.log('\n📐 Available diagram types:\n');
+
+  const validator = new DiagramValidator();
+  validator.listTypes().forEach(t => {
+    console.log(`   ${t.type}`);
+    console.log(`      ${t.description}`);
+    console.log(`      Variants: ${t.variants.join(', ')}`);
+    console.log(`      Canvas: ${t.canvas}`);
+    console.log('');
+  });
+
+  console.log('Create a new diagram: node cli.js new <type> "<Name>"');
+}
+
+// List available variants
+function listVariants() {
+  console.log('\n🎨 Available box variants:\n');
+
+  const validator = new DiagramValidator();
+  const TokenResolver = require('./lib/tokens');
+  const tokens = new TokenResolver();
+  const components = JSON.parse(fs.readFileSync(path.join(__dirname, 'components.json'), 'utf8'));
+
+  validator.listVariants().forEach(v => {
+    const style = components.boxVariants[v];
+    const fill = tokens.resolve(style.fill);
+    const stroke = style.stroke === 'none' ? 'none' : tokens.resolve(style.stroke);
+    console.log(`   ${v}`);
+    console.log(`      Fill: ${fill}, Stroke: ${stroke}`);
+  });
+}
+
+// Show token values
+function showTokens() {
+  console.log('\n🎯 Current token values:\n');
 
   const TokenResolver = require('./lib/tokens');
   const tokens = new TokenResolver();
 
-  const testPaths = [
-    'colors.primary.navy',
-    'colors.primary.emerald',
-    'typography.family',
-    'spacing.scale.md',
-    'borders.radius.md'
-  ];
+  console.log('Colors:');
+  console.log(`   Navy:    ${tokens.get('colors.primary.navy')}`);
+  console.log(`   Emerald: ${tokens.get('colors.primary.emerald')}`);
+  console.log(`   Ocean:   ${tokens.get('colors.secondary.ocean')}`);
+  console.log(`   Violet:  ${tokens.get('colors.secondary.violet')}`);
+  console.log(`   Gray:    ${tokens.get('colors.neutral.gray')}`);
 
-  testPaths.forEach(p => {
-    try {
-      const value = tokens.get(p);
-      console.log(`   ✓ ${p} → ${value}`);
-    } catch (err) {
-      console.log(`   ✗ ${p} → ${err.message}`);
-    }
-  });
+  console.log('\nTypography:');
+  console.log(`   Font:    ${tokens.get('typography.family')}`);
+
+  console.log('\nSpacing:');
+  console.log(`   Unit:    ${tokens.get('spacing.unit')}px`);
+  console.log(`   Medium:  ${tokens.get('spacing.scale.md')}px`);
+
+  console.log('\nBorders:');
+  console.log(`   Radius:  ${tokens.get('borders.radius.md')}px`);
 }
 
 // Parse CLI arguments
@@ -174,21 +313,22 @@ function parseArgs() {
   const args = process.argv.slice(2);
   const command = args[0];
   const target = args[1];
-  const flags = args.slice(2);
+  const extra = args[2];
+  const flags = args.filter(a => a.startsWith('--'));
 
   const options = {
     svg: flags.includes('--svg'),
     png: flags.includes('--png'),
     pptx: flags.includes('--pptx'),
-    all: !flags.some(f => f.startsWith('--'))
+    all: !flags.some(f => ['--svg', '--png', '--pptx'].includes(f))
   };
 
-  return { command, target, options };
+  return { command, target, extra, options };
 }
 
 // Main entry point
 async function main() {
-  const { command, target, options } = parseArgs();
+  const { command, target, extra, options } = parseArgs();
 
   console.log('╔════════════════════════════════════════╗');
   console.log('║     HLV Asset System Generator         ║');
@@ -197,7 +337,7 @@ async function main() {
   switch (command) {
     case 'build':
       if (!target) {
-        console.error('Error: Please specify a diagram file');
+        console.error('\n❌ Please specify a diagram file');
         console.log('Usage: node cli.js build diagrams/<name>.json');
         process.exit(1);
       }
@@ -208,21 +348,52 @@ async function main() {
       await buildAll();
       break;
 
+    case 'new':
+      if (!target || !extra) {
+        console.error('\n❌ Please specify type and name');
+        console.log('Usage: node cli.js new <type> "<name>"');
+        console.log('Example: node cli.js new flow "Build Measure Learn"');
+        listTypes();
+        process.exit(1);
+      }
+      createNew(target, extra);
+      break;
+
+    case 'validate':
+      if (!target) {
+        console.error('\n❌ Please specify a diagram file');
+        process.exit(1);
+      }
+      validateDiagram(target);
+      break;
+
+    case 'types':
+      listTypes();
+      break;
+
+    case 'variants':
+      listVariants();
+      break;
+
+    case 'tokens':
+      showTokens();
+      break;
+
     case 'list':
       listDiagrams();
       break;
 
-    case 'verify':
-      verifyTokens();
-      break;
-
     default:
       console.log(`
-Usage:
-  node cli.js build <diagram.json>    Build a specific diagram
-  node cli.js build-all               Build all diagrams
-  node cli.js list                    List available diagrams
-  node cli.js verify                  Verify token resolution
+Commands:
+  build <file>           Build a diagram (SVG + PNG + PPTX)
+  build-all              Build all diagrams in diagrams/
+  new <type> "<name>"    Create new diagram from template
+  validate <file>        Validate a diagram spec
+  list                   List existing diagrams
+  types                  Show available diagram types
+  variants               Show available box variants
+  tokens                 Show current token values
 
 Options:
   --svg   Generate SVG only
@@ -230,9 +401,10 @@ Options:
   --pptx  Generate PPTX only
 
 Examples:
-  node cli.js build diagrams/reframing-process-flow.json
-  node cli.js build diagrams/reframing-process-flow.json --svg --png
+  node cli.js new flow "Customer Journey"
+  node cli.js build diagrams/customer-journey.json
   node cli.js build-all
+  node cli.js tokens
 `);
   }
 }

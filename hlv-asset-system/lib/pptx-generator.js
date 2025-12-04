@@ -295,6 +295,62 @@ class PPTXGenerator {
   }
 
   /**
+   * Generate a standalone flow diagram
+   */
+  generateFlowDiagram(pptx, diagram, canvas) {
+    const slide = pptx.addSlide();
+    const content = diagram.content;
+    const margin = canvas.margin;
+
+    // Title
+    if (content.title) {
+      slide.addText(content.title, {
+        x: 0.5,
+        y: 0.3,
+        w: 9,
+        h: 0.6,
+        fontFace: 'Manrope',
+        fontSize: 24,
+        bold: true,
+        color: this.getColor('@colors.primary.navy'),
+        align: 'center'
+      });
+    }
+
+    // Subtitle
+    if (content.subtitle) {
+      slide.addText(content.subtitle, {
+        x: 0.5,
+        y: 0.8,
+        w: 9,
+        h: 0.4,
+        fontFace: 'Manrope',
+        fontSize: 12,
+        color: this.getColor('@colors.neutral.gray'),
+        align: 'center'
+      });
+    }
+
+    // Flow positioned in center
+    const flowY = content.title ? 160 : 100;
+    this.generateFlow(slide, content, margin, flowY, canvas.contentWidth);
+
+    // Footer
+    slide.addText('Hudson Lab Ventures', {
+      x: 0,
+      y: this.px(canvas.height - 40),
+      w: this.px(canvas.width),
+      h: 0.3,
+      fontFace: 'Manrope',
+      fontSize: 9,
+      color: this.getColor('@colors.primary.emerald'),
+      align: 'center'
+    });
+
+    return slide;
+  }
+
+  /**
    * Main generate function
    */
   async generate(diagramSpec, outputPath) {
@@ -317,8 +373,11 @@ class PPTXGenerator {
       case 'comparison':
         this.generateComparison(pptx, diagramSpec, canvas);
         break;
+      case 'flow':
+        this.generateFlowDiagram(pptx, diagramSpec, canvas);
+        break;
       default:
-        throw new Error(`Unsupported diagram type for PPTX: ${diagramSpec.type}`);
+        throw new Error(`Unsupported diagram type for PPTX: ${diagramSpec.type}. Supported: comparison, flow`);
     }
 
     // Save or return buffer
