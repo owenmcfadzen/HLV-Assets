@@ -71,8 +71,8 @@
       "textColor": "@colors.neutral.white"
     },
     "highlight": {
-      "fill": "@colors.tints.emerald_bg",
-      "stroke": "@colors.primary.emerald",
+      "fill": "@colors.accentTint",
+      "stroke": "@colors.accent",
       "strokeWidth": "@borders.width.medium",
       "textColor": "@colors.neutral.dark"
     },
@@ -220,7 +220,7 @@
     "decorative": {
       "height": 3,
       "width": 48,
-      "color": "@colors.primary.emerald",
+      "color": "@colors.accent",
       "radius": "@borders.radius.full"
     }
   }
