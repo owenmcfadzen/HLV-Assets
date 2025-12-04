@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap');
+      text { font-family: 'Manrope', system-ui, sans-serif; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#182D53" />
+    </marker>
+    <marker id="arrowhead-light" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#6B7280" />
+    </marker>
+    <marker id="arrowhead-success" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10B981" />
+    </marker>
+    <marker id="arrowhead-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00D866" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#FFFFFF"/>
+  <text x="600" y="50" text-anchor="middle" font-size="28" font-weight="700" fill="#182D53">Build → Measure → Learn</text>
+  <text x="600" y="80" text-anchor="middle" font-size="14" font-weight="400" fill="#6B7280">The Lean Startup feedback loop</text>
+  <rect x="100" y="200" width="160" height="80" rx="8" fill="#182D53" />
+  <text x="180" y="240" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="600" fill="#FFFFFF">Build</text>
+  <line x1="260" y1="240" x2="340" y2="240" stroke="#182D53" stroke-width="2" marker-end="url(#arrowhead)" />
+  <rect x="340" y="200" width="160" height="80" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1" />
+  <text x="420" y="240" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="600" fill="#374151">Measure</text>
+  <line x1="500" y1="240" x2="580" y2="240" stroke="#182D53" stroke-width="2" marker-end="url(#arrowhead)" />
+  <rect x="580" y="200" width="160" height="80" rx="8" fill="#ECFDF5" stroke="#00D866" stroke-width="2" />
+  <text x="660" y="240" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="600" fill="#374151">Learn</text>
+  <line x1="660" y1="280" x2="660" y2="350" stroke="#6B7280" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrowhead)" />
+  <line x1="660" y1="350" x2="180" y2="350" stroke="#6B7280" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrowhead)" />
+  <line x1="180" y1="350" x2="180" y2="280" stroke="#6B7280" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrowhead)" />
+  <text x="420" y="380" text-anchor="middle" font-size="12" font-weight="500" fill="#6B7280" font-style="italic">Iterate</text>
+  <text x="600" y="570" text-anchor="middle" font-size="11" font-weight="500" fill="#00D866">Hudson Lab Ventures</text>
+</svg>

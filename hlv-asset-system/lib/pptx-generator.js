@@ -1,6 +1,6 @@
 /**
- * PPTX Generator
- * Generates native PowerPoint shapes from diagram specs using pptxgenjs
+ * PPTX Generator - Primitives-based
+ * Generates native PowerPoint shapes from element primitives using pptxgenjs
  */
 
 const PptxGenJS = require('pptxgenjs');
@@ -13,11 +13,9 @@ class PPTXGenerator {
     this.tokens = new TokenResolver(options.tokensPath);
     this.componentsPath = options.componentsPath || path.join(__dirname, '..', 'components.json');
     this.gridPath = options.gridPath || path.join(__dirname, '..', 'grid.json');
-    this.slideExportPath = options.slideExportPath || path.join(__dirname, '..', 'slide-export.json');
 
     this.components = JSON.parse(fs.readFileSync(this.componentsPath, 'utf8'));
     this.grid = JSON.parse(fs.readFileSync(this.gridPath, 'utf8'));
-    this.slideExport = JSON.parse(fs.readFileSync(this.slideExportPath, 'utf8'));
 
     // Scale factor: pixels to inches (based on 1920px = 10in)
     this.scaleFactor = 10 / 1920;
@@ -57,8 +55,8 @@ class PPTXGenerator {
   /**
    * Get box style for variant
    */
-  getBoxStyle(boxType, variant = 'default') {
-    const box = this.components.boxes[boxType] || this.components.boxes.standard;
+  getBoxStyle(variant = 'default') {
+    const box = this.components.boxes.standard;
     const variantStyle = this.components.boxVariants[variant] || this.components.boxVariants.default;
 
     return {
@@ -73,16 +71,20 @@ class PPTXGenerator {
   }
 
   /**
-   * Add a box shape with text
+   * Render a box primitive
    */
-  addBox(slide, x, y, style, label) {
+  renderBox(slide, el) {
+    const style = this.getBoxStyle(el.variant || 'default');
+    const w = el.w || style.width;
+    const h = el.h || style.height;
+
     const shapeOptions = {
-      x: this.px(x),
-      y: this.px(y),
-      w: this.px(style.width),
-      h: this.px(style.height),
+      x: this.px(el.x),
+      y: this.px(el.y),
+      w: this.px(w),
+      h: this.px(h),
       fill: { color: style.fill },
-      rectRadius: this.px(style.radius) / this.px(style.width) // Proportion
+      rectRadius: this.px(style.radius) / this.px(w)
     };
 
     if (style.stroke) {
@@ -94,260 +96,182 @@ class PPTXGenerator {
 
     slide.addShape('roundRect', shapeOptions);
 
-    // Add text
-    slide.addText(label.replace(/\n/g, '\n'), {
-      x: this.px(x),
-      y: this.px(y),
-      w: this.px(style.width),
-      h: this.px(style.height),
-      fontFace: 'Manrope',
-      fontSize: 11,
-      bold: true,
-      color: style.textColor,
-      align: 'center',
-      valign: 'middle'
-    });
+    // Add text label
+    if (el.label) {
+      slide.addText(el.label.replace(/\\n/g, '\n'), {
+        x: this.px(el.x),
+        y: this.px(el.y),
+        w: this.px(w),
+        h: this.px(h),
+        fontFace: 'Manrope',
+        fontSize: 11,
+        bold: true,
+        color: style.textColor,
+        align: 'center',
+        valign: 'middle'
+      });
+    }
   }
 
   /**
-   * Add an arrow line
+   * Render an arrow primitive
    */
-  addArrow(slide, x1, y1, x2, y2, color = '182D53') {
+  renderArrow(slide, el) {
+    const [x1, y1] = el.from;
+    const [x2, y2] = el.to;
+    const color = el.color ? this.getColor(el.color) : this.getColor('@colors.primary.navy');
+
     slide.addShape('line', {
       x: this.px(x1),
       y: this.px(y1),
       w: this.px(x2 - x1),
-      h: 0,
+      h: this.px(y2 - y1),
       line: {
         color: color,
-        width: 2,
-        endArrowType: 'triangle'
+        width: el.strokeWidth || 2,
+        endArrowType: 'triangle',
+        dashType: el.dashed ? 'dash' : 'solid'
       }
     });
   }
 
   /**
-   * Generate flow within a column
+   * Render a line primitive
    */
-  generateFlow(slide, flow, startX, startY, maxWidth) {
-    const steps = flow.steps;
-    const boxHeight = 80;
+  renderLine(slide, el) {
+    const [x1, y1] = el.from;
+    const [x2, y2] = el.to;
+    const color = el.color ? this.getColor(el.color) : this.getColor('@colors.neutral.light');
 
-    // Auto-calculate box width based on available space and number of steps
-    const minConnectorGap = 20;
-    const availableForBoxes = maxWidth - ((steps.length - 1) * minConnectorGap);
-    const calculatedBoxWidth = Math.floor(availableForBoxes / steps.length);
-    const boxWidth = Math.min(160, Math.max(80, calculatedBoxWidth));
-
-    // Recalculate connector gap with actual box width
-    const totalBoxWidth = steps.length * boxWidth;
-    const remainingSpace = maxWidth - totalBoxWidth;
-    const connectorGap = steps.length > 1 ? Math.floor(remainingSpace / (steps.length - 1)) : 0;
-
-    // Center the flow within maxWidth
-    const actualTotalWidth = totalBoxWidth + ((steps.length - 1) * connectorGap);
-    const offsetX = Math.max(0, (maxWidth - actualTotalWidth) / 2);
-
-    steps.forEach((step, i) => {
-      const style = this.getBoxStyle('standard', step.variant || 'default');
-      style.width = boxWidth;
-      style.height = boxHeight;
-
-      const x = startX + offsetX + (i * (boxWidth + connectorGap));
-      const y = startY;
-
-      this.addBox(slide, x, y, style, step.label);
-
-      // Connector arrow
-      if (i < steps.length - 1) {
-        const arrowStartX = x + boxWidth;
-        const arrowEndX = x + boxWidth + connectorGap - 5;
-        const arrowY = y + boxHeight / 2;
-
-        const arrowColor = step.variant === 'highlight' ? '00D866' : '182D53';
-        this.addArrow(slide, arrowStartX, arrowY, arrowEndX, arrowY, arrowColor);
+    slide.addShape('line', {
+      x: this.px(x1),
+      y: this.px(y1),
+      w: this.px(x2 - x1),
+      h: this.px(y2 - y1),
+      line: {
+        color: color,
+        width: el.strokeWidth || 1,
+        dashType: el.dashed ? 'dash' : 'solid'
       }
     });
   }
 
   /**
-   * Generate comparison diagram
+   * Render a text primitive
    */
-  generateComparison(pptx, diagram, canvas) {
-    const slide = pptx.addSlide();
-    const margin = canvas.margin;
-    const contentWidth = canvas.contentWidth;
-    const columns = diagram.content.columns;
+  renderText(slide, el) {
+    const scale = this.tokens.get('typography.scale');
+    const styleName = el.style || 'body';
+    const textStyle = scale[styleName] || scale.body;
+    const color = el.color ? this.getColor(el.color) : this.getColor('@colors.primary.navy');
 
-    // Title
-    if (diagram.content.title) {
-      slide.addText(diagram.content.title, {
-        x: 0.5,
-        y: 0.3,
-        w: 9,
-        h: 0.6,
-        fontFace: 'Manrope',
-        fontSize: 24,
-        bold: true,
-        color: this.getColor('@colors.primary.navy'),
-        align: 'center'
-      });
+    slide.addText(el.content, {
+      x: this.px(el.x) - 2,
+      y: this.px(el.y) - 0.2,
+      w: 4,
+      h: 0.4,
+      fontFace: 'Manrope',
+      fontSize: textStyle.size * 0.75,
+      bold: textStyle.weight >= 600,
+      italic: el.italic || false,
+      color: color,
+      align: el.align || 'center'
+    });
+  }
+
+  /**
+   * Render a circle primitive
+   */
+  renderCircle(slide, el) {
+    const style = el.variant ? this.getBoxStyle(el.variant) : null;
+    const fill = el.fill ? this.getColor(el.fill) : (style ? style.fill : this.getColor('@colors.neutral.pale'));
+    const stroke = el.stroke ? this.getColor(el.stroke) : (style && style.stroke ? style.stroke : null);
+
+    const shapeOptions = {
+      x: this.px(el.cx - el.r),
+      y: this.px(el.cy - el.r),
+      w: this.px(el.r * 2),
+      h: this.px(el.r * 2),
+      fill: { color: fill }
+    };
+
+    if (stroke) {
+      shapeOptions.line = { color: stroke, width: el.strokeWidth || 2 };
     }
 
-    const columnWidth = (contentWidth - 80) / 2;
-    const headerY = 120;
-    const flowY = 200;
+    slide.addShape('ellipse', shapeOptions);
 
-    columns.forEach((col, i) => {
-      const colX = margin + (i * (columnWidth + 80));
-
-      // Header
-      const headerVariant = col.header.variant || 'primary';
-      const headerStyle = this.getBoxStyle('wide', headerVariant);
-      headerStyle.width = columnWidth;
-      headerStyle.height = 48;
-
-      slide.addShape('roundRect', {
-        x: this.px(colX),
-        y: this.px(headerY),
-        w: this.px(columnWidth),
-        h: this.px(48),
-        fill: { color: headerStyle.fill },
-        line: headerStyle.stroke ? { color: headerStyle.stroke, width: 2 } : null,
-        rectRadius: 0.05
-      });
-
-      slide.addText(col.header.text, {
-        x: this.px(colX),
-        y: this.px(headerY),
-        w: this.px(columnWidth),
-        h: this.px(48),
+    // Add label
+    if (el.label) {
+      const textColor = style ? style.textColor : this.getColor('@colors.primary.navy');
+      slide.addText(el.label, {
+        x: this.px(el.cx - el.r),
+        y: this.px(el.cy - el.r),
+        w: this.px(el.r * 2),
+        h: this.px(el.r * 2),
         fontFace: 'Manrope',
-        fontSize: 14,
+        fontSize: 9,
         bold: true,
-        color: headerStyle.textColor,
-        align: 'center',
-        valign: 'middle'
-      });
-
-      // Flow
-      if (col.flow) {
-        this.generateFlow(slide, col.flow, colX, flowY, columnWidth);
-      }
-
-      // Annotation
-      if (col.annotation) {
-        slide.addText(col.annotation.text, {
-          x: this.px(colX),
-          y: this.px(flowY + 100),
-          w: this.px(columnWidth),
-          h: 0.3,
-          fontFace: 'Manrope',
-          fontSize: 10,
-          italic: true,
-          color: this.getColor('@colors.neutral.gray'),
-          align: 'center'
-        });
-      }
-    });
-
-    // VS divider
-    if (diagram.content.divider) {
-      const dividerX = canvas.width / 2;
-      const dividerY = flowY + 40;
-
-      slide.addShape('ellipse', {
-        x: this.px(dividerX - 24),
-        y: this.px(dividerY - 24),
-        w: this.px(48),
-        h: this.px(48),
-        fill: { color: this.getColor('@colors.neutral.pale') },
-        line: { color: this.getColor('@colors.neutral.light'), width: 2 }
-      });
-
-      slide.addText('vs', {
-        x: this.px(dividerX - 24),
-        y: this.px(dividerY - 12),
-        w: this.px(48),
-        h: this.px(24),
-        fontFace: 'Manrope',
-        fontSize: 11,
-        bold: true,
-        color: this.getColor('@colors.neutral.gray'),
+        color: textColor,
         align: 'center',
         valign: 'middle'
       });
     }
-
-    // Footer
-    slide.addText('Hudson Lab Ventures', {
-      x: 0,
-      y: this.px(canvas.height - 40),
-      w: this.px(canvas.width),
-      h: 0.3,
-      fontFace: 'Manrope',
-      fontSize: 9,
-      color: this.getColor('@colors.primary.emerald'),
-      align: 'center'
-    });
-
-    return slide;
   }
 
   /**
-   * Generate a standalone flow diagram
+   * Render a rectangle primitive
    */
-  generateFlowDiagram(pptx, diagram, canvas) {
-    const slide = pptx.addSlide();
-    const content = diagram.content;
-    const margin = canvas.margin;
+  renderRect(slide, el) {
+    const fill = el.fill ? this.getColor(el.fill) : this.getColor('@colors.neutral.pale');
+    const stroke = el.stroke ? this.getColor(el.stroke) : null;
 
-    // Title
-    if (content.title) {
-      slide.addText(content.title, {
-        x: 0.5,
-        y: 0.3,
-        w: 9,
-        h: 0.6,
-        fontFace: 'Manrope',
-        fontSize: 24,
-        bold: true,
-        color: this.getColor('@colors.primary.navy'),
-        align: 'center'
-      });
+    const shapeOptions = {
+      x: this.px(el.x),
+      y: this.px(el.y),
+      w: this.px(el.w),
+      h: this.px(el.h),
+      fill: { color: fill }
+    };
+
+    if (el.radius) {
+      shapeOptions.rectRadius = this.px(el.radius) / this.px(el.w);
     }
 
-    // Subtitle
-    if (content.subtitle) {
-      slide.addText(content.subtitle, {
-        x: 0.5,
-        y: 0.8,
-        w: 9,
-        h: 0.4,
-        fontFace: 'Manrope',
-        fontSize: 12,
-        color: this.getColor('@colors.neutral.gray'),
-        align: 'center'
-      });
+    if (stroke) {
+      shapeOptions.line = { color: stroke, width: el.strokeWidth || 1 };
     }
 
-    // Flow positioned in center
-    const flowY = content.title ? 160 : 100;
-    this.generateFlow(slide, content, margin, flowY, canvas.contentWidth);
+    slide.addShape('rect', shapeOptions);
+  }
 
-    // Footer
-    slide.addText('Hudson Lab Ventures', {
-      x: 0,
-      y: this.px(canvas.height - 40),
-      w: this.px(canvas.width),
-      h: 0.3,
-      fontFace: 'Manrope',
-      fontSize: 9,
-      color: this.getColor('@colors.primary.emerald'),
-      align: 'center'
-    });
+  /**
+   * Render a group of elements
+   */
+  renderGroup(slide, el) {
+    // PPTX doesn't support native grouping well, flatten elements
+    if (el.elements) {
+      el.elements.forEach(child => {
+        this.renderElement(slide, child);
+      });
+    }
+  }
 
-    return slide;
+  /**
+   * Render any element by type
+   */
+  renderElement(slide, el) {
+    switch (el.type) {
+      case 'box': return this.renderBox(slide, el);
+      case 'arrow': return this.renderArrow(slide, el);
+      case 'line': return this.renderLine(slide, el);
+      case 'text': return this.renderText(slide, el);
+      case 'circle': return this.renderCircle(slide, el);
+      case 'rect': return this.renderRect(slide, el);
+      case 'group': return this.renderGroup(slide, el);
+      default:
+        console.warn(`Unknown element type for PPTX: ${el.type}`);
+    }
   }
 
   /**
@@ -368,17 +292,55 @@ class PPTXGenerator {
     const canvasPreset = diagramSpec.canvas || 'diagram_standard';
     const canvas = this.getCanvas(canvasPreset);
 
-    // Route to appropriate generator
-    switch (diagramSpec.type) {
-      case 'comparison':
-        this.generateComparison(pptx, diagramSpec, canvas);
-        break;
-      case 'flow':
-        this.generateFlowDiagram(pptx, diagramSpec, canvas);
-        break;
-      default:
-        throw new Error(`Unsupported diagram type for PPTX: ${diagramSpec.type}. Supported: comparison, flow`);
+    const slide = pptx.addSlide();
+
+    // Title
+    if (diagramSpec.title) {
+      slide.addText(diagramSpec.title, {
+        x: 0.5,
+        y: 0.2,
+        w: 9,
+        h: 0.5,
+        fontFace: 'Manrope',
+        fontSize: 24,
+        bold: true,
+        color: this.getColor('@colors.primary.navy'),
+        align: 'center'
+      });
     }
+
+    // Subtitle
+    if (diagramSpec.subtitle) {
+      slide.addText(diagramSpec.subtitle, {
+        x: 0.5,
+        y: 0.65,
+        w: 9,
+        h: 0.3,
+        fontFace: 'Manrope',
+        fontSize: 12,
+        color: this.getColor('@colors.neutral.gray'),
+        align: 'center'
+      });
+    }
+
+    // Render all elements
+    if (diagramSpec.elements && Array.isArray(diagramSpec.elements)) {
+      diagramSpec.elements.forEach(el => {
+        this.renderElement(slide, el);
+      });
+    }
+
+    // Footer
+    slide.addText('Hudson Lab Ventures', {
+      x: 0,
+      y: this.px(canvas.height - 40),
+      w: this.px(canvas.width),
+      h: 0.3,
+      fontFace: 'Manrope',
+      fontSize: 9,
+      color: this.getColor('@colors.primary.emerald'),
+      align: 'center'
+    });
 
     // Save or return buffer
     if (outputPath) {

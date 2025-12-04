@@ -1,6 +1,6 @@
 /**
- * SVG Generator
- * Generates SVG from diagram specs using design tokens
+ * SVG Generator - Primitives-based
+ * Renders diagrams from element primitives using design tokens
  */
 
 const fs = require('fs');
@@ -12,11 +12,9 @@ class SVGGenerator {
     this.tokens = new TokenResolver(options.tokensPath);
     this.componentsPath = options.componentsPath || path.join(__dirname, '..', 'components.json');
     this.gridPath = options.gridPath || path.join(__dirname, '..', 'grid.json');
-    this.diagramTypesPath = options.diagramTypesPath || path.join(__dirname, '..', 'diagram-types.json');
 
     this.components = JSON.parse(fs.readFileSync(this.componentsPath, 'utf8'));
     this.grid = JSON.parse(fs.readFileSync(this.gridPath, 'utf8'));
-    this.diagramTypes = JSON.parse(fs.readFileSync(this.diagramTypesPath, 'utf8'));
   }
 
   /**
@@ -33,16 +31,15 @@ class SVGGenerator {
   }
 
   /**
-   * Resolve component styles from variants
+   * Get box style for a variant
    */
-  getBoxStyle(boxType, variant = 'default') {
-    const box = this.components.boxes[boxType] || this.components.boxes.standard;
+  getBoxStyle(variant = 'default') {
+    const box = this.components.boxes.standard;
     const variantStyle = this.components.boxVariants[variant] || this.components.boxVariants.default;
 
     return {
       width: box.width,
       height: box.height,
-      padding: box.padding,
       radius: this.tokens.resolve(box.radius),
       fill: this.tokens.resolve(variantStyle.fill),
       stroke: variantStyle.stroke === 'none' ? 'none' : this.tokens.resolve(variantStyle.stroke),
@@ -52,20 +49,20 @@ class SVGGenerator {
   }
 
   /**
-   * Get connector style
+   * Get typography style
    */
-  getConnectorStyle(connectorType = 'arrow') {
-    const connector = this.components.connectors[connectorType] || this.components.connectors.arrow;
+  getTextStyle(styleName = 'body') {
+    const scale = this.tokens.get('typography.scale');
+    const style = scale[styleName] || scale.body;
     return {
-      stroke: this.tokens.resolve(connector.stroke),
-      strokeWidth: connector.strokeWidth,
-      headSize: connector.headSize,
-      dashArray: connector.dashArray || null
+      size: style.size,
+      weight: style.weight,
+      lineHeight: style.lineHeight
     };
   }
 
   /**
-   * Generate SVG header with styles
+   * Generate SVG header
    */
   generateHeader(width, height) {
     const fontFamily = this.tokens.get('typography.family');
@@ -86,6 +83,9 @@ class SVGGenerator {
     <marker id="arrowhead-success" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="${this.tokens.get('colors.semantic.success')}" />
     </marker>
+    <marker id="arrowhead-emerald" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="${this.tokens.get('colors.primary.emerald')}" />
+    </marker>
   </defs>
 
   <!-- Background -->
@@ -94,209 +94,197 @@ class SVGGenerator {
   }
 
   /**
-   * Generate a box element
+   * Render a box primitive
    */
-  generateBox(x, y, style, label, options = {}) {
-    const { width, height, radius, fill, stroke, strokeWidth, textColor } = style;
-    const lines = label.split('\n');
-    const lineHeight = 18;
-    const startY = y + (height / 2) - ((lines.length - 1) * lineHeight / 2);
+  renderBox(el) {
+    const style = this.getBoxStyle(el.variant || 'default');
+    const w = el.w || style.width;
+    const h = el.h || style.height;
+    const x = el.x;
+    const y = el.y;
+    const radius = el.radius || style.radius;
 
     let svg = '';
 
-    // Box rectangle
-    svg += `  <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="${radius}" `;
-    svg += `fill="${fill}" `;
-    if (stroke !== 'none') {
-      svg += `stroke="${stroke}" stroke-width="${strokeWidth}" `;
+    // Rectangle
+    svg += `  <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${radius}" `;
+    svg += `fill="${style.fill}" `;
+    if (style.stroke !== 'none') {
+      svg += `stroke="${style.stroke}" stroke-width="${style.strokeWidth}" `;
     }
     svg += `/>\n`;
 
-    // Text labels
-    lines.forEach((line, i) => {
-      const textY = startY + (i * lineHeight);
-      svg += `  <text x="${x + width/2}" y="${textY}" text-anchor="middle" dominant-baseline="middle" `;
-      svg += `font-size="14" font-weight="600" fill="${textColor}">${line}</text>\n`;
-    });
+    // Label text (if provided)
+    if (el.label) {
+      const lines = el.label.split('\n');
+      const lineHeight = 18;
+      const startY = y + (h / 2) - ((lines.length - 1) * lineHeight / 2);
+
+      lines.forEach((line, i) => {
+        const textY = startY + (i * lineHeight);
+        svg += `  <text x="${x + w/2}" y="${textY}" text-anchor="middle" dominant-baseline="middle" `;
+        svg += `font-size="14" font-weight="600" fill="${style.textColor}">${this.escapeXml(line)}</text>\n`;
+      });
+    }
 
     return svg;
   }
 
   /**
-   * Generate an arrow connector
+   * Render an arrow primitive
    */
-  generateArrow(x1, y1, x2, y2, style, markerType = 'arrowhead') {
+  renderArrow(el) {
+    const [x1, y1] = el.from;
+    const [x2, y2] = el.to;
+    const color = el.color ? this.tokens.resolve(el.color) : this.tokens.get('colors.primary.navy');
+    const strokeWidth = el.strokeWidth || 2;
+    const marker = el.marker || 'arrowhead';
+
     let svg = `  <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" `;
-    svg += `stroke="${style.stroke}" stroke-width="${style.strokeWidth}" `;
-    if (style.dashArray) {
-      svg += `stroke-dasharray="${style.dashArray}" `;
+    svg += `stroke="${color}" stroke-width="${strokeWidth}" `;
+    if (el.dashed) {
+      svg += `stroke-dasharray="6,4" `;
     }
-    if (style.headSize > 0) {
-      svg += `marker-end="url(#${markerType})" `;
+    svg += `marker-end="url(#${marker})" />\n`;
+
+    return svg;
+  }
+
+  /**
+   * Render a line primitive (no arrowhead)
+   */
+  renderLine(el) {
+    const [x1, y1] = el.from;
+    const [x2, y2] = el.to;
+    const color = el.color ? this.tokens.resolve(el.color) : this.tokens.get('colors.neutral.light');
+    const strokeWidth = el.strokeWidth || 1;
+
+    let svg = `  <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" `;
+    svg += `stroke="${color}" stroke-width="${strokeWidth}" `;
+    if (el.dashed) {
+      svg += `stroke-dasharray="6,4" `;
     }
     svg += `/>\n`;
-    return svg;
-  }
-
-  /**
-   * Generate a flow diagram (horizontal or vertical sequence)
-   */
-  generateFlow(canvas, flow, startX, startY, maxWidth) {
-    let svg = '';
-    const steps = flow.steps;
-    const direction = flow.direction || 'horizontal';
-
-    // Auto-calculate box width based on available space and number of steps
-    const minConnectorGap = 20;
-    const boxHeight = 80;
-
-    // Calculate optimal box width to fit within maxWidth
-    const availableForBoxes = maxWidth - ((steps.length - 1) * minConnectorGap);
-    const calculatedBoxWidth = Math.floor(availableForBoxes / steps.length);
-    const boxWidth = Math.min(160, Math.max(80, calculatedBoxWidth)); // Clamp between 80-160
-
-    // Recalculate connector gap with actual box width
-    const totalBoxWidth = steps.length * boxWidth;
-    const remainingSpace = maxWidth - totalBoxWidth;
-    const connectorGap = steps.length > 1 ? Math.floor(remainingSpace / (steps.length - 1)) : 0;
-
-    // Center the flow within maxWidth
-    const actualTotalWidth = totalBoxWidth + ((steps.length - 1) * connectorGap);
-    const offsetX = Math.max(0, (maxWidth - actualTotalWidth) / 2);
-
-    steps.forEach((step, i) => {
-      const style = this.getBoxStyle('standard', step.variant || 'default');
-      style.width = boxWidth;
-      style.height = boxHeight;
-
-      const x = startX + offsetX + (i * (boxWidth + connectorGap));
-      const y = startY;
-
-      // Draw box
-      svg += this.generateBox(x, y, style, step.label);
-
-      // Draw connector to next box
-      if (i < steps.length - 1) {
-        const connectorStyle = this.getConnectorStyle(flow.connector || 'arrow');
-        const arrowStartX = x + boxWidth;
-        const arrowEndX = x + boxWidth + connectorGap - 5;
-        const arrowY = y + boxHeight / 2;
-
-        // Determine marker based on next step variant
-        const nextVariant = steps[i + 1].variant;
-        let markerType = 'arrowhead';
-        if (nextVariant === 'success') markerType = 'arrowhead-success';
-        else if (nextVariant === 'muted') markerType = 'arrowhead-light';
-
-        svg += this.generateArrow(arrowStartX, arrowY, arrowEndX, arrowY, connectorStyle, markerType);
-      }
-    });
 
     return svg;
   }
 
   /**
-   * Generate a comparison diagram
+   * Render a text primitive
    */
-  generateComparison(diagram, canvas) {
-    let svg = '';
-    const margin = canvas.margin;
-    const contentWidth = canvas.contentWidth;
-    const columns = diagram.content.columns;
+  renderText(el) {
+    const styleName = el.style || 'body';
+    const textStyle = this.getTextStyle(styleName);
+    const color = el.color ? this.tokens.resolve(el.color) : this.tokens.get('colors.primary.navy');
+    const align = el.align || 'middle';
+    const anchor = align === 'left' ? 'start' : align === 'right' ? 'end' : 'middle';
 
-    // Title
-    if (diagram.content.title) {
-      const titleY = 60;
-      svg += `  <text x="${canvas.width/2}" y="${titleY}" text-anchor="middle" `;
-      svg += `font-size="28" font-weight="700" fill="${this.tokens.get('colors.primary.navy')}">${diagram.content.title}</text>\n`;
+    let svg = `  <text x="${el.x}" y="${el.y}" text-anchor="${anchor}" `;
+    svg += `font-size="${textStyle.size}" font-weight="${textStyle.weight}" fill="${color}"`;
+    if (el.italic) svg += ` font-style="italic"`;
+    svg += `>${this.escapeXml(el.content)}</text>\n`;
+
+    return svg;
+  }
+
+  /**
+   * Render a circle primitive
+   */
+  renderCircle(el) {
+    const style = el.variant ? this.getBoxStyle(el.variant) : null;
+    const fill = el.fill ? this.tokens.resolve(el.fill) : (style ? style.fill : this.tokens.get('colors.neutral.pale'));
+    const stroke = el.stroke ? this.tokens.resolve(el.stroke) : (style && style.stroke !== 'none' ? style.stroke : 'none');
+    const strokeWidth = el.strokeWidth || 2;
+
+    let svg = `  <circle cx="${el.cx}" cy="${el.cy}" r="${el.r}" fill="${fill}"`;
+    if (stroke !== 'none') {
+      svg += ` stroke="${stroke}" stroke-width="${strokeWidth}"`;
     }
+    svg += `/>\n`;
 
-    // Column headers and flows
-    const columnWidth = (contentWidth - 80) / 2; // Gap between columns
-    const headerY = 120;
-    const flowY = 200;
-
-    columns.forEach((col, i) => {
-      const colX = margin + (i * (columnWidth + 80));
-
-      // Header box
-      const headerVariant = col.header.variant || 'primary';
-      const headerStyle = this.getBoxStyle('wide', headerVariant);
-      headerStyle.width = columnWidth;
-      headerStyle.height = 48;
-
-      svg += `  <rect x="${colX}" y="${headerY}" width="${columnWidth}" height="48" rx="8" `;
-      svg += `fill="${headerStyle.fill}" `;
-      if (headerStyle.stroke !== 'none') {
-        svg += `stroke="${headerStyle.stroke}" stroke-width="2" `;
-      }
-      svg += `/>\n`;
-
-      svg += `  <text x="${colX + columnWidth/2}" y="${headerY + 30}" text-anchor="middle" `;
-      svg += `font-size="18" font-weight="700" fill="${headerStyle.textColor}">${col.header.text}</text>\n`;
-
-      // Flow within column
-      if (col.flow) {
-        svg += this.generateFlow(canvas, col.flow, colX, flowY, columnWidth);
-      }
-
-      // Annotation
-      if (col.annotation) {
-        const annotationY = flowY + 120;
-        svg += `  <text x="${colX + columnWidth/2}" y="${annotationY}" text-anchor="middle" `;
-        svg += `font-size="13" font-style="italic" fill="${this.tokens.get('colors.neutral.gray')}">${col.annotation.text}</text>\n`;
-      }
-    });
-
-    // VS divider
-    if (diagram.content.divider) {
-      const dividerX = canvas.width / 2;
-      const dividerY = flowY + 40;
-
-      svg += `  <circle cx="${dividerX}" cy="${dividerY}" r="24" fill="${this.tokens.get('colors.neutral.pale')}" stroke="${this.tokens.get('colors.neutral.light')}" stroke-width="2"/>\n`;
-      svg += `  <text x="${dividerX}" y="${dividerY + 5}" text-anchor="middle" font-size="14" font-weight="700" fill="${this.tokens.get('colors.neutral.gray')}">vs</text>\n`;
+    // Label inside circle
+    if (el.label) {
+      const textColor = style ? style.textColor : this.tokens.get('colors.primary.navy');
+      svg += `  <text x="${el.cx}" y="${el.cy}" text-anchor="middle" dominant-baseline="middle" `;
+      svg += `font-size="12" font-weight="600" fill="${textColor}">${this.escapeXml(el.label)}</text>\n`;
     }
 
     return svg;
+  }
+
+  /**
+   * Render a rectangle primitive (simpler than box, no variant)
+   */
+  renderRect(el) {
+    const fill = el.fill ? this.tokens.resolve(el.fill) : this.tokens.get('colors.neutral.pale');
+    const stroke = el.stroke ? this.tokens.resolve(el.stroke) : 'none';
+    const radius = el.radius || 0;
+
+    let svg = `  <rect x="${el.x}" y="${el.y}" width="${el.w}" height="${el.h}" `;
+    if (radius) svg += `rx="${radius}" `;
+    svg += `fill="${fill}"`;
+    if (stroke !== 'none') {
+      svg += ` stroke="${stroke}" stroke-width="${el.strokeWidth || 1}"`;
+    }
+    svg += `/>\n`;
+
+    return svg;
+  }
+
+  /**
+   * Render a group of elements
+   */
+  renderGroup(el) {
+    let svg = `  <g`;
+    if (el.transform) svg += ` transform="${el.transform}"`;
+    svg += `>\n`;
+
+    if (el.elements) {
+      el.elements.forEach(child => {
+        svg += this.renderElement(child);
+      });
+    }
+
+    svg += `  </g>\n`;
+    return svg;
+  }
+
+  /**
+   * Render any element by type
+   */
+  renderElement(el) {
+    switch (el.type) {
+      case 'box': return this.renderBox(el);
+      case 'arrow': return this.renderArrow(el);
+      case 'line': return this.renderLine(el);
+      case 'text': return this.renderText(el);
+      case 'circle': return this.renderCircle(el);
+      case 'rect': return this.renderRect(el);
+      case 'group': return this.renderGroup(el);
+      default:
+        console.warn(`Unknown element type: ${el.type}`);
+        return '';
+    }
+  }
+
+  /**
+   * Escape XML special characters
+   */
+  escapeXml(str) {
+    if (!str) return '';
+    return str.toString()
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
   }
 
   /**
    * Generate footer/branding
    */
   generateFooter(canvas) {
-    let svg = '';
     const y = canvas.height - 30;
-
-    svg += `  <text x="${canvas.width/2}" y="${y}" text-anchor="middle" `;
-    svg += `font-size="11" font-weight="500" fill="${this.tokens.get('colors.primary.emerald')}">Hudson Lab Ventures</text>\n`;
-
-    return svg;
-  }
-
-  /**
-   * Generate a standalone flow diagram with title
-   */
-  generateFlowDiagram(diagram, canvas) {
-    let svg = '';
-    const content = diagram.content;
-
-    // Title
-    if (content.title) {
-      svg += `  <text x="${canvas.width/2}" y="60" text-anchor="middle" `;
-      svg += `font-size="28" font-weight="700" fill="${this.tokens.get('colors.primary.navy')}">${content.title}</text>\n`;
-    }
-
-    // Subtitle/description
-    if (content.subtitle) {
-      svg += `  <text x="${canvas.width/2}" y="90" text-anchor="middle" `;
-      svg += `font-size="14" font-weight="400" fill="${this.tokens.get('colors.neutral.gray')}">${content.subtitle}</text>\n`;
-    }
-
-    // Flow positioned in center
-    const flowY = content.title ? 160 : 100;
-    svg += this.generateFlow(canvas, content, canvas.margin, flowY, canvas.contentWidth);
-
-    return svg;
+    return `  <text x="${canvas.width/2}" y="${y}" text-anchor="middle" font-size="11" font-weight="500" fill="${this.tokens.get('colors.primary.emerald')}">Hudson Lab Ventures</text>\n`;
   }
 
   /**
@@ -308,16 +296,21 @@ class SVGGenerator {
 
     let svg = this.generateHeader(canvas.width, canvas.height);
 
-    // Route to appropriate generator based on diagram type
-    switch (diagramSpec.type) {
-      case 'comparison':
-        svg += this.generateComparison(diagramSpec, canvas);
-        break;
-      case 'flow':
-        svg += this.generateFlowDiagram(diagramSpec, canvas);
-        break;
-      default:
-        throw new Error(`Unsupported diagram type: ${diagramSpec.type}. Supported: comparison, flow`);
+    // Title
+    if (diagramSpec.title) {
+      svg += `  <text x="${canvas.width/2}" y="50" text-anchor="middle" font-size="28" font-weight="700" fill="${this.tokens.get('colors.primary.navy')}">${this.escapeXml(diagramSpec.title)}</text>\n`;
+    }
+
+    // Subtitle
+    if (diagramSpec.subtitle) {
+      svg += `  <text x="${canvas.width/2}" y="80" text-anchor="middle" font-size="14" font-weight="400" fill="${this.tokens.get('colors.neutral.gray')}">${this.escapeXml(diagramSpec.subtitle)}</text>\n`;
+    }
+
+    // Render all elements
+    if (diagramSpec.elements && Array.isArray(diagramSpec.elements)) {
+      diagramSpec.elements.forEach(el => {
+        svg += this.renderElement(el);
+      });
     }
 
     svg += this.generateFooter(canvas);
