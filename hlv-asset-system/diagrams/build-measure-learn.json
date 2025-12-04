@@ -1,0 +1,37 @@
+{
+  "$schema": "hlv-diagram-v1",
+  "meta": {
+    "id": "build-measure-learn",
+    "name": "Build Measure Learn",
+    "description": "Sequential process showing steps in order",
+    "created": "2025-12-04"
+  },
+  "type": "flow",
+  "variant": "horizontal",
+  "canvas": "diagram_wide",
+  "content": {
+    "title": "Flow Title",
+    "steps": [
+      {
+        "id": "step-1",
+        "label": "Step 1",
+        "variant": "default"
+      },
+      {
+        "id": "step-2",
+        "label": "Step 2",
+        "variant": "default"
+      },
+      {
+        "id": "step-3",
+        "label": "Step 3",
+        "variant": "primary"
+      }
+    ]
+  },
+  "export": {
+    "svg": true,
+    "png": true,
+    "pptx": true
+  }
+}
