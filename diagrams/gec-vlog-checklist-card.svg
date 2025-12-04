@@ -1,0 +1,69 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap');
+      .title { font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 700; fill: #182D53; }
+      .subtitle { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 500; fill: #6B7280; }
+      .heading { font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700; fill: #182D53; }
+      .body { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 400; fill: #374151; }
+      .time { font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 600; fill: #EC4899; }
+      .small { font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 400; fill: #6B7280; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="500" fill="white"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="400" height="60" fill="#EC4899"/>
+  <text x="200" y="32" text-anchor="middle" class="title" fill="white">📹 Vlog Recording Checklist</text>
+  <text x="200" y="48" text-anchor="middle" class="subtitle" fill="#FBCFE8">2-3 minutes total</text>
+  
+  <!-- Before Recording -->
+  <rect x="16" y="76" width="368" height="100" rx="8" fill="#FDF2F8"/>
+  <text x="32" y="96" class="heading">BEFORE YOU RECORD</text>
+  
+  <text x="32" y="116" class="body">□ Script/outline ready (don't read word-for-word)</text>
+  <text x="32" y="132" class="body">□ Good lighting (face a window or lamp)</text>
+  <text x="32" y="148" class="body">□ Quiet space (no background noise)</text>
+  <text x="32" y="164" class="body">□ Clean background (or use blur)</text>
+  
+  <!-- Content Sections -->
+  <rect x="16" y="186" width="368" height="200" rx="8" fill="#F3F4F6"/>
+  <text x="32" y="206" class="heading">WHAT TO INCLUDE</text>
+  
+  <!-- Section 1 -->
+  <rect x="24" y="216" width="352" height="40" rx="6" fill="white" stroke="#E5E7EB"/>
+  <text x="36" y="232" class="body">1. Show your world</text>
+  <text x="36" y="246" class="small">Something iconic from your city/school</text>
+  <text x="356" y="236" text-anchor="end" class="time">30-60s</text>
+  
+  <!-- Section 2 -->
+  <rect x="24" y="262" width="352" height="40" rx="6" fill="white" stroke="#E5E7EB"/>
+  <text x="36" y="278" class="body">2. Stakeholder map overview</text>
+  <text x="36" y="292" class="small">Show the map, explain key relationships</text>
+  <text x="356" y="282" text-anchor="end" class="time">30-60s</text>
+  
+  <!-- Section 3 -->
+  <rect x="24" y="308" width="352" height="40" rx="6" fill="white" stroke="#E5E7EB"/>
+  <text x="36" y="324" class="body">3. Top 3 problems identified</text>
+  <text x="36" y="338" class="small">Be specific about each problem</text>
+  <text x="356" y="328" text-anchor="end" class="time">60s</text>
+  
+  <!-- Section 4 -->
+  <rect x="24" y="354" width="352" height="40" rx="6" fill="white" stroke="#E5E7EB"/>
+  <text x="36" y="370" class="body">4. What surprised you</text>
+  <text x="36" y="384" class="small">Honest reflection on what you learned</text>
+  <text x="356" y="374" text-anchor="end" class="time">30s</text>
+  
+  <!-- After Recording -->
+  <rect x="16" y="396" width="368" height="88" rx="8" fill="#ECFDF5"/>
+  <text x="32" y="416" class="heading">BEFORE SUBMITTING</text>
+  
+  <text x="32" y="436" class="body">□ Watch it back — is audio clear?</text>
+  <text x="32" y="452" class="body">□ Under 3 minutes?</text>
+  <text x="32" y="468" class="body">□ Posted to Padlet with school name in title?</text>
+  
+  <!-- Footer -->
+  <text x="200" y="492" text-anchor="middle" class="small">GEC 2025-2026 | Vlog #1 Due: Nov 25</text>
+</svg>
