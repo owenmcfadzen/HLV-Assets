@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap');
+      text { font-family: 'Manrope', system-ui, sans-serif; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#182D53" />
+    </marker>
+    <marker id="arrowhead-light" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#6B7280" />
+    </marker>
+    <marker id="arrowhead-success" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10B981" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#FFFFFF"/>
+  <text x="600" y="60" text-anchor="middle" font-size="28" font-weight="700" fill="#182D53">Two Paths to Solutions</text>
+  <rect x="48" y="120" width="512" height="48" rx="8" fill="#FEF2F2" stroke="#EF4444" stroke-width="2" />
+  <text x="304" y="150" text-anchor="middle" font-size="18" font-weight="700" fill="#374151">The Direct Path</text>
+  <rect x="48" y="200" width="160" height="80" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1" />
+  <text x="128" y="240" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="600" fill="#374151">Problem</text>
+  <line x1="208" y1="240" x2="395" y2="240" stroke="#182D53" stroke-width="2" marker-end="url(#arrowhead-light)" />
+  <rect x="400" y="200" width="160" height="80" rx="8" fill="#F3F4F6" />
+  <text x="480" y="240" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="600" fill="#6B7280">Solution</text>
+  <text x="304" y="320" text-anchor="middle" font-size="13" font-style="italic" fill="#6B7280">Solves the wrong problem well</text>
+  <rect x="640" y="120" width="512" height="48" rx="8" fill="#ECFDF5" stroke="#10B981" stroke-width="2" />
+  <text x="896" y="150" text-anchor="middle" font-size="18" font-weight="700" fill="#374151">The Reframing Path</text>
+  <rect x="641" y="200" width="86" height="80" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1" />
+  <text x="684" y="240" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="600" fill="#374151">Problem</text>
+  <line x1="727" y1="240" x2="742" y2="240" stroke="#182D53" stroke-width="2" marker-end="url(#arrowhead)" />
+  <rect x="747" y="200" width="86" height="80" rx="8" fill="#ECFDF5" stroke="#00D866" stroke-width="2" />
+  <text x="790" y="240" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="600" fill="#374151">Reframe</text>
+  <line x1="833" y1="240" x2="848" y2="240" stroke="#182D53" stroke-width="2" marker-end="url(#arrowhead)" />
+  <rect x="853" y="200" width="86" height="80" rx="8" fill="#ECFDF5" stroke="#00D866" stroke-width="2" />
+  <text x="896" y="240" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="600" fill="#374151">Reframe</text>
+  <line x1="939" y1="240" x2="954" y2="240" stroke="#182D53" stroke-width="2" marker-end="url(#arrowhead)" />
+  <rect x="959" y="200" width="86" height="80" rx="8" fill="#182D53" />
+  <text x="1002" y="231" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="600" fill="#FFFFFF">Better</text>
+  <text x="1002" y="249" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="600" fill="#FFFFFF">Problem</text>
+  <line x1="1045" y1="240" x2="1060" y2="240" stroke="#182D53" stroke-width="2" marker-end="url(#arrowhead-success)" />
+  <rect x="1065" y="200" width="86" height="80" rx="8" fill="#ECFDF5" stroke="#10B981" stroke-width="1" />
+  <text x="1108" y="240" text-anchor="middle" dominant-baseline="middle" font-size="14" font-weight="600" fill="#374151">Solution</text>
+  <text x="896" y="320" text-anchor="middle" font-size="13" font-style="italic" fill="#6B7280">Finds the right problem first</text>
+  <circle cx="600" cy="240" r="24" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2"/>
+  <text x="600" y="245" text-anchor="middle" font-size="14" font-weight="700" fill="#6B7280">vs</text>
+  <text x="600" y="570" text-anchor="middle" font-size="11" font-weight="500" fill="#00D866">Hudson Lab Ventures</text>
+</svg>

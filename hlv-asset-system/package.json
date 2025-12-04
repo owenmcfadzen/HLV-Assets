@@ -1,0 +1,22 @@
+{
+  "name": "hlv-asset-system",
+  "version": "1.0.0",
+  "description": "Token-driven asset generation for HLV/GEC curriculum",
+  "main": "cli.js",
+  "bin": {
+    "hlv-assets": "./cli.js"
+  },
+  "scripts": {
+    "build": "node cli.js build-all",
+    "build:diagram": "node cli.js build",
+    "verify": "node cli.js verify",
+    "list": "node cli.js list"
+  },
+  "keywords": ["design-system", "svg", "pptx", "diagram"],
+  "author": "HLV",
+  "license": "ISC",
+  "dependencies": {
+    "pptxgenjs": "^4.0.1",
+    "sharp": "^0.34.5"
+  }
+}
