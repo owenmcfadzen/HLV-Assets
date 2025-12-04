@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap');
+      .title { font-family: 'Manrope', system-ui, sans-serif; font-size: 24px; font-weight: 700; fill: #182D53; }
+      .subtitle { font-family: 'Manrope', system-ui, sans-serif; font-size: 14px; font-weight: 500; fill: #6B7280; }
+      .heading { font-family: 'Manrope', system-ui, sans-serif; font-size: 16px; font-weight: 700; fill: #FFFFFF; }
+      .label { font-family: 'Manrope', system-ui, sans-serif; font-size: 13px; font-weight: 500; fill: #374151; }
+      .labelBold { font-family: 'Manrope', system-ui, sans-serif; font-size: 14px; font-weight: 600; fill: #182D53; }
+      .labelSm { font-family: 'Manrope', system-ui, sans-serif; font-size: 11px; font-weight: 400; fill: #6B7280; }
+      .example { font-family: 'Manrope', system-ui, sans-serif; font-size: 12px; font-weight: 400; fill: #374151; font-style: italic; }
+      .tag { font-family: 'Manrope', system-ui, sans-serif; font-size: 10px; font-weight: 600; fill: #FFFFFF; }
+      .caption { font-family: 'Manrope', system-ui, sans-serif; font-size: 11px; font-weight: 500; fill: #6B7280; }
+      .danger { font-family: 'Manrope', system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: #DC2626; }
+      .success { font-family: 'Manrope', system-ui, sans-serif; font-size: 11px; font-weight: 600; fill: #059669; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" class="title">Symptom vs Root Cause</text>
+  <text x="400" y="58" text-anchor="middle" class="subtitle">Why reframing matters — treating symptoms doesn't solve problems</text>
+  
+  <!-- Iceberg visual -->
+  <!-- Water line -->
+  <line x1="100" y1="200" x2="700" y2="200" stroke="#3B82F6" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="720" y="204" class="labelSm" style="fill: #3B82F6;">Surface</text>
+  
+  <!-- Above water - Symptom -->
+  <g transform="translate(250, 90)">
+    <!-- Iceberg tip -->
+    <polygon points="150,0 250,110 50,110" fill="#E5E7EB" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="150" y="60" text-anchor="middle" class="labelBold">SYMPTOM</text>
+    <text x="150" y="80" text-anchor="middle" class="labelSm">What you see first</text>
+  </g>
+  
+  <!-- Below water - Root Cause -->
+  <g transform="translate(150, 200)">
+    <!-- Iceberg body (much larger) -->
+    <polygon points="200,0 350,250 50,250" fill="#182D53" stroke="#182D53" stroke-width="1"/>
+    <text x="200" y="80" text-anchor="middle" class="heading">ROOT CAUSE</text>
+    <text x="200" y="105" text-anchor="middle" style="font-family: 'Manrope', sans-serif; font-size: 12px; fill: #94A3B8;">The real problem beneath</text>
+    <text x="200" y="130" text-anchor="middle" style="font-family: 'Manrope', sans-serif; font-size: 11px; fill: #64748B;">Often hidden, systemic,</text>
+    <text x="200" y="148" text-anchor="middle" style="font-family: 'Manrope', sans-serif; font-size: 11px; fill: #64748B;">or uncomfortable to admit</text>
+  </g>
+  
+  <!-- Left side: Symptom Treatment -->
+  <g transform="translate(40, 110)">
+    <rect x="0" y="0" width="160" height="70" rx="8" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+    <text x="80" y="25" text-anchor="middle" class="danger">✗ Treating Symptoms</text>
+    <text x="80" y="45" text-anchor="middle" class="labelSm">Quick fixes that don't last</text>
+    <text x="80" y="60" text-anchor="middle" class="labelSm">Problem keeps returning</text>
+  </g>
+  
+  <!-- Right side: Root Cause Treatment -->
+  <g transform="translate(600, 300)">
+    <rect x="0" y="0" width="160" height="70" rx="8" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+    <text x="80" y="25" text-anchor="middle" class="success">✓ Solving Root Cause</text>
+    <text x="80" y="45" text-anchor="middle" class="labelSm">Lasting change</text>
+    <text x="80" y="60" text-anchor="middle" class="labelSm">Real impact created</text>
+  </g>
+  
+  <!-- Connector arrows -->
+  <path d="M 120 180 Q 180 160 230 155" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,3"/>
+  <path d="M 600 335 Q 500 340 400 360" fill="none" stroke="#00D866" stroke-width="2"/>
+  
+  <!-- Example section -->
+  <rect x="60" y="420" width="680" height="55" rx="8" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="80" y="442" class="labelBold">Example:</text>
+  <text x="155" y="442" class="example">Symptom: "The elevator is too slow"</text>
+  <text x="415" y="442" class="label">→</text>
+  <text x="435" y="442" class="example">Root Cause: "People hate waiting"</text>
+  <text x="80" y="462" class="danger">✗ Fix: Faster elevator ($$$)</text>
+  <text x="435" y="462" class="success">✓ Fix: Add mirrors (cheap, works)</text>
+  
+  <!-- Caption -->
+  <text x="400" y="495" text-anchor="middle" class="caption">Reframing helps you dive below the surface to find what's really worth solving</text>
+</svg>
