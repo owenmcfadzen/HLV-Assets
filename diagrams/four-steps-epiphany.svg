@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" style="font-family: Manrope, system-ui, sans-serif;">
+  <text x="450" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#182D53">Four Steps to the Epiphany</text>
+  <text x="450" y="65" text-anchor="middle" font-size="14" font-weight="500" fill="#6B7280">Steve Blank's Customer Development Process</text>
+  
+  <!-- Phase brackets -->
+  <rect x="60" y="95" width="360" height="24" rx="4" fill="#182D53"/>
+  <text x="240" y="112" text-anchor="middle" font-size="11" font-weight="600" fill="white">PRODUCT/MARKET FIT</text>
+  
+  <rect x="440" y="95" width="170" height="24" rx="4" fill="#6366F1"/>
+  <text x="525" y="112" text-anchor="middle" font-size="11" font-weight="600" fill="white">MAXIMIZE PROFIT</text>
+  
+  <rect x="630" y="95" width="170" height="24" rx="4" fill="#00D866"/>
+  <text x="715" y="112" text-anchor="middle" font-size="11" font-weight="600" fill="white">SCALE UP</text>
+  
+  <!-- Step 1 -->
+  <rect x="80" y="140" width="170" height="140" rx="8" fill="white" stroke="#182D53" stroke-width="2"/>
+  <circle cx="165" cy="175" r="24" fill="#182D53"/>
+  <text x="165" y="183" text-anchor="middle" font-size="20" font-weight="700" fill="white">1</text>
+  <text x="165" y="210" text-anchor="middle" font-size="14" font-weight="600" fill="#182D53">Customer</text>
+  <text x="165" y="228" text-anchor="middle" font-size="14" font-weight="600" fill="#182D53">Discovery</text>
+  <text x="165" y="260" text-anchor="middle" font-size="12" fill="#6B7280">Find who has the problem</text>
+  
+  <!-- Step 2 -->
+  <rect x="270" y="140" width="170" height="140" rx="8" fill="white" stroke="#182D53" stroke-width="2"/>
+  <circle cx="355" cy="175" r="24" fill="#182D53"/>
+  <text x="355" y="183" text-anchor="middle" font-size="20" font-weight="700" fill="white">2</text>
+  <text x="355" y="210" text-anchor="middle" font-size="14" font-weight="600" fill="#182D53">Customer</text>
+  <text x="355" y="228" text-anchor="middle" font-size="14" font-weight="600" fill="#182D53">Validation</text>
+  <text x="355" y="260" text-anchor="middle" font-size="12" fill="#6B7280">Prove they will pay</text>
+  
+  <!-- Step 3 -->
+  <rect x="460" y="140" width="170" height="140" rx="8" fill="white" stroke="#6366F1" stroke-width="2"/>
+  <circle cx="545" cy="175" r="24" fill="#6366F1"/>
+  <text x="545" y="183" text-anchor="middle" font-size="20" font-weight="700" fill="white">3</text>
+  <text x="545" y="210" text-anchor="middle" font-size="14" font-weight="600" fill="#182D53">Customer</text>
+  <text x="545" y="228" text-anchor="middle" font-size="14" font-weight="600" fill="#182D53">Creation</text>
+  <text x="545" y="260" text-anchor="middle" font-size="12" fill="#6B7280">Create end-user demand</text>
+  
+  <!-- Step 4 -->
+  <rect x="650" y="140" width="170" height="140" rx="8" fill="white" stroke="#00D866" stroke-width="2"/>
+  <circle cx="735" cy="175" r="24" fill="#00D866"/>
+  <text x="735" y="183" text-anchor="middle" font-size="20" font-weight="700" fill="white">4</text>
+  <text x="735" y="210" text-anchor="middle" font-size="14" font-weight="600" fill="#182D53">Company</text>
+  <text x="735" y="228" text-anchor="middle" font-size="14" font-weight="600" fill="#182D53">Building</text>
+  <text x="735" y="260" text-anchor="middle" font-size="12" fill="#6B7280">Scale the organization</text>
+  
+  <!-- Iteration arc -->
+  <path d="M 165 285 Q 165 330 260 330 Q 355 330 355 285" fill="none" stroke="#182D53" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="260" y="355" text-anchor="middle" font-size="11" font-weight="500" fill="#182D53">Iterate until validated</text>
+  
+  <text x="450" y="385" text-anchor="middle" font-size="11" font-weight="500" fill="#6B7280">From "The Four Steps to the Epiphany" by Steve Blank — Focus on the first 100 days</text>
+</svg>
