@@ -154,12 +154,18 @@ function gridToPixels(grid, canvasConfig, gridConfig) {
 
 /**
  * Convert grid column/row to pixel coordinates (for shapes with point arrays)
- * @param {object} point - Point with col and row
+ * Supports both grid-based (col/row) and absolute (x/y) positioning
+ * @param {object} point - Point with col/row OR x/y
  * @param {object} canvasConfig - Canvas configuration
  * @param {object} gridConfig - Grid configuration
  * @returns {object} { x, y } in pixels
  */
 function gridPointToPixels(point, canvasConfig, gridConfig) {
+  // If point has absolute x/y coordinates, use them directly
+  if (point.x !== undefined && point.y !== undefined) {
+    return { x: point.x, y: point.y };
+  }
+
   const { width: canvasWidth, height: canvasHeight } = canvasConfig;
   const { columns, rows, margin, gutter } = gridConfig;
 
@@ -187,6 +193,33 @@ function gridPointToPixels(point, canvasConfig, gridConfig) {
   const y = margin + (wholeRow * (cellHeight + gutter)) + (fracRow * cellHeight);
 
   return { x, y };
+}
+
+/**
+ * Convert position to pixels - handles both grid and absolute positioning
+ * @param {object} positionSpec - Either { grid: {...} } or { position: { x, y } }
+ * @param {object} canvasConfig - Canvas configuration
+ * @param {object} gridConfig - Grid configuration
+ * @returns {object} { x, y, width, height } in pixels
+ */
+function positionToPixels(positionSpec, canvasConfig, gridConfig) {
+  // Absolute positioning
+  if (positionSpec.position) {
+    return {
+      x: positionSpec.position.x,
+      y: positionSpec.position.y,
+      width: positionSpec.size?.width || 100,
+      height: positionSpec.size?.height || 40
+    };
+  }
+
+  // Grid-based positioning
+  if (positionSpec.grid) {
+    return gridToPixels(positionSpec.grid, canvasConfig, gridConfig);
+  }
+
+  // Fallback
+  return { x: 0, y: 0, width: 100, height: 40 };
 }
 
 /**
@@ -330,6 +363,7 @@ module.exports = {
   resolveSpacing,
   gridToPixels,
   gridPointToPixels,
+  positionToPixels,
   resolveTextStyle,
   resolveComponentStyle,
   getAnchorPoint,
