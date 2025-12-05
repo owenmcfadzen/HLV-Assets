@@ -52,19 +52,19 @@
       <circle cx="0" cy="0" r="8" fill="#182D53"/>
     </g>
     <g id="start-label" transform="translate(330, 930)">
-      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#1F2937">Problem</text>
+      <text x="0" y="0" text-anchor="start" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#1F2937">Problem</text>
     </g>
     <g id="mid-marker" transform="translate(860, 930)">
       <rect x="-8" y="-8" width="16" height="16" fill="#22C55E" stroke="#D1D5DB" stroke-width="1"/>
     </g>
     <g id="mid-label" transform="translate(890, 930)">
-      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#1F2937">Opportunity (POV)</text>
+      <text x="0" y="0" text-anchor="start" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#1F2937">Opportunity (POV)</text>
     </g>
     <g id="end-marker" transform="translate(1500, 930)">
       <polygon points="0,-8 8,0 0,8 -8,0" fill="#059669"/>
     </g>
     <g id="end-label" transform="translate(1530, 930)">
-      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#1F2937">LPP</text>
+      <text x="0" y="0" text-anchor="start" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#1F2937">LPP</text>
     </g>
   </g>
   <g id="annotations">
