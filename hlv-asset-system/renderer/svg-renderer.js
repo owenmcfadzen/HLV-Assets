@@ -230,7 +230,8 @@ function renderNode(node, canvasConfig, gridConfig, tokens) {
 
   // Render label
   if (node.label) {
-    parts.push(renderText(node.label, textStyle, type));
+    const align = node.align || 'middle';
+    parts.push(renderText(node.label, textStyle, type, 0, align));
   }
 
   // Render sublabel if present
@@ -323,7 +324,7 @@ function renderPill(size, style) {
 /**
  * Render text
  */
-function renderText(text, textStyle, nodeType, yOffset = 0) {
+function renderText(text, textStyle, nodeType, yOffset = 0, align = 'middle') {
   const {
     fontFamily,
     fontSize,
@@ -339,8 +340,9 @@ function renderText(text, textStyle, nodeType, yOffset = 0) {
   }
 
   const letterSpacingAttr = letterSpacing && letterSpacing !== '0' ? ` letter-spacing="${letterSpacing}"` : '';
+  const textAnchor = align === 'left' ? 'start' : align === 'right' ? 'end' : 'middle';
 
-  return `      <text x="0" y="${yOffset}" text-anchor="middle" dominant-baseline="central" font-family="${fontFamily}" font-size="${fontSize}" font-weight="${fontWeight}" fill="${fill}"${letterSpacingAttr}>${escapeXml(displayText)}</text>`;
+  return `      <text x="0" y="${yOffset}" text-anchor="${textAnchor}" dominant-baseline="central" font-family="${fontFamily}" font-size="${fontSize}" font-weight="${fontWeight}" fill="${fill}"${letterSpacingAttr}>${escapeXml(displayText)}</text>`;
 }
 
 /**
