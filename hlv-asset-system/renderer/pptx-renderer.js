@@ -9,6 +9,7 @@ const {
   resolveStrokeWidth,
   gridToPixels,
   gridPointToPixels,
+  positionToPixels,
   resolveTextStyle,
   resolveComponentStyle,
   getAnchorPoint
@@ -69,7 +70,7 @@ async function renderPPTX(layout, tokens, outputPath) {
   const nodeBounds = {};
   if (layout.nodes) {
     for (const node of layout.nodes) {
-      const pos = gridToPixels(node.grid, canvasConfig, gridConfig);
+      const pos = positionToPixels(node, canvasConfig, gridConfig);
       const size = getNodeSize(node, pos, tokens);
       nodeBounds[node.id] = {
         x: pos.x,
@@ -136,7 +137,7 @@ function getNodeSize(node, pos, tokens) {
  * Render a node to PPTX
  */
 function renderPptxNode(slide, node, canvasConfig, gridConfig, tokens) {
-  const pos = gridToPixels(node.grid, canvasConfig, gridConfig);
+  const pos = positionToPixels(node, canvasConfig, gridConfig);
   const size = getNodeSize(node, pos, tokens);
   const type = node.type || 'box';
 
