@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920 1080" width="1920" height="1080">
   <defs>
-    <linearGradient id="problemGradient" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stop-color="#DCFCE7"/>
-      <stop offset="100%" stop-color="#BBF7D0"/>
+    <linearGradient id="problemGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#BBF7D0"/>
+      <stop offset="50%" stop-color="#86EFAC"/>
+      <stop offset="100%" stop-color="#4ADE80"/>
     </linearGradient>
-    <linearGradient id="solutionGradient" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stop-color="#E0F2FE"/>
-      <stop offset="100%" stop-color="#BAE6FD"/>
+    <linearGradient id="solutionGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#BAE6FD"/>
+      <stop offset="50%" stop-color="#7DD3FC"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
     </linearGradient>
     <marker id="arrow-arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,12 L12,6 z" fill="#182D53"/>
@@ -32,49 +34,49 @@
   </g>
   <g id="nodes">
     <g id="problem-space-label" transform="translate(570, 200)">
-      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="24" font-weight="600" fill="#4B5563">Problem Space</text>
+      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="32" font-weight="600" fill="#182D53" letter-spacing="-0.01em">Problem Space</text>
     </g>
     <g id="solution-space-label" transform="translate(1290, 200)">
-      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="24" font-weight="600" fill="#4B5563">Solution Space</text>
+      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="32" font-weight="600" fill="#182D53" letter-spacing="-0.01em">Solution Space</text>
     </g>
     <g id="discover" transform="translate(390, 540)">
-      <rect x="-70" y="-22" width="140" height="44" fill="#182D53" rx="22"/>
-      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" letter-spacing="0.02em">DISCOVER</text>
+      <rect x="-80" y="-24" width="160" height="48" fill="#182D53" rx="24"/>
+      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#FFFFFF" letter-spacing="0.02em">DISCOVER</text>
     </g>
     <g id="define" transform="translate(750, 540)">
-      <rect x="-70" y="-22" width="140" height="44" fill="#182D53" rx="22"/>
-      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" letter-spacing="0.02em">DEFINE</text>
+      <rect x="-80" y="-24" width="160" height="48" fill="#182D53" rx="24"/>
+      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#FFFFFF" letter-spacing="0.02em">DEFINE</text>
     </g>
     <g id="develop" transform="translate(1110, 540)">
-      <rect x="-70" y="-22" width="140" height="44" fill="#0EA5E9" rx="22"/>
-      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" letter-spacing="0.02em">DEVELOP</text>
+      <rect x="-80" y="-24" width="160" height="48" fill="#0EA5E9" rx="24"/>
+      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#FFFFFF" letter-spacing="0.02em">DEVELOP</text>
     </g>
     <g id="deliver" transform="translate(1470, 540)">
-      <rect x="-70" y="-22" width="140" height="44" fill="#0EA5E9" rx="22"/>
-      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" letter-spacing="0.02em">DELIVER</text>
+      <rect x="-80" y="-24" width="160" height="48" fill="#0EA5E9" rx="24"/>
+      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#FFFFFF" letter-spacing="0.02em">DELIVER</text>
     </g>
     <g id="start-marker" transform="translate(300, 930)">
-      <circle cx="0" cy="0" r="8" fill="#182D53"/>
+      <circle cx="0" cy="0" r="10" fill="#182D53"/>
     </g>
-    <g id="start-label" transform="translate(330, 930)">
-      <text x="0" y="0" text-anchor="start" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#1F2937">Problem</text>
+    <g id="start-label" transform="translate(335, 930)">
+      <text x="0" y="0" text-anchor="start" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#000000">Problem</text>
     </g>
     <g id="mid-marker" transform="translate(860, 930)">
-      <rect x="-8" y="-8" width="16" height="16" fill="#22C55E" stroke="#D1D5DB" stroke-width="1"/>
+      <rect x="-10" y="-10" width="20" height="20" fill="#22C55E" stroke="#D1D5DB" stroke-width="1"/>
     </g>
-    <g id="mid-label" transform="translate(890, 930)">
-      <text x="0" y="0" text-anchor="start" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#1F2937">Opportunity (POV)</text>
+    <g id="mid-label" transform="translate(895, 930)">
+      <text x="0" y="0" text-anchor="start" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#000000">Opportunity (POV)</text>
     </g>
     <g id="end-marker" transform="translate(1500, 930)">
-      <polygon points="0,-8 8,0 0,8 -8,0" fill="#0EA5E9"/>
+      <polygon points="0,-10 10,0 0,10 -10,0" fill="#0EA5E9"/>
     </g>
-    <g id="end-label" transform="translate(1530, 930)">
-      <text x="0" y="0" text-anchor="start" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#1F2937">LPP</text>
+    <g id="end-label" transform="translate(1535, 930)">
+      <text x="0" y="0" text-anchor="start" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#000000">LPP</text>
     </g>
   </g>
   <g id="annotations">
     <text x="960" y="120" text-anchor="middle" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="48" font-weight="600" fill="#182D53">Double Diamond Process</text>
     <text x="960" y="160" text-anchor="middle" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#4B5563">From discovery to validated solution</text>
-    <text x="960" y="1020" text-anchor="middle" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#6B7280">Diverge to explore possibilities, converge to make decisions</text>
+    <text x="960" y="1020" text-anchor="middle" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="500" fill="#6B7280">Diverge to explore possibilities, converge to make decisions</text>
   </g>
 </svg>
