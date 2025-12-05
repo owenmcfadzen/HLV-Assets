@@ -56,7 +56,7 @@
             "type": "object",
             "properties": {
               "color": { "type": "string" },
-              "shape": { "type": "string", "enum": ["circle", "square", "line"] },
+              "shape": { "type": "string", "enum": ["circle", "square", "triangle", "line"] },
               "label": { "type": "string" }
             },
             "required": ["label"]
@@ -76,8 +76,17 @@
           },
           "type": {
             "type": "string",
-            "enum": ["box", "boxNavy", "boxAccent", "boxWarm", "circle", "circleAccent", "phase", "phaseAccent", "diamond", "card", "cardHeader", "cardHighlight", "cardWarm", "label", "icon", "shape", "group"],
-            "description": "Node type from components.nodes"
+            "enum": [
+              "box", "boxNavy", "boxAccent", "boxWarm",
+              "circle", "circleAccent",
+              "phase", "phaseAccent",
+              "diamond",
+              "card", "cardHeader", "cardHeaderAccent", "cardHighlight", "cardWarm",
+              "label",
+              "icon",
+              "group"
+            ],
+            "description": "Node type from components.nodes or components.cards"
           },
           "label": {
             "type": "string",
@@ -89,7 +98,7 @@
           },
           "textStyle": {
             "type": "string",
-            "description": "Override default text style"
+            "description": "Override default text style from textStyles"
           },
           "grid": {
             "type": "object",
@@ -122,45 +131,60 @@
               "align": {
                 "type": "string",
                 "enum": ["start", "center", "end"],
-                "default": "center"
+                "default": "center",
+                "description": "Horizontal alignment within grid cell"
               },
               "valign": {
                 "type": "string",
                 "enum": ["start", "center", "end"],
-                "default": "center"
+                "default": "center",
+                "description": "Vertical alignment within grid cell"
               },
               "offsetX": {
                 "type": "number",
                 "default": 0,
-                "description": "Pixel offset from grid position"
+                "description": "Pixel offset from calculated grid position"
               },
               "offsetY": {
                 "type": "number",
                 "default": 0,
-                "description": "Pixel offset from grid position"
+                "description": "Pixel offset from calculated grid position"
               }
             }
           },
           "size": {
             "type": "object",
             "properties": {
-              "width": { "type": ["number", "string"] },
-              "height": { "type": ["number", "string"] }
+              "width": { 
+                "type": ["number", "string"],
+                "description": "Explicit width in pixels or 'auto'"
+              },
+              "height": { 
+                "type": ["number", "string"],
+                "description": "Explicit height in pixels or 'auto'"
+              }
             },
-            "description": "Explicit size (overrides grid-based sizing)"
+            "description": "Explicit size overrides grid-based sizing"
           },
           "style": {
             "type": "object",
-            "description": "Style overrides for this node"
+            "description": "Style overrides for this specific node",
+            "properties": {
+              "fill": { "type": "string" },
+              "stroke": { "type": "string" },
+              "strokeWidth": { "type": "string" },
+              "radius": { "type": "string" },
+              "opacity": { "type": "number" }
+            }
           },
           "children": {
             "type": "array",
             "items": { "$ref": "#/properties/nodes/items" },
-            "description": "Nested nodes (for groups/cards)"
+            "description": "Nested nodes for groups and cards with content"
           },
           "data": {
             "type": "object",
-            "description": "Custom data for complex nodes"
+            "description": "Custom data for complex nodes (e.g., list items, table data)"
           }
         }
       }
@@ -172,7 +196,8 @@
         "required": ["from", "to"],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Optional edge identifier"
           },
           "from": {
             "type": "string",
@@ -185,58 +210,82 @@
           "type": {
             "type": "string",
             "enum": ["arrow", "arrowAccent", "arrowMuted", "line", "dashed", "curved"],
-            "default": "arrow"
+            "default": "arrow",
+            "description": "Edge type from components.edges"
           },
           "fromAnchor": {
             "type": "string",
             "enum": ["top", "right", "bottom", "left", "center"],
-            "default": "right"
+            "default": "right",
+            "description": "Connection point on source node"
           },
           "toAnchor": {
             "type": "string",
             "enum": ["top", "right", "bottom", "left", "center"],
-            "default": "left"
+            "default": "left",
+            "description": "Connection point on target node"
           },
           "label": {
             "type": "string",
-            "description": "Edge label"
+            "description": "Optional label displayed on edge"
+          },
+          "labelPosition": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0.5,
+            "description": "Position of label along edge (0 = start, 1 = end)"
           },
           "style": {
             "type": "object",
-            "description": "Style overrides"
+            "description": "Style overrides for this specific edge"
           }
         }
       }
     },
     "shapes": {
       "type": "array",
-      "description": "Custom shapes (polygons, paths) not covered by nodes",
+      "description": "Custom shapes not covered by standard nodes",
       "items": {
         "type": "object",
         "required": ["id", "type"],
         "properties": {
-          "id": { "type": "string" },
-          "type": {
+          "id": { 
             "type": "string",
-            "enum": ["polygon", "path", "rect", "ellipse", "line"]
+            "description": "Unique shape identifier"
+          },
+          "type": { 
+            "type": "string",
+            "enum": ["polygon", "path", "rect", "ellipse", "line"],
+            "description": "SVG shape type"
           },
           "points": {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
+                "col": { "type": "number" },
+                "row": { "type": "number" },
                 "x": { "type": "number" },
                 "y": { "type": "number" }
-              }
+              },
+              "description": "Use col/row for grid-based or x/y for absolute positioning"
             },
-            "description": "For polygons"
+            "description": "Points for polygon or line shapes"
           },
           "d": {
             "type": "string",
-            "description": "SVG path data"
+            "description": "SVG path data for path type"
           },
           "style": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+              "fill": { "type": "string" },
+              "stroke": { "type": "string" },
+              "strokeWidth": { "type": "string" },
+              "opacity": { "type": "number" },
+              "dashArray": { "type": "string" }
+            }
           }
         }
       }
@@ -246,11 +295,13 @@
       "properties": {
         "category": {
           "type": "string",
-          "enum": ["framework", "process", "comparison", "concept", "template"]
+          "enum": ["framework", "process", "comparison", "concept", "matrix", "cycle", "hierarchy", "template"],
+          "description": "Diagram archetype"
         },
         "tags": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": { "type": "string" },
+          "description": "Searchable tags"
         },
         "source": {
           "type": "string",
@@ -258,7 +309,12 @@
         },
         "usage": {
           "type": "string",
-          "description": "When/how to use this diagram"
+          "description": "When and how to use this diagram in curriculum"
+        },
+        "relatedTo": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "IDs of related diagrams"
         }
       }
     }
