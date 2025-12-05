@@ -84,7 +84,7 @@ class SVGGenerator {
       <polygon points="0 0, 10 3.5, 0 7" fill="${this.tokens.get('colors.semantic.success')}" />
     </marker>
     <marker id="arrowhead-accent" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="${this.tokens.get('colors.accent')}" />
+      <polygon points="0 0, 10 3.5, 0 7" fill="${this.tokens.get('colors.accent.green')}" />
     </marker>
   </defs>
 
@@ -284,7 +284,7 @@ class SVGGenerator {
    */
   generateFooter(canvas) {
     const y = canvas.height - 30;
-    return `  <text x="${canvas.width/2}" y="${y}" text-anchor="middle" font-size="11" font-weight="500" fill="${this.tokens.get('colors.accent')}">Hudson Lab Ventures</text>\n`;
+    return `  <text x="${canvas.width/2}" y="${y}" text-anchor="middle" font-size="11" font-weight="500" fill="${this.tokens.get('colors.accent.green')}">Hudson Lab Ventures</text>\n`;
   }
 
   /**
