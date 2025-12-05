@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920 1080" width="1920" height="1080">
   <defs>
-    <linearGradient id="diamondGradient" x1="50%" y1="0%" x2="50%" y2="100%">
+    <linearGradient id="problemGradient" x1="50%" y1="0%" x2="50%" y2="100%">
       <stop offset="0%" stop-color="#DCFCE7"/>
       <stop offset="100%" stop-color="#BBF7D0"/>
+    </linearGradient>
+    <linearGradient id="solutionGradient" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#E0F2FE"/>
+      <stop offset="100%" stop-color="#BAE6FD"/>
     </linearGradient>
     <marker id="arrow-arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,12 L12,6 z" fill="#182D53"/>
@@ -22,7 +26,8 @@
   <title>Double Diamond Process</title>
   <desc>Design thinking framework showing divergent and convergent phases from discovery to delivery</desc>
   <g id="shapes">
-    <path id="diamond-path" d="M 210,540 L 570,260 L 930,540 L 1290,260 L 1650,540 L 1290,820 L 930,540 L 570,820 Z" fill="url(#diamondGradient)" stroke="#22C55E" stroke-width="2"/>
+    <path id="problem-diamond" d="M 210,540 L 570,260 L 930,540 L 570,820 Z" fill="url(#problemGradient)" stroke="#22C55E" stroke-width="2"/>
+    <path id="solution-diamond" d="M 930,540 L 1290,260 L 1650,540 L 1290,820 Z" fill="url(#solutionGradient)" stroke="#0EA5E9" stroke-width="2"/>
     <line id="divider-center" x1="930" y1="200" x2="930" y2="880" stroke="#6B7280" stroke-width="1" stroke-dasharray="12,8"/>
   </g>
   <g id="nodes">
@@ -41,11 +46,11 @@
       <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" letter-spacing="0.02em">DEFINE</text>
     </g>
     <g id="develop" transform="translate(1110, 540)">
-      <rect x="-70" y="-22" width="140" height="44" fill="#182D53" rx="22"/>
+      <rect x="-70" y="-22" width="140" height="44" fill="#0EA5E9" rx="22"/>
       <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" letter-spacing="0.02em">DEVELOP</text>
     </g>
     <g id="deliver" transform="translate(1470, 540)">
-      <rect x="-70" y="-22" width="140" height="44" fill="#182D53" rx="22"/>
+      <rect x="-70" y="-22" width="140" height="44" fill="#0EA5E9" rx="22"/>
       <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" letter-spacing="0.02em">DELIVER</text>
     </g>
     <g id="start-marker" transform="translate(300, 930)">
@@ -61,7 +66,7 @@
       <text x="0" y="0" text-anchor="start" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#1F2937">Opportunity (POV)</text>
     </g>
     <g id="end-marker" transform="translate(1500, 930)">
-      <polygon points="0,-8 8,0 0,8 -8,0" fill="#059669"/>
+      <polygon points="0,-8 8,0 0,8 -8,0" fill="#0EA5E9"/>
     </g>
     <g id="end-label" transform="translate(1530, 930)">
       <text x="0" y="0" text-anchor="start" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#1F2937">LPP</text>
