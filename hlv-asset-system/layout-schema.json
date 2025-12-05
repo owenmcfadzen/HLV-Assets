@@ -1,0 +1,266 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HLV Layout Schema",
+  "description": "Schema for HLV diagram layout definitions",
+  "type": "object",
+  "required": ["id", "name", "canvas", "nodes"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier (kebab-case)",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name"
+    },
+    "description": {
+      "type": "string",
+      "description": "What this diagram teaches or communicates"
+    },
+    "canvas": {
+      "type": "string",
+      "enum": ["standard", "square"],
+      "description": "Canvas size preset from tokens"
+    },
+    "annotations": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string" },
+            "style": { "type": "string", "default": "title" }
+          },
+          "required": ["text"]
+        },
+        "subtitle": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string" },
+            "style": { "type": "string", "default": "subtitle" }
+          },
+          "required": ["text"]
+        },
+        "caption": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string" },
+            "style": { "type": "string", "default": "caption" }
+          },
+          "required": ["text"]
+        },
+        "legend": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "color": { "type": "string" },
+              "shape": { "type": "string", "enum": ["circle", "square", "line"] },
+              "label": { "type": "string" }
+            },
+            "required": ["label"]
+          }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "grid"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique node identifier"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["box", "boxNavy", "boxAccent", "boxWarm", "circle", "circleAccent", "phase", "phaseAccent", "diamond", "card", "cardHeader", "cardHighlight", "cardWarm", "label", "icon", "shape", "group"],
+            "description": "Node type from components.nodes"
+          },
+          "label": {
+            "type": "string",
+            "description": "Primary text content"
+          },
+          "sublabel": {
+            "type": "string",
+            "description": "Secondary text content"
+          },
+          "textStyle": {
+            "type": "string",
+            "description": "Override default text style"
+          },
+          "grid": {
+            "type": "object",
+            "required": ["col", "row"],
+            "properties": {
+              "col": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 12,
+                "description": "Starting column (1-indexed)"
+              },
+              "row": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 6,
+                "description": "Starting row (1-indexed)"
+              },
+              "colSpan": {
+                "type": "number",
+                "minimum": 1,
+                "default": 1,
+                "description": "Number of columns to span"
+              },
+              "rowSpan": {
+                "type": "number",
+                "minimum": 1,
+                "default": 1,
+                "description": "Number of rows to span"
+              },
+              "align": {
+                "type": "string",
+                "enum": ["start", "center", "end"],
+                "default": "center"
+              },
+              "valign": {
+                "type": "string",
+                "enum": ["start", "center", "end"],
+                "default": "center"
+              },
+              "offsetX": {
+                "type": "number",
+                "default": 0,
+                "description": "Pixel offset from grid position"
+              },
+              "offsetY": {
+                "type": "number",
+                "default": 0,
+                "description": "Pixel offset from grid position"
+              }
+            }
+          },
+          "size": {
+            "type": "object",
+            "properties": {
+              "width": { "type": ["number", "string"] },
+              "height": { "type": ["number", "string"] }
+            },
+            "description": "Explicit size (overrides grid-based sizing)"
+          },
+          "style": {
+            "type": "object",
+            "description": "Style overrides for this node"
+          },
+          "children": {
+            "type": "array",
+            "items": { "$ref": "#/properties/nodes/items" },
+            "description": "Nested nodes (for groups/cards)"
+          },
+          "data": {
+            "type": "object",
+            "description": "Custom data for complex nodes"
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string",
+            "description": "Source node ID"
+          },
+          "to": {
+            "type": "string",
+            "description": "Target node ID"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["arrow", "arrowAccent", "arrowMuted", "line", "dashed", "curved"],
+            "default": "arrow"
+          },
+          "fromAnchor": {
+            "type": "string",
+            "enum": ["top", "right", "bottom", "left", "center"],
+            "default": "right"
+          },
+          "toAnchor": {
+            "type": "string",
+            "enum": ["top", "right", "bottom", "left", "center"],
+            "default": "left"
+          },
+          "label": {
+            "type": "string",
+            "description": "Edge label"
+          },
+          "style": {
+            "type": "object",
+            "description": "Style overrides"
+          }
+        }
+      }
+    },
+    "shapes": {
+      "type": "array",
+      "description": "Custom shapes (polygons, paths) not covered by nodes",
+      "items": {
+        "type": "object",
+        "required": ["id", "type"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["polygon", "path", "rect", "ellipse", "line"]
+          },
+          "points": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "x": { "type": "number" },
+                "y": { "type": "number" }
+              }
+            },
+            "description": "For polygons"
+          },
+          "d": {
+            "type": "string",
+            "description": "SVG path data"
+          },
+          "style": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string",
+          "enum": ["framework", "process", "comparison", "concept", "template"]
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "source": {
+          "type": "string",
+          "description": "Attribution if based on external framework"
+        },
+        "usage": {
+          "type": "string",
+          "description": "When/how to use this diagram"
+        }
+      }
+    }
+  }
+}

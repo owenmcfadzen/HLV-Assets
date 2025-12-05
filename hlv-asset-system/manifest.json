@@ -1,0 +1,21 @@
+{
+  "generated": "2025-12-05T10:44:50.219Z",
+  "tokenVersion": "1.0.0",
+  "outputs": [
+    {
+      "id": "double-diamond",
+      "name": "Double Diamond Process",
+      "category": "framework",
+      "files": {
+        "svg": "outputs/svg/double-diamond.svg",
+        "png": "outputs/png/double-diamond.png",
+        "pptx": "outputs/pptx/double-diamond.pptx"
+      },
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "hash": "7365c150"
+    }
+  ]
+}
