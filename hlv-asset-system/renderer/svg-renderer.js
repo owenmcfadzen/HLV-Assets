@@ -111,6 +111,25 @@ function renderSVG(layout, tokens) {
 function renderDefs(layout, tokens) {
   const defs = ['  <defs>'];
 
+  // Custom gradients from layout
+  if (layout.defs && layout.defs.gradients) {
+    for (const gradient of layout.defs.gradients) {
+      if (gradient.type === 'linear') {
+        defs.push(`    <linearGradient id="${gradient.id}" x1="${gradient.x1 || '0%'}" y1="${gradient.y1 || '0%'}" x2="${gradient.x2 || '0%'}" y2="${gradient.y2 || '100%'}">`);
+        for (const stop of gradient.stops) {
+          defs.push(`      <stop offset="${stop.offset}" stop-color="${stop.color}"/>`);
+        }
+        defs.push(`    </linearGradient>`);
+      } else if (gradient.type === 'radial') {
+        defs.push(`    <radialGradient id="${gradient.id}" cx="${gradient.cx || '50%'}" cy="${gradient.cy || '50%'}" r="${gradient.r || '50%'}">`);
+        for (const stop of gradient.stops) {
+          defs.push(`      <stop offset="${stop.offset}" stop-color="${stop.color}"/>`);
+        }
+        defs.push(`    </radialGradient>`);
+      }
+    }
+  }
+
   // Arrow markers for different edge types
   const edgeTypes = ['arrow', 'arrowAccent', 'arrowMuted', 'curved'];
 
