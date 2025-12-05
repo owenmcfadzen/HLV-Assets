@@ -17,6 +17,9 @@ function resolveToken(path, tokens) {
 
   // If it looks like a raw value (starts with # for color, or is a number), return as-is
   if (path.startsWith('#') || !isNaN(path)) return path;
+  
+  // Pass through url() references for gradients/patterns
+  if (path.startsWith('url(')) return path;
 
   // Check if it's a color token path (contains a dot and refers to colors)
   const parts = path.split('.');
