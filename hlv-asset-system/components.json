@@ -72,7 +72,7 @@
     },
     "highlight": {
       "fill": "@colors.accentTint",
-      "stroke": "@colors.accent",
+      "stroke": "@colors.accent.green",
       "strokeWidth": "@borders.width.medium",
       "textColor": "@colors.neutral.dark"
     },
@@ -220,7 +220,7 @@
     "decorative": {
       "height": 3,
       "width": 48,
-      "color": "@colors.accent",
+      "color": "@colors.accent.green",
       "radius": "@borders.radius.full"
     }
   }
