@@ -9,19 +9,21 @@
       {
         "id": "problemGradient",
         "type": "linear",
-        "x1": "50%", "y1": "0%", "x2": "50%", "y2": "100%",
+        "x1": "0%", "y1": "50%", "x2": "100%", "y2": "50%",
         "stops": [
-          { "offset": "0%", "color": "#DCFCE7" },
-          { "offset": "100%", "color": "#BBF7D0" }
+          { "offset": "0%", "color": "#BBF7D0" },
+          { "offset": "50%", "color": "#86EFAC" },
+          { "offset": "100%", "color": "#4ADE80" }
         ]
       },
       {
         "id": "solutionGradient",
         "type": "linear",
-        "x1": "50%", "y1": "0%", "x2": "50%", "y2": "100%",
+        "x1": "0%", "y1": "50%", "x2": "100%", "y2": "50%",
         "stops": [
-          { "offset": "0%", "color": "#E0F2FE" },
-          { "offset": "100%", "color": "#BAE6FD" }
+          { "offset": "0%", "color": "#BAE6FD" },
+          { "offset": "50%", "color": "#7DD3FC" },
+          { "offset": "100%", "color": "#38BDF8" }
         ]
       }
     ]
@@ -46,7 +48,7 @@
       "d": "M 210,540 L 570,260 L 930,540 L 570,820 Z",
       "style": {
         "fill": "url(#problemGradient)",
-        "stroke": "accent.green",
+        "stroke": "#22C55E",
         "strokeWidth": "medium"
       }
     },
@@ -80,14 +82,14 @@
       "id": "problem-space-label",
       "type": "label",
       "label": "Problem Space",
-      "textStyle": "h3",
+      "textStyle": "h2",
       "position": { "x": 570, "y": 200 }
     },
     {
       "id": "solution-space-label",
       "type": "label",
       "label": "Solution Space",
-      "textStyle": "h3",
+      "textStyle": "h2",
       "position": { "x": 1290, "y": 200 }
     },
     {
@@ -95,21 +97,21 @@
       "type": "phase",
       "label": "DISCOVER",
       "position": { "x": 390, "y": 540 },
-      "size": { "width": 140, "height": 44 }
+      "size": { "width": 160, "height": 48 }
     },
     {
       "id": "define",
       "type": "phase",
       "label": "DEFINE",
       "position": { "x": 750, "y": 540 },
-      "size": { "width": 140, "height": 44 }
+      "size": { "width": 160, "height": 48 }
     },
     {
       "id": "develop",
       "type": "phaseAccent",
       "label": "DEVELOP",
       "position": { "x": 1110, "y": 540 },
-      "size": { "width": 140, "height": 44 },
+      "size": { "width": 160, "height": 48 },
       "style": { "fill": "#0EA5E9" }
     },
     {
@@ -117,51 +119,51 @@
       "type": "phaseAccent",
       "label": "DELIVER",
       "position": { "x": 1470, "y": 540 },
-      "size": { "width": 140, "height": 44 },
+      "size": { "width": 160, "height": 48 },
       "style": { "fill": "#0EA5E9" }
     },
     {
       "id": "start-marker",
       "type": "circle",
       "position": { "x": 300, "y": 930 },
-      "size": { "width": 16, "height": 16 }
+      "size": { "width": 20, "height": 20 }
     },
     {
       "id": "start-label",
       "type": "label",
       "label": "Problem",
-      "textStyle": "body",
-      "position": { "x": 330, "y": 930 },
+      "textStyle": "lg",
+      "position": { "x": 335, "y": 930 },
       "align": "left"
     },
     {
       "id": "mid-marker",
       "type": "box",
       "position": { "x": 860, "y": 930 },
-      "size": { "width": 16, "height": 16 },
-      "style": { "fill": "accent.green", "radius": "xs" }
+      "size": { "width": 20, "height": 20 },
+      "style": { "fill": "#22C55E", "radius": "xs" }
     },
     {
       "id": "mid-label",
       "type": "label",
       "label": "Opportunity (POV)",
-      "textStyle": "body",
-      "position": { "x": 890, "y": 930 },
+      "textStyle": "lg",
+      "position": { "x": 895, "y": 930 },
       "align": "left"
     },
     {
       "id": "end-marker",
       "type": "diamond",
       "position": { "x": 1500, "y": 930 },
-      "size": { "width": 16, "height": 16 },
+      "size": { "width": 20, "height": 20 },
       "style": { "fill": "#0EA5E9" }
     },
     {
       "id": "end-label",
       "type": "label",
       "label": "LPP",
-      "textStyle": "body",
-      "position": { "x": 1530, "y": 930 },
+      "textStyle": "lg",
+      "position": { "x": 1535, "y": 930 },
       "align": "left"
     }
   ],
