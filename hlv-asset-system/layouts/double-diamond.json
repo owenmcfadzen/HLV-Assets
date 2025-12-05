@@ -7,12 +7,21 @@
   "defs": {
     "gradients": [
       {
-        "id": "diamondGradient",
+        "id": "problemGradient",
         "type": "linear",
         "x1": "50%", "y1": "0%", "x2": "50%", "y2": "100%",
         "stops": [
           { "offset": "0%", "color": "#DCFCE7" },
           { "offset": "100%", "color": "#BBF7D0" }
+        ]
+      },
+      {
+        "id": "solutionGradient",
+        "type": "linear",
+        "x1": "50%", "y1": "0%", "x2": "50%", "y2": "100%",
+        "stops": [
+          { "offset": "0%", "color": "#E0F2FE" },
+          { "offset": "100%", "color": "#BAE6FD" }
         ]
       }
     ]
@@ -32,12 +41,22 @@
   
   "shapes": [
     {
-      "id": "diamond-path",
+      "id": "problem-diamond",
       "type": "path",
-      "d": "M 210,540 L 570,260 L 930,540 L 1290,260 L 1650,540 L 1290,820 L 930,540 L 570,820 Z",
+      "d": "M 210,540 L 570,260 L 930,540 L 570,820 Z",
       "style": {
-        "fill": "url(#diamondGradient)",
+        "fill": "url(#problemGradient)",
         "stroke": "accent.green",
+        "strokeWidth": "medium"
+      }
+    },
+    {
+      "id": "solution-diamond",
+      "type": "path",
+      "d": "M 930,540 L 1290,260 L 1650,540 L 1290,820 Z",
+      "style": {
+        "fill": "url(#solutionGradient)",
+        "stroke": "#0EA5E9",
         "strokeWidth": "medium"
       }
     },
@@ -87,17 +106,19 @@
     },
     {
       "id": "develop",
-      "type": "phase",
+      "type": "phaseAccent",
       "label": "DEVELOP",
       "position": { "x": 1110, "y": 540 },
-      "size": { "width": 140, "height": 44 }
+      "size": { "width": 140, "height": 44 },
+      "style": { "fill": "#0EA5E9" }
     },
     {
       "id": "deliver",
-      "type": "phase",
+      "type": "phaseAccent",
       "label": "DELIVER",
       "position": { "x": 1470, "y": 540 },
-      "size": { "width": 140, "height": 44 }
+      "size": { "width": 140, "height": 44 },
+      "style": { "fill": "#0EA5E9" }
     },
     {
       "id": "start-marker",
@@ -133,7 +154,7 @@
       "type": "diamond",
       "position": { "x": 1500, "y": 930 },
       "size": { "width": 16, "height": 16 },
-      "style": { "fill": "semantic.success" }
+      "style": { "fill": "#0EA5E9" }
     },
     {
       "id": "end-label",
