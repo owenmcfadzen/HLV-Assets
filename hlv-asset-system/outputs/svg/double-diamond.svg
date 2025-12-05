@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <marker id="arrow-arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L0,12 L12,6 z" fill="#182D53"/>
+    </marker>
+    <marker id="arrow-arrowAccent" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L0,12 L12,6 z" fill="#22C55E"/>
+    </marker>
+    <marker id="arrow-arrowMuted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L0,10 L10,5 z" fill="#6B7280"/>
+    </marker>
+    <marker id="arrow-curved" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L0,12 L12,6 z" fill="#182D53"/>
+    </marker>
+  </defs>
+  <rect width="1920" height="1080" fill="#FFFFFF"/>
+  <title>Double Diamond Process</title>
+  <desc>Design thinking framework showing divergent and convergent phases from discovery to delivery</desc>
+  <g id="shapes">
+    <polygon id="diamond-bg" points="80,461.33333333333337 439.6666666666667,237.33333333333334 823.3333333333335,461.33333333333337 439.6666666666667,709.3333333333334 80,461.33333333333337 823.3333333333335,461.33333333333337 1183,237.33333333333334 1566.666666666667,461.33333333333337 1183,709.3333333333334 823.3333333333335,461.33333333333337" fill="#F0FDF4" stroke="#22C55E" stroke-width="2"/>
+    <line id="divider" x1="823.3333333333335" y1="146.66666666666669" x2="823.3333333333335" y2="776" stroke="#D1D5DB" stroke-width="1" stroke-dasharray="6,4"/>
+  </g>
+  <g id="edges">
+    <line x1="425.33333333333337" y1="461.33333333333337" x2="677" y2="461.33333333333337" stroke="#182D53" stroke-width="2" marker-end="url(#arrow-arrow)"/>
+    <line x1="797" y1="461.33333333333337" x2="1123.0000000000002" y2="461.33333333333337" stroke="#182D53" stroke-width="2" marker-end="url(#arrow-arrow)"/>
+    <line x1="1243.0000000000002" y1="461.33333333333337" x2="1494.666666666667" y2="461.33333333333337" stroke="#182D53" stroke-width="2" marker-end="url(#arrow-arrow)"/>
+  </g>
+  <g id="nodes">
+    <g id="problem-space-label" transform="translate(514, 146.66666666666669)">
+      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#4B5563">Problem Space</text>
+    </g>
+    <g id="solution-space-label" transform="translate(1257.3333333333335, 146.66666666666669)">
+      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#4B5563">Solution Space</text>
+    </g>
+    <g id="discover" transform="translate(365.33333333333337, 461.33333333333337)">
+      <rect x="-60" y="-18" width="120" height="36" fill="#182D53" rx="18"/>
+      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" letter-spacing="0.02em">DISCOVER</text>
+    </g>
+    <g id="define" transform="translate(737, 461.33333333333337)">
+      <rect x="-60" y="-18" width="120" height="36" fill="#182D53" rx="18"/>
+      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" letter-spacing="0.02em">DEFINE</text>
+    </g>
+    <g id="develop" transform="translate(1183.0000000000002, 461.33333333333337)">
+      <rect x="-60" y="-18" width="120" height="36" fill="#182D53" rx="18"/>
+      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" letter-spacing="0.02em">DEVELOP</text>
+    </g>
+    <g id="deliver" transform="translate(1554.666666666667, 461.33333333333337)">
+      <rect x="-60" y="-18" width="120" height="36" fill="#182D53" rx="18"/>
+      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" letter-spacing="0.02em">DELIVER</text>
+    </g>
+  </g>
+  <g id="annotations">
+    <text x="960" y="120" text-anchor="middle" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="48" font-weight="600" fill="#182D53">Double Diamond Process</text>
+    <text x="960" y="160" text-anchor="middle" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="16" font-weight="400" fill="#4B5563">From discovery to validated solution</text>
+    <text x="960" y="1020" text-anchor="middle" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#6B7280">Diverge to explore possibilities, converge to make decisions</text>
+    <g id="legend" transform="translate(80, 1010)">
+      <circle cx="6" cy="0" r="6" fill="#182D53"/>
+      <text x="20" y="0" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="10" font-weight="500" fill="#6B7280">Problem</text>
+      <rect x="100" y="-6" width="12" height="12" fill="#22C55E"/>
+      <text x="120" y="0" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="10" font-weight="500" fill="#6B7280">Opportunity (POV)</text>
+      <polygon points="206,-6 212,6 200,6" fill="#059669"/>
+      <text x="220" y="0" dominant-baseline="central" font-family="'Manrope', system-ui, -apple-system, sans-serif" font-size="10" font-weight="500" fill="#6B7280">LPP</text>
+    </g>
+  </g>
+</svg>

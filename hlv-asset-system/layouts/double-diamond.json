@@ -1,0 +1,132 @@
+{
+  "id": "double-diamond",
+  "name": "Double Diamond Process",
+  "description": "Design thinking framework showing divergent and convergent phases from discovery to delivery",
+  "canvas": "standard",
+
+  "annotations": {
+    "title": {
+      "text": "Double Diamond Process"
+    },
+    "subtitle": {
+      "text": "From discovery to validated solution"
+    },
+    "caption": {
+      "text": "Diverge to explore possibilities, converge to make decisions"
+    },
+    "legend": [
+      { "shape": "circle", "color": "primary.navy", "label": "Problem" },
+      { "shape": "square", "color": "accent.green", "label": "Opportunity (POV)" },
+      { "shape": "triangle", "color": "semantic.success", "label": "LPP" }
+    ]
+  },
+
+  "shapes": [
+    {
+      "id": "diamond-bg",
+      "type": "polygon",
+      "points": [
+        { "col": 1, "row": 3.5 },
+        { "col": 3.5, "row": 2 },
+        { "col": 6, "row": 3.5 },
+        { "col": 3.5, "row": 5 },
+        { "col": 1, "row": 3.5 },
+        { "col": 6, "row": 3.5 },
+        { "col": 8.5, "row": 2 },
+        { "col": 11, "row": 3.5 },
+        { "col": 8.5, "row": 5 },
+        { "col": 6, "row": 3.5 }
+      ],
+      "style": {
+        "fill": "accent.greenPale",
+        "stroke": "accent.green",
+        "strokeWidth": "medium"
+      }
+    },
+    {
+      "id": "divider",
+      "type": "line",
+      "points": [
+        { "col": 6, "row": 1.5 },
+        { "col": 6, "row": 5.5 }
+      ],
+      "style": {
+        "stroke": "border.default",
+        "strokeWidth": "thin",
+        "dashArray": "6,4"
+      }
+    }
+  ],
+
+  "nodes": [
+    {
+      "id": "problem-space-label",
+      "type": "label",
+      "label": "Problem Space",
+      "textStyle": "captionEmphasis",
+      "grid": { "col": 3, "row": 1, "colSpan": 2 }
+    },
+    {
+      "id": "solution-space-label",
+      "type": "label",
+      "label": "Solution Space",
+      "textStyle": "captionEmphasis",
+      "grid": { "col": 8, "row": 1, "colSpan": 2 }
+    },
+    {
+      "id": "discover",
+      "type": "phase",
+      "label": "DISCOVER",
+      "grid": { "col": 2, "row": 3, "colSpan": 2, "rowSpan": 1 }
+    },
+    {
+      "id": "define",
+      "type": "phase",
+      "label": "DEFINE",
+      "grid": { "col": 4.5, "row": 3, "colSpan": 2, "rowSpan": 1 }
+    },
+    {
+      "id": "develop",
+      "type": "phase",
+      "label": "DEVELOP",
+      "grid": { "col": 7.5, "row": 3, "colSpan": 2, "rowSpan": 1 }
+    },
+    {
+      "id": "deliver",
+      "type": "phase",
+      "label": "DELIVER",
+      "grid": { "col": 10, "row": 3, "colSpan": 2, "rowSpan": 1 }
+    }
+  ],
+
+  "edges": [
+    {
+      "from": "discover",
+      "to": "define",
+      "type": "arrow",
+      "fromAnchor": "right",
+      "toAnchor": "left"
+    },
+    {
+      "from": "define",
+      "to": "develop",
+      "type": "arrow",
+      "fromAnchor": "right",
+      "toAnchor": "left"
+    },
+    {
+      "from": "develop",
+      "to": "deliver",
+      "type": "arrow",
+      "fromAnchor": "right",
+      "toAnchor": "left"
+    }
+  ],
+
+  "metadata": {
+    "category": "framework",
+    "tags": ["design-thinking", "process", "discovery", "ideation"],
+    "source": "UK Design Council",
+    "usage": "Introduce the design thinking process, explain divergent vs convergent thinking"
+  }
+}
