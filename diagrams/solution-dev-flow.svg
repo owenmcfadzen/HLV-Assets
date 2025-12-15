@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 120" style="background: #F9FAFB;">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#00D866"/>
+    </marker>
+  </defs>
+  
+  <!-- Step boxes -->
+  <g transform="translate(20, 30)">
+    <rect x="0" y="0" width="120" height="60" rx="8" fill="#182D53"/>
+    <text x="60" y="28" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" font-weight="600" fill="white">Warm-Up</text>
+    <text x="60" y="44" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" font-weight="400" fill="#9CA3AF">Paperclip Challenge</text>
+  </g>
+  
+  <line x1="145" y1="60" x2="165" y2="60" stroke="#00D866" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <g transform="translate(170, 30)">
+    <rect x="0" y="0" width="120" height="60" rx="8" fill="#182D53"/>
+    <text x="60" y="28" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" font-weight="600" fill="white">Crazy 8s</text>
+    <text x="60" y="44" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" font-weight="400" fill="#9CA3AF">8 ideas in 8 min</text>
+  </g>
+  
+  <line x1="295" y1="60" x2="315" y2="60" stroke="#00D866" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <g transform="translate(320, 30)">
+    <rect x="0" y="0" width="120" height="60" rx="8" fill="#182D53"/>
+    <text x="60" y="28" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" font-weight="600" fill="white">Star Top Ideas</text>
+    <text x="60" y="44" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" font-weight="400" fill="#9CA3AF">Pick 2-3 favorites</text>
+  </g>
+  
+  <line x1="445" y1="60" x2="465" y2="60" stroke="#00D866" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <g transform="translate(470, 30)">
+    <rect x="0" y="0" width="120" height="60" rx="8" fill="#182D53"/>
+    <text x="60" y="28" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" font-weight="600" fill="white">Select One</text>
+    <text x="60" y="44" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" font-weight="400" fill="#9CA3AF">Commit to explore</text>
+  </g>
+  
+  <line x1="595" y1="60" x2="615" y2="60" stroke="#00D866" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <g transform="translate(620, 30)">
+    <rect x="0" y="0" width="120" height="60" rx="8" fill="#182D53"/>
+    <text x="60" y="28" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" font-weight="600" fill="white">Describe It</text>
+    <text x="60" y="44" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" font-weight="400" fill="#9CA3AF">One sentence</text>
+  </g>
+  
+  <line x1="745" y1="60" x2="765" y2="60" stroke="#00D866" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <g transform="translate(770, 30)">
+    <rect x="0" y="0" width="110" height="60" rx="8" fill="#00D866"/>
+    <text x="55" y="28" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" font-weight="600" fill="white">Sketch It</text>
+    <text x="55" y="44" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" font-weight="400" fill="#182D53">Quick visual</text>
+  </g>
+</svg>
