@@ -1,0 +1,17 @@
+{
+  "name": "apple-design-research",
+  "version": "1.0.0",
+  "description": "Apple Design System Data Extraction Tool",
+  "type": "module",
+  "main": "scripts/scraper.js",
+  "scripts": {
+    "scrape": "node scripts/scraper.js",
+    "scrape:priority1": "node scripts/scraper.js --priority 1",
+    "scrape:all": "node scripts/scraper.js --priority all",
+    "aggregate": "node scripts/aggregate.js"
+  },
+  "dependencies": {
+    "playwright": "^1.49.0",
+    "cheerio": "^1.0.0"
+  }
+}
