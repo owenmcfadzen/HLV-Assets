@@ -1,7 +1,7 @@
 {
   "extraction_method": "WebFetch content analysis",
   "extraction_date": "2025-12-16",
-  "totalPages": 10,
+  "totalPages": 46,
   "note": "Browser-based scraping failed due to network restrictions. Content extracted via WebFetch API.",
   "pages": [
     {
@@ -9,78 +9,385 @@
       "url": "https://www.apple.com/",
       "method": "WebFetch",
       "status": "success",
-      "copy_file": "homepage-copy.md"
+      "copy_file": "homepage-copy.md",
+      "priority": 1
     },
     {
       "name": "iphone",
       "url": "https://www.apple.com/iphone/",
       "method": "WebFetch",
       "status": "success",
-      "copy_file": "iphone-copy.md"
-    },
-    {
-      "name": "mac",
-      "url": "https://www.apple.com/mac/",
-      "method": "WebFetch",
-      "status": "success",
-      "copy_file": "summary content only"
+      "copy_file": "iphone-copy.md",
+      "priority": 1
     },
     {
       "name": "macbook-pro",
       "url": "https://www.apple.com/macbook-pro/",
       "method": "WebFetch",
       "status": "success",
-      "copy_file": "macbook-pro-copy.md"
+      "copy_file": "macbook-pro-copy.md",
+      "priority": 1
     },
     {
       "name": "macbook-air",
       "url": "https://www.apple.com/macbook-air/",
       "method": "WebFetch",
       "status": "success",
-      "copy_file": "macbook-air-copy.md"
+      "copy_file": "macbook-air-copy.md",
+      "priority": 1
     },
     {
       "name": "ipad",
       "url": "https://www.apple.com/ipad/",
       "method": "WebFetch",
       "status": "success",
-      "copy_file": "ipad-copy.md"
+      "copy_file": "ipad-copy.md",
+      "priority": 1
     },
     {
       "name": "apple-watch-series-10",
       "url": "https://www.apple.com/apple-watch-series-10/",
       "method": "WebFetch",
       "status": "success",
-      "copy_file": "apple-watch-series-10-copy.md"
+      "copy_file": "apple-watch-series-10-copy.md",
+      "priority": 2
     },
     {
       "name": "airpods-pro",
       "url": "https://www.apple.com/airpods-pro/",
       "method": "WebFetch",
       "status": "success",
-      "copy_file": "airpods-pro-copy.md"
+      "copy_file": "airpods-pro-copy.md",
+      "priority": 2
     },
     {
       "name": "privacy",
       "url": "https://www.apple.com/privacy/",
       "method": "WebFetch",
       "status": "success",
-      "copy_file": "privacy-copy.md"
+      "copy_file": "privacy-copy.md",
+      "priority": 5
     },
     {
       "name": "accessibility",
       "url": "https://www.apple.com/accessibility/",
       "method": "WebFetch",
       "status": "success",
-      "copy_file": "accessibility-copy.md"
+      "copy_file": "accessibility-copy.md",
+      "priority": 5
+    },
+    {
+      "name": "ipad-pro",
+      "url": "https://www.apple.com/ipad-pro/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "ipad-pro-copy.md",
+      "priority": 2
+    },
+    {
+      "name": "apple-vision-pro",
+      "url": "https://www.apple.com/apple-vision-pro/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "apple-vision-pro-copy.md",
+      "priority": 2
+    },
+    {
+      "name": "imac",
+      "url": "https://www.apple.com/imac/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "imac-copy.md",
+      "priority": 2
+    },
+    {
+      "name": "apple-watch-ultra-2",
+      "url": "https://www.apple.com/apple-watch-ultra-2/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "apple-watch-ultra-2-copy.md",
+      "priority": 2
+    },
+    {
+      "name": "airpods",
+      "url": "https://www.apple.com/airpods/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "airpods-copy.md",
+      "priority": 2
+    },
+    {
+      "name": "homepod",
+      "url": "https://www.apple.com/homepod/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "homepod-copy.md",
+      "priority": 2
+    },
+    {
+      "name": "apple-tv-4k",
+      "url": "https://www.apple.com/apple-tv-4k/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "apple-tv-4k-copy.md",
+      "priority": 2
+    },
+    {
+      "name": "mac-mini",
+      "url": "https://www.apple.com/mac-mini/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "mac-mini-copy.md",
+      "priority": 2
+    },
+    {
+      "name": "mac-studio",
+      "url": "https://www.apple.com/mac-studio/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "mac-studio-copy.md",
+      "priority": 2
+    },
+    {
+      "name": "mac-pro",
+      "url": "https://www.apple.com/mac-pro/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "mac-pro-copy.md",
+      "priority": 2
+    },
+    {
+      "name": "ios-18",
+      "url": "https://www.apple.com/ios/ios-18/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "ios-18-copy.md",
+      "priority": 3
+    },
+    {
+      "name": "ipados-18",
+      "url": "https://www.apple.com/ipados/ipados-18/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "ipados-18-copy.md",
+      "priority": 3
+    },
+    {
+      "name": "macos-sequoia",
+      "url": "https://www.apple.com/macos/macos-sequoia/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "macos-sequoia-copy.md",
+      "priority": 3
+    },
+    {
+      "name": "watchos-11",
+      "url": "https://www.apple.com/watchos/watchos-11/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "watchos-11-copy.md",
+      "priority": 3
+    },
+    {
+      "name": "visionos",
+      "url": "https://www.apple.com/visionos/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "visionos-copy.md",
+      "priority": 3
+    },
+    {
+      "name": "apple-music",
+      "url": "https://www.apple.com/apple-music/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "apple-music-copy.md",
+      "priority": 4
+    },
+    {
+      "name": "apple-tv-plus",
+      "url": "https://www.apple.com/apple-tv-plus/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "apple-tv-plus-copy.md",
+      "priority": 4
+    },
+    {
+      "name": "apple-arcade",
+      "url": "https://www.apple.com/apple-arcade/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "apple-arcade-copy.md",
+      "priority": 4
+    },
+    {
+      "name": "apple-fitness-plus",
+      "url": "https://www.apple.com/apple-fitness-plus/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "apple-fitness-plus-copy.md",
+      "priority": 4
+    },
+    {
+      "name": "apple-news",
+      "url": "https://www.apple.com/apple-news/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "apple-news-copy.md",
+      "priority": 4
+    },
+    {
+      "name": "icloud",
+      "url": "https://www.apple.com/icloud/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "icloud-copy.md",
+      "priority": 4
+    },
+    {
+      "name": "apple-one",
+      "url": "https://www.apple.com/apple-one/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "apple-one-copy.md",
+      "priority": 4
+    },
+    {
+      "name": "apple-card",
+      "url": "https://www.apple.com/apple-card/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "apple-card-copy.md",
+      "priority": 4
+    },
+    {
+      "name": "apple-pay",
+      "url": "https://www.apple.com/apple-pay/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "apple-pay-copy.md",
+      "priority": 4
+    },
+    {
+      "name": "environment",
+      "url": "https://www.apple.com/environment/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "environment-copy.md",
+      "priority": 5
+    },
+    {
+      "name": "diversity",
+      "url": "https://www.apple.com/diversity/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "diversity-copy.md",
+      "priority": 5
+    },
+    {
+      "name": "supplier-responsibility",
+      "url": "https://www.apple.com/supplier-responsibility/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "supplier-responsibility-copy.md",
+      "priority": 5
+    },
+    {
+      "name": "retail",
+      "url": "https://www.apple.com/retail/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "retail-copy.md",
+      "priority": 6
+    },
+    {
+      "name": "today-at-apple",
+      "url": "https://www.apple.com/today/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "today-at-apple-copy.md",
+      "priority": 6
+    },
+    {
+      "name": "shop",
+      "url": "https://www.apple.com/shop/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "shop-copy.md",
+      "priority": 6
+    },
+    {
+      "name": "support",
+      "url": "https://support.apple.com/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "support-copy.md",
+      "priority": 6
+    },
+    {
+      "name": "newsroom",
+      "url": "https://www.apple.com/newsroom/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "newsroom-copy.md",
+      "priority": 6
+    },
+    {
+      "name": "careers",
+      "url": "https://www.apple.com/careers/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "careers-copy.md",
+      "priority": 6
+    },
+    {
+      "name": "business",
+      "url": "https://www.apple.com/business/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "business-copy.md",
+      "priority": 6
+    },
+    {
+      "name": "education",
+      "url": "https://www.apple.com/education/",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "education-copy.md",
+      "priority": 6
+    },
+    {
+      "name": "shop-iphone",
+      "url": "https://www.apple.com/shop/buy-iphone",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "shop-iphone-copy.md",
+      "priority": 7
+    },
+    {
+      "name": "shop-mac",
+      "url": "https://www.apple.com/shop/buy-mac",
+      "method": "WebFetch",
+      "status": "success",
+      "copy_file": "shop-mac-copy.md",
+      "priority": 7
     }
   ],
   "browser_scraping_errors": [
     {
       "note": "Playwright browser scraping failed due to network tunnel restrictions",
       "error_type": "ERR_TUNNEL_CONNECTION_FAILED",
-      "pages_affected": 7,
+      "pages_affected": "all",
       "resolution": "Used WebFetch API for content extraction instead"
     }
-  ]
+  ],
+  "pages_by_priority": {
+    "priority_1_foundation": 5,
+    "priority_2_products": 14,
+    "priority_3_os_platform": 5,
+    "priority_4_services": 9,
+    "priority_5_values_brand": 5,
+    "priority_6_retail_support": 8,
+    "priority_7_shop_comparison": 2
+  }
 }
