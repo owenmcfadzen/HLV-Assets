@@ -36,6 +36,10 @@ The master guide for creating HLV materials with consistent quality and design i
 │                    Why we design this way                       │
 │                    The binding document                         │
 ├─────────────────────────────────────────────────────────────────┤
+│                    GENERATIVE RULES                             │
+│                    Format-agnostic design logic                 │
+│                    Content → Layout transformation              │
+├─────────────────────────────────────────────────────────────────┤
 │                    DECISION FRAMEWORK                           │
 │                    When to use what                             │
 │                    Start here for any new design                │
@@ -45,18 +49,23 @@ The master guide for creating HLV materials with consistent quality and design i
 │                  │                  │                           │
 │   What patterns  │   How type       │      How space            │
 │   exist          │   works          │      works                │
-└──────────────────┴──────────────────┴───────────────────────────┘
+├──────────────────┴──────────────────┴───────────────────────────┤
+│                    FORMAT SKILLS                                │
+│     hlv-slide-design    hlv-asset-generator    (future...)     │
+│                    Format-specific adaptations                  │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ### Document Locations
 
 | Document | Location | Purpose |
 |----------|----------|---------|
-| Philosophy & Strategy | Project knowledge / Notion | Why and for whom — read first |
-| Decision Framework | Project knowledge / Notion | When to use what — navigation layer |
-| Component Library | Project knowledge / Notion | What patterns exist — reference |
-| Typography System | Project knowledge / Notion | How type works — implementation |
-| Layout System | Project knowledge / Notion | How space works — implementation |
+| Philosophy & Strategy | GitHub / Notion | Why and for whom — read first |
+| Generative Rules | GitHub `generative-rules.md` | Format-agnostic layout logic — the "compiler" |
+| Decision Framework | GitHub / Notion | When to use what — navigation layer |
+| Component Library | GitHub / Notion | What patterns exist — reference |
+| Typography System | GitHub / Notion | How type works — implementation |
+| Layout System | GitHub / Notion | How space works — implementation |
 
 ### When to Consult What
 
@@ -64,9 +73,11 @@ The master guide for creating HLV materials with consistent quality and design i
 |-----------|------------|
 | Starting any new design | Decision Framework |
 | Making a judgment call | Philosophy & Strategy |
+| **Transforming content to layout** | **Generative Rules** |
 | Choosing a component | Decision Framework → Component Library |
 | Setting type styles | Typography System |
-| Determining spacing/layout | Layout System |
+| Determining spacing/layout | Generative Rules → Layout System |
+| **Adapting to specific format** | **Generative Rules → Format Skill** |
 | Evaluating quality | Philosophy (craft principles) |
 | Understanding the "why" | Philosophy & Strategy |
 
@@ -428,6 +439,7 @@ Design system documents should be versioned. Major changes require:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.2 | 2025-12-17 | Added Generative Rules as core layer, updated architecture |
 | 1.1 | 2025-12-17 | Added hlv-slide-design skill reference, learnings log |
 | 1.0 | 2025-12-17 | Initial creation from Apple design research synthesis |
 
