@@ -21,6 +21,7 @@ The master guide for creating HLV materials with consistent quality and design i
 - Any request involving HLV visual or written materials
 
 **This skill orchestrates.** For specific tasks, it may hand off to:
+- `hlv-slide-design` → Slide-specific spacing, typography, patterns
 - `hlv-asset-generator` → Diagrams, icons, illustrations
 - `hlv-slides-generator` → Google Slides templates
 - `hlv-design-system-updater` → Token changes
@@ -427,7 +428,30 @@ Design system documents should be versioned. Major changes require:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.1 | 2025-12-17 | Added hlv-slide-design skill reference, learnings log |
 | 1.0 | 2025-12-17 | Initial creation from Apple design research synthesis |
+
+---
+
+## Learnings Log
+
+*Production insights that inform system evolution. Batch into source documents when patterns stabilize.*
+
+### 2025-12-17: Slide Spacing
+- **Context:** Problem Reframing deck production
+- **Issue:** Content felt cramped, minimalism lost
+- **Learning:** Slides need 60-70% whitespace. One idea per slide. Split rather than cram.
+- **Action:** Created `hlv-slide-design.skill` with spacing rules
+
+### 2025-12-17: Gap vs Line Height
+- **Issue:** Stacked text blocks too far apart on slides
+- **Learning:** Use explicit `gap` values (16-24px) for related text, not line-height
+- **Action:** Documented in `hlv-slide-design.skill`
+
+### 2025-12-17: Decorative Number Alignment
+- **Issue:** Large numbers (01, 02) misaligned with text
+- **Learning:** Use `alignItems: flex-start` with `marginTop` optical adjustment
+- **Action:** Documented pattern in `hlv-slide-design.skill`
 
 ---
 
