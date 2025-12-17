@@ -1,0 +1,276 @@
+---
+name: hlv-slide-design
+description: "Design slides for HLV presentations. Use when creating slide decks, presentations, or teaching materials. Contains spacing rules, typography for slides, and learnings from production."
+version: 1.0
+date: 2025-12-17
+---
+
+# HLV Slide Design
+
+Rules and patterns for creating HLV presentation slides. Built from Apple design research and refined through production.
+
+---
+
+## Core Principle
+
+**One idea per slide. Let it breathe.**
+
+More slides with less content beats fewer slides crammed full. The empty space is the design.
+
+---
+
+## Slide Spacing
+
+### Container Padding
+```
+Desktop (16:9):
+  Top/Bottom: 80px
+  Left/Right: 120px
+```
+
+### Content Density Rule
+**Aim for 30-40% content, 60-70% space.**
+
+If a slide feels cramped, split it. Don't shrink the content.
+
+---
+
+## Typography Scale for Slides
+
+| Element | Size | Weight | Line Height |
+|---------|------|--------|-------------|
+| Display (hero titles) | 72px | 700 | 1.0 |
+| Headline | 48px | 700 | 1.15 |
+| Title | 32px | 600 | 1.2 |
+| Subhead | 24px | 600 | 1.25 |
+| Body | 18-21px | 400 | 1.5 |
+| Caption/Eyebrow | 12px | 600 | 1.4 |
+
+### Eyebrow Pattern
+```
+FOUNDATION CHAPTER          ← 12px, 600 weight, emerald, letter-spacing 0.15-0.2em
+                            ← 24-32px gap
+Problem Reframing           ← Display headline
+```
+
+---
+
+## Critical Spacing Rules
+
+### Gap vs Line Height (LEARNED)
+
+**Problem:** Stacked text blocks that are part of the same thought looked disconnected.
+
+**Rule:** Use explicit gap values, not line-height, to control spacing between text blocks.
+
+| Relationship | Gap |
+|--------------|-----|
+| Same thought (e.g., "Same problem." / "Different solutions.") | 0-8px |
+| Related items in a list | 16px |
+| Distinct sections | 40-56px |
+| Eyebrow to headline | 24-32px |
+| Headline to body | 32-48px |
+
+**Wrong:**
+```jsx
+<h2 style={{ marginTop: 8 }}>Same problem.</h2>
+<h2 style={{ marginTop: 8 }}>Different solution spaces.</h2>
+```
+
+**Right:**
+```jsx
+<h2>
+  <span style={{ display: 'block' }}>Same problem.</span>
+  <span style={{ display: 'block' }}>Different solution spaces.</span>
+</h2>
+```
+
+Or use controlled gap:
+```jsx
+<div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+```
+
+---
+
+### Number + Text Alignment (LEARNED)
+
+**Problem:** Large decorative numbers (01, 02...) misalign with adjacent text.
+
+**Rule:** Align numbers to `flex-start`, not baseline. Add small `marginTop` for optical alignment.
+
+**Pattern:**
+```jsx
+<div style={{ 
+  display: 'flex', 
+  alignItems: 'flex-start',  // NOT baseline
+  gap: 24,
+}}>
+  <span style={{ 
+    fontSize: 48, 
+    fontWeight: 700, 
+    opacity: 0.2,
+    lineHeight: 1,
+    width: 72,           // Fixed width
+    flexShrink: 0,
+    marginTop: 2,        // Optical adjustment
+  }}>
+    01
+  </span>
+  <div>
+    <p style={{ fontSize: 24, fontWeight: 600 }}>Title</p>
+    <p style={{ fontSize: 16, color: gray }}>Description</p>
+  </div>
+</div>
+```
+
+---
+
+## Slide Types
+
+### 1. Hero (Title Slide)
+- Dark background (navy)
+- Centered content
+- Eyebrow → Display headline → Supporting text
+- Max-width on supporting text: 480px
+
+### 2. Statement Slide
+- Light background
+- Single headline with weight transition
+- Left-aligned
+- Max-width: 700px
+- **Lots of empty space**
+
+### 3. Stat Slide
+- Dark background
+- Massive number (140-180px) on left
+- Brief context on right
+- Vertical divider optional
+
+### 4. List/Grid Slide
+- Light background
+- Eyebrow → Headline → Items
+- 3 items per slide maximum
+- Generous vertical gap between items (40px)
+
+### 5. Example Slide
+- Gray background (gray100)
+- Quote/problem in navy chip
+- Reframes with emerald accent bars
+
+### 6. Process Slide
+- Light background
+- Horizontal steps with numbered circles
+- 4 steps maximum
+- Equal spacing between steps
+
+### 7. Reference/Close Slide
+- Dark background
+- Eyebrow → Headline → Body
+- Footer with attribution
+
+---
+
+## Dark/Light Sequencing
+
+**Pattern:** Alternate to create rhythm, but with purpose.
+
+| Content Type | Background |
+|--------------|------------|
+| Opening/Hero | Dark |
+| Insight/Statement | Light |
+| Examples (problems) | Gray |
+| Stats/Impact | Dark |
+| Framework/Process | Light |
+| Close/Takeaway | Dark |
+
+---
+
+## Weight Transition on Slides
+
+Same rules as documents, but **keep it short** on slides:
+
+**Good:**
+```
+Problems get locked in. The frame becomes invisible.
+[Bold]                   [Regular, gray]
+```
+
+**Too long for slides:**
+```
+Problems get locked in. The frame becomes invisible, and we forget 
+there are other ways to see the same situation, which limits our 
+ability to find creative solutions.
+```
+
+**Rule:** Weight transition continuation ≤ 15 words on slides.
+
+---
+
+## Common Mistakes
+
+### ❌ Too much on one slide
+Split it. Add slides. They're free.
+
+### ❌ Margins instead of gaps
+Use flexbox with `gap` for predictable spacing.
+
+### ❌ Text spanning full width
+Constrain max-width. 700px for headlines, 500px for body.
+
+### ❌ Baseline aligning large decorative elements
+Use `flex-start` with optical `marginTop` adjustment.
+
+### ❌ Same spacing everywhere
+Vary spacing based on relationship. Tighter within groups, looser between.
+
+---
+
+## Quality Checklist
+
+Before finalizing slides:
+
+- [ ] One idea per slide?
+- [ ] 60%+ whitespace?
+- [ ] Text constrained (not spanning full width)?
+- [ ] Eyebrow → Headline hierarchy consistent?
+- [ ] Weight transitions ≤ 15 words?
+- [ ] Number/text alignment optically correct?
+- [ ] Dark/light alternation purposeful?
+- [ ] Font is Manrope?
+- [ ] Colors from HLV palette only?
+
+---
+
+## Integration
+
+This skill supplements the main `hlv-design-system` skill. For:
+- Color values → See design-system tokens
+- Typography philosophy → See typography.md
+- Component patterns → See components.md
+- General principles → See philosophy.md
+
+---
+
+## Changelog
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0 | 2025-12-17 | Initial creation from Problem Reframing deck production |
+
+---
+
+## Learnings Log
+
+*Add new learnings here as they emerge from production.*
+
+### 2025-12-17: Gap vs Line Height
+- **Context:** Building Problem Reframing slides
+- **Issue:** Slides 3, 7, 9 had text blocks too far apart
+- **Learning:** Stacked text blocks need explicit gap control (16-24px), not default line-height spacing
+- **Fix:** Use `gap` in flexbox or wrap in single text element with `display: block` spans
+
+### 2025-12-17: Number Alignment
+- **Context:** Lens list slides (5, 6) with large "01" numbers
+- **Issue:** Numbers misaligned with adjacent text
+- **Learning:** Use `alignItems: flex-start` + `marginTop: 2px` optical adjustment
+- **Fix:** Created `LensItem` component with proper alignment pattern
