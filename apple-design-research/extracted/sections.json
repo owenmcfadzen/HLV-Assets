@@ -1,3 +1,142 @@
 {
-  "pages": {}
+  "metadata": {
+    "extracted_at": "2025-12-17",
+    "methodology": "Content analysis of Apple website page structures",
+    "pagesAnalyzed": ["homepage", "macbook-pro", "macbook-air", "apple-music", "accessibility", "shop"]
+  },
+  "pageTemplates": {
+    "product": {
+      "description": "Template for hardware product pages (iPhone, Mac, iPad, Watch, etc.)",
+      "sections": [
+        { "name": "hero", "background": "dark", "components": ["headline", "tagline", "cta", "heroMedia"] },
+        { "name": "highlights", "background": "light", "components": ["tabs", "featureCards"] },
+        { "name": "productViewer", "background": "light", "components": ["3dViewer", "colorPicker"] },
+        { "name": "performance", "background": "dark", "components": ["headline", "stats", "chipGraphic"] },
+        { "name": "features", "background": "alternating", "components": ["featureBlocks"], "repeatable": true },
+        { "name": "comparison", "background": "light", "components": ["comparisonTable", "upgradeMessage"] },
+        { "name": "whyApple", "background": "light", "components": ["benefitCards", "tradein", "financing"] },
+        { "name": "values", "background": "light", "components": ["privacyCard", "accessibilityCard", "environmentCard"] },
+        { "name": "footer", "background": "light", "components": ["footerNav", "legal"] }
+      ]
+    },
+    "service": {
+      "description": "Template for service pages (Apple Music, TV+, Arcade, etc.)",
+      "sections": [
+        { "name": "hero", "background": "dark", "components": ["headline", "tagline", "cta", "heroMedia"] },
+        { "name": "features", "background": "alternating", "components": ["featureShowcase"], "repeatable": true },
+        { "name": "pricing", "background": "light", "components": ["pricingCards", "planComparison"] },
+        { "name": "devices", "background": "light", "components": ["deviceGrid", "availability"] },
+        { "name": "faq", "background": "light", "components": ["accordionFaq"] },
+        { "name": "cta", "background": "dark", "components": ["finalCta", "trialOffer"] },
+        { "name": "footer", "background": "light", "components": ["footerNav", "legal"] }
+      ]
+    },
+    "values": {
+      "description": "Template for values/brand pages (Privacy, Accessibility, Environment)",
+      "sections": [
+        { "name": "hero", "background": "light", "components": ["headline", "subheadline", "heroImage"] },
+        { "name": "intro", "background": "light", "components": ["valueStatement", "keyMessage"] },
+        { "name": "features", "background": "alternating", "components": ["featureCards"], "repeatable": true },
+        { "name": "stories", "background": "light", "components": ["testimonials", "caseStudies"] },
+        { "name": "resources", "background": "light", "components": ["resourceLinks", "downloads"] },
+        { "name": "footer", "background": "light", "components": ["footerNav", "legal"] }
+      ]
+    },
+    "shop": {
+      "description": "Template for e-commerce/shop pages",
+      "sections": [
+        { "name": "promoBanner", "background": "light", "components": ["promoMessage", "deliveryInfo"] },
+        { "name": "hero", "background": "light", "components": ["headline", "seasonalMessage"] },
+        { "name": "productGrid", "background": "light", "components": ["productCards", "categoryNav"] },
+        { "name": "accessories", "background": "light", "components": ["accessoryCards"] },
+        { "name": "services", "background": "light", "components": ["appleCard", "tradein", "support"] },
+        { "name": "footer", "background": "light", "components": ["footerNav", "legal"] }
+      ]
+    }
+  },
+  "componentTypes": {
+    "hero": {
+      "variants": ["fullBleed", "contained", "split"],
+      "typicalHeight": { "desktop": "580-700px", "mobile": "400-500px" }
+    },
+    "featureBlock": {
+      "variants": ["imageLeft", "imageRight", "imageFull", "textOnly"],
+      "layout": "50/50 or 60/40 split"
+    },
+    "productCard": {
+      "variants": ["large", "medium", "small"],
+      "components": ["image", "headline", "price", "cta"]
+    },
+    "pricingCard": {
+      "components": ["planName", "price", "features", "cta"],
+      "variants": ["standard", "highlighted", "enterprise"]
+    },
+    "comparisonTable": {
+      "components": ["headers", "featureRows", "checkmarks"],
+      "maxColumns": 4
+    },
+    "accordion": {
+      "components": ["question", "answer", "expandIcon"],
+      "animation": "smooth expand/collapse"
+    }
+  },
+  "pages": {
+    "homepage": {
+      "sections": [
+        { "type": "hero", "background": "#000000", "content": "iPhone 16 Pro announcement" },
+        { "type": "productCard", "background": "#FFFFFF", "content": "iPhone 16" },
+        { "type": "productCard", "background": "#000000", "content": "iPad Air" },
+        { "type": "productCard", "background": "#FFFFFF", "content": "AirPods Pro" },
+        { "type": "productCard", "background": "#000000", "content": "MacBook Pro" },
+        { "type": "productCard", "background": "#FFFFFF", "content": "Apple Watch" },
+        { "type": "productGrid", "background": "#F5F5F7", "content": "More products" }
+      ]
+    },
+    "macbookPro": {
+      "sections": [
+        { "type": "hero", "background": "#000000", "content": "Product name + tagline" },
+        { "type": "highlights", "background": "#FFFFFF", "content": "Key features tabs" },
+        { "type": "performance", "background": "#000000", "content": "M5 chip showcase" },
+        { "type": "featureBlock", "background": "#FFFFFF", "content": "Battery life" },
+        { "type": "featureBlock", "background": "#000000", "content": "Display" },
+        { "type": "featureBlock", "background": "#FFFFFF", "content": "Camera" },
+        { "type": "comparison", "background": "#F5F5F7", "content": "Model comparison" },
+        { "type": "whyApple", "background": "#FFFFFF", "content": "Purchase benefits" },
+        { "type": "values", "background": "#F5F5F7", "content": "Environment, Privacy" }
+      ]
+    },
+    "appleMusic": {
+      "sections": [
+        { "type": "hero", "background": "#000000", "content": "Emotional headline + album art" },
+        { "type": "features", "background": "#FFFFFF", "content": "Spatial Audio, Lossless" },
+        { "type": "features", "background": "#000000", "content": "Apple Music Sing" },
+        { "type": "pricing", "background": "#FFFFFF", "content": "4 plan tiers" },
+        { "type": "devices", "background": "#F5F5F7", "content": "Device compatibility" },
+        { "type": "faq", "background": "#FFFFFF", "content": "Common questions" }
+      ]
+    },
+    "accessibility": {
+      "sections": [
+        { "type": "hero", "background": "#FFFFFF", "content": "Values statement" },
+        { "type": "features", "background": "#FFFFFF", "content": "Vision features" },
+        { "type": "features", "background": "#F5F5F7", "content": "Hearing features" },
+        { "type": "features", "background": "#FFFFFF", "content": "Mobility features" },
+        { "type": "features", "background": "#F5F5F7", "content": "Cognitive features" },
+        { "type": "resources", "background": "#FFFFFF", "content": "Support links" }
+      ]
+    }
+  },
+  "patterns": {
+    "backgroundAlternation": {
+      "product": ["dark", "light", "dark", "light", "light", "light"],
+      "service": ["dark", "light", "dark", "light", "light"],
+      "values": ["light", "light", "alternating"]
+    },
+    "contentDensity": {
+      "hero": "low (focus on single message)",
+      "features": "medium (balanced image/text)",
+      "comparison": "high (dense information)",
+      "footer": "medium (organized links)"
+    }
+  }
 }
