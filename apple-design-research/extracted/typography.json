@@ -1,0 +1,100 @@
+{
+  "note": "Typography data extracted via WebFetch content analysis. For actual computed px values, run the Playwright scraper in an environment with network access to apple.com",
+  "extracted_at": "2025-12-16",
+  "methodology": "Content analysis of Apple website pages via WebFetch",
+  "pages_analyzed": 10,
+  "typography_patterns": {
+    "headline_structures": {
+      "hero_headlines": {
+        "description": "Main product/page headlines",
+        "examples": [
+          "MacBook Pro",
+          "AirPods Pro 3",
+          "Privacy. That's Apple.",
+          "MacBook Air - Speed of lightness."
+        ],
+        "characteristics": [
+          "Often just the product name",
+          "Sometimes with a tagline after em-dash",
+          "Punchy, memorable phrases",
+          "Period-terminated statements"
+        ]
+      },
+      "section_headlines": {
+        "description": "Headlines for major page sections",
+        "examples": [
+          "Performance - Happily ever faster.",
+          "Battery - All-day battery life. Think outside the outlet.",
+          "AI - Built for AI. From the silicon up."
+        ],
+        "pattern": "[Category] - [Headline]. [Optional subhead]."
+      },
+      "feature_headlines": {
+        "description": "Headlines for feature callouts",
+        "examples": [
+          "The sound of science.",
+          "For your ears only.",
+          "No compromises."
+        ],
+        "characteristics": [
+          "Short, punchy",
+          "Often metaphorical",
+          "Benefit-focused"
+        ]
+      }
+    },
+    "subheadline_patterns": {
+      "examples": [
+        "The world's best in-ear Active Noise Cancellation.",
+        "Built for Apple Intelligence.",
+        "Up to 2x more than AirPods Pro 2."
+      ],
+      "characteristics": [
+        "Supports the headline",
+        "Often includes superlatives",
+        "May include specific claims/stats"
+      ]
+    },
+    "body_copy_patterns": {
+      "characteristics": [
+        "Conversational tone",
+        "Second person address ('you', 'your')",
+        "Technical details made accessible",
+        "Benefit-first, feature-second"
+      ],
+      "sentence_structures": [
+        "Short, declarative sentences",
+        "Parallel construction",
+        "Question-answer implied"
+      ]
+    }
+  },
+  "known_apple_typography": {
+    "font_families": {
+      "primary": "SF Pro Display",
+      "secondary": "SF Pro Text",
+      "notes": "Apple uses its proprietary San Francisco font family"
+    },
+    "typical_hero_sizes": {
+      "desktop": "48px - 96px",
+      "mobile": "28px - 48px"
+    },
+    "typical_body_sizes": {
+      "desktop": "17px - 21px",
+      "mobile": "14px - 17px"
+    },
+    "font_weights": {
+      "headlines": "600 (Semibold) or 700 (Bold)",
+      "subheadlines": "400 (Regular) or 500 (Medium)",
+      "body": "400 (Regular)"
+    }
+  },
+  "aggregated": {
+    "note": "Based on Apple's Human Interface Guidelines and observed patterns",
+    "fontSizesUsed": ["12px", "14px", "17px", "19px", "21px", "24px", "28px", "32px", "40px", "48px", "56px", "64px", "80px", "96px"],
+    "fontWeightsUsed": ["400", "500", "600", "700"],
+    "fontFamilies": ["SF Pro Display", "SF Pro Text", "SF Pro Rounded"],
+    "lineHeightsUsed": ["1.05", "1.1", "1.14", "1.17", "1.21", "1.25", "1.4", "1.5"],
+    "letterSpacingsUsed": ["-0.02em", "-0.015em", "-0.01em", "0", "0.01em"]
+  }
+}
