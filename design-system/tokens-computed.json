@@ -1,0 +1,151 @@
+{
+  "_meta": {
+    "version": "2.0.0",
+    "generated": "2025-12-17",
+    "source": "design-system/generative-rules.md",
+    "description": "Computed design tokens for slides format. All values derived from generative rules."
+  },
+  
+  "generative": {
+    "_comment": "Source values from generative-rules.md Format Adaptation Matrix (§11)",
+    "slides": {
+      "content_density": 0.7,
+      "spacing_base": 24,
+      "typography_base": 18,
+      "weight_transition_max_words": 15,
+      "ideas_per_container": 1,
+      "padding_percent": 0.07
+    },
+    "spacing_multipliers": {
+      "atomic": 0.25,
+      "tight": 0.5,
+      "related": 1.0,
+      "distinct": 2.0,
+      "separate": 4.0
+    },
+    "type_ratios": {
+      "display_large": 3.5,
+      "display": 2.75,
+      "headline": 2.0,
+      "title": 1.5,
+      "body": 1.0,
+      "body_small": 0.875,
+      "caption": 0.67
+    },
+    "line_heights": {
+      "display": 1.05,
+      "headline": 1.15,
+      "title": 1.2,
+      "body": 1.5,
+      "caption": 1.4
+    },
+    "font_weights": {
+      "display": 700,
+      "headline": 700,
+      "title": 600,
+      "body": 400,
+      "eyebrow": 600
+    }
+  },
+
+  "colors": {
+    "_comment": "From design-system/tokens.json",
+    "primary": "#182D53",
+    "accent": "#00D866",
+    "warning": "#F59E0B",
+    "surface": "#FFFFFF",
+    "surface_alt": "#F5F5F7",
+    "text": "#1D1D1F",
+    "text_muted": "#6E6E73",
+    "text_light": "#86868B",
+    "text_inverse": "#FFFFFF",
+    "text_inverse_muted": "#B8C5D9",
+    "text_inverse_light": "#8A9BB5",
+    "text_inverse_faint": "#5A6B82",
+    "border": "#E5E5E5",
+    "border_dark": "#D2D2D7",
+    "accent_light": "#E6FBF0",
+    "warning_light": "#FEF3C7",
+    "error_light": "#FEE2E2",
+    "success_light": "#D1FAE5"
+  },
+
+  "fonts": {
+    "heading": "Manrope",
+    "body": "Lora"
+  },
+
+  "weights": {
+    "_comment": "Standard font weights",
+    "regular": 400,
+    "medium": 500,
+    "semibold": 600,
+    "bold": 700
+  },
+
+  "sizes": {
+    "_comment": "Computed from typography_base (18px → 14pt) × type_ratios",
+    "display_large": 48,
+    "display": 38,
+    "title": 28,
+    "heading": 24,
+    "subtitle": 18,
+    "body": 14,
+    "body_small": 12,
+    "caption": 11,
+    "label": 10
+  },
+
+  "lineheights": {
+    "tight": 1.15,
+    "normal": 1.4,
+    "relaxed": 1.5
+  },
+
+  "grid": {
+    "_comment": "Canvas: 720×405pt (16:9 at 10in). Padding from 7% of dimensions.",
+    "slide_width": 720,
+    "slide_height": 405,
+    "margin": 50,
+    "margin_y": 28,
+    "columns": 12,
+    "column_width": 48,
+    "gutter": 8,
+    "content_width": 620,
+    "content_height": 349,
+    "header_height": 40,
+    "footer_height": 24
+  },
+
+  "spacing": {
+    "_comment": "Computed from spacing_base (24px) × spacing_multipliers",
+    "none": 0,
+    "atomic": 6,
+    "xs": 6,
+    "tight": 12,
+    "sm": 12,
+    "related": 24,
+    "md": 24,
+    "distinct": 48,
+    "lg": 32,
+    "xl": 48,
+    "separate": 96,
+    "xxl": 96
+  },
+
+  "content_constraints": {
+    "_comment": "From generative-rules.md §10 - Content Width Constraints",
+    "headline_max_width": 504,
+    "body_max_width": 468,
+    "quote_max_width": 576
+  },
+
+  "validation": {
+    "_comment": "Quality checks from generative-rules.md §12",
+    "max_hierarchy_levels": 3,
+    "ideas_per_slide": 1,
+    "weight_transition_max_words": 15,
+    "content_density_target": 0.35,
+    "whitespace_target": 0.65
+  }
+}
