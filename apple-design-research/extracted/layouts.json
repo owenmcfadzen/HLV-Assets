@@ -1,6 +1,189 @@
 {
-  "pages": {},
+  "metadata": {
+    "extracted_at": "2025-12-17",
+    "methodology": "Layout analysis from Apple website page structures",
+    "pagesAnalyzed": ["homepage", "macbook-pro", "apple-music", "shop", "accessibility"]
+  },
+  "grid": {
+    "type": "12-column",
+    "gutter": {
+      "desktop": "20px",
+      "tablet": "16px",
+      "mobile": "12px"
+    },
+    "margin": {
+      "desktop": "auto (centered)",
+      "tablet": "20px",
+      "mobile": "16px"
+    }
+  },
+  "containers": {
+    "narrow": {
+      "maxWidth": "692px",
+      "usage": "Text-heavy content, articles, legal"
+    },
+    "default": {
+      "maxWidth": "980px",
+      "usage": "Standard content sections"
+    },
+    "wide": {
+      "maxWidth": "1200px",
+      "usage": "Product grids, feature showcases"
+    },
+    "full": {
+      "maxWidth": "1440px",
+      "usage": "Hero sections, full-bleed content"
+    },
+    "fullBleed": {
+      "maxWidth": "100%",
+      "usage": "Background images, video sections"
+    }
+  },
+  "breakpoints": {
+    "mobile": {
+      "min": "0px",
+      "max": "479px",
+      "columns": 4,
+      "containerPadding": "16px"
+    },
+    "mobileLandscape": {
+      "min": "480px",
+      "max": "767px",
+      "columns": 4,
+      "containerPadding": "16px"
+    },
+    "tablet": {
+      "min": "768px",
+      "max": "1023px",
+      "columns": 8,
+      "containerPadding": "20px"
+    },
+    "tabletLandscape": {
+      "min": "1024px",
+      "max": "1199px",
+      "columns": 12,
+      "containerPadding": "22px"
+    },
+    "desktop": {
+      "min": "1200px",
+      "max": "1439px",
+      "columns": 12,
+      "containerPadding": "22px"
+    },
+    "desktopLarge": {
+      "min": "1440px",
+      "max": "1919px",
+      "columns": 12,
+      "containerPadding": "auto"
+    },
+    "desktopXL": {
+      "min": "1920px",
+      "columns": 12,
+      "containerPadding": "auto"
+    }
+  },
+  "commonLayouts": {
+    "heroFullBleed": {
+      "width": "100%",
+      "minHeight": { "desktop": "580px", "tablet": "500px", "mobile": "400px" },
+      "contentAlignment": "center",
+      "textMaxWidth": "692px"
+    },
+    "splitContent": {
+      "layout": "flex",
+      "columns": { "desktop": "50/50", "tablet": "50/50", "mobile": "100" },
+      "gap": { "desktop": "40px", "tablet": "24px", "mobile": "24px" },
+      "variants": ["imageLeft", "imageRight"]
+    },
+    "productGrid": {
+      "layout": "grid",
+      "columns": { "desktop": 3, "tablet": 2, "mobile": 1 },
+      "gap": { "desktop": "20px", "tablet": "16px", "mobile": "12px" },
+      "cardAspectRatio": "1:1.2"
+    },
+    "featureCards": {
+      "layout": "grid",
+      "columns": { "desktop": 2, "tablet": 2, "mobile": 1 },
+      "gap": "20px",
+      "cardMinHeight": "400px"
+    },
+    "pricingTable": {
+      "layout": "flex",
+      "columns": { "desktop": 4, "tablet": 2, "mobile": 1 },
+      "gap": "16px",
+      "equalHeight": true
+    },
+    "centeredText": {
+      "maxWidth": "692px",
+      "textAlign": "center",
+      "margin": "0 auto"
+    }
+  },
+  "componentSizing": {
+    "buttons": {
+      "default": { "height": "44px", "minWidth": "120px", "borderRadius": "980px" },
+      "small": { "height": "32px", "minWidth": "80px", "borderRadius": "980px" },
+      "large": { "height": "52px", "minWidth": "160px", "borderRadius": "980px" }
+    },
+    "cards": {
+      "product": { "minHeight": "580px", "borderRadius": "18px" },
+      "feature": { "minHeight": "400px", "borderRadius": "18px" },
+      "pricing": { "minHeight": "300px", "borderRadius": "12px" }
+    },
+    "images": {
+      "hero": { "aspectRatio": "16:9", "objectFit": "cover" },
+      "product": { "aspectRatio": "1:1", "objectFit": "contain" },
+      "feature": { "aspectRatio": "4:3", "objectFit": "cover" }
+    }
+  },
+  "pageLayouts": {
+    "homepage": {
+      "structure": "stack",
+      "heroType": "fullBleed",
+      "contentLayout": "productGrid (large cards)",
+      "sectionSpacing": "0px (edge-to-edge cards)"
+    },
+    "productPage": {
+      "structure": "stack",
+      "heroType": "fullBleed",
+      "contentLayout": "alternating split sections",
+      "sectionSpacing": "100px"
+    },
+    "servicePage": {
+      "structure": "stack",
+      "heroType": "fullBleed",
+      "contentLayout": "feature showcase + pricing table",
+      "sectionSpacing": "80px"
+    },
+    "shopPage": {
+      "structure": "stack",
+      "heroType": "contained",
+      "contentLayout": "horizontal scroll shelves",
+      "sectionSpacing": "48px"
+    }
+  },
+  "navigation": {
+    "globalNav": {
+      "height": "48px",
+      "position": "sticky",
+      "background": "rgba(255,255,255,0.8) with backdrop-blur",
+      "zIndex": 9999
+    },
+    "localNav": {
+      "height": "52px",
+      "position": "sticky",
+      "background": "#FFFFFF",
+      "zIndex": 9998
+    },
+    "footer": {
+      "layout": "4-column grid",
+      "background": "#F5F5F7",
+      "padding": "32px 22px"
+    }
+  },
   "aggregated": {
-    "containerMaxWidths": []
+    "containerMaxWidths": ["692px", "980px", "1200px", "1440px", "100%"],
+    "commonColumnCounts": [1, 2, 3, 4, 12],
+    "aspectRatios": ["1:1", "4:3", "16:9", "1:1.2"]
   }
 }

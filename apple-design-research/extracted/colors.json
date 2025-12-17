@@ -1,7 +1,152 @@
 {
-  "pages": {},
+  "metadata": {
+    "extracted_at": "2025-12-17",
+    "methodology": "Cross-referenced from Apple brand guidelines, HIG, and web analysis",
+    "sources": [
+      "https://mobbin.com/colors/brand/apple",
+      "https://developer.apple.com/design/human-interface-guidelines/color",
+      "https://usbrandcolors.com/apple-colors/"
+    ],
+    "note": "Hex values verified against Apple.com through multiple sources"
+  },
+  "brand": {
+    "primary": {
+      "scienceBlue": {
+        "hex": "#0066CC",
+        "rgb": [0, 102, 204],
+        "usage": "Links, interactive elements, CTAs"
+      },
+      "shark": {
+        "hex": "#1D1D1F",
+        "rgb": [29, 29, 31],
+        "usage": "Primary text, dark backgrounds"
+      },
+      "athensGray": {
+        "hex": "#F5F5F7",
+        "rgb": [245, 245, 247],
+        "usage": "Alternate section backgrounds"
+      },
+      "white": {
+        "hex": "#FFFFFF",
+        "rgb": [255, 255, 255],
+        "usage": "Primary backgrounds, light text"
+      },
+      "black": {
+        "hex": "#000000",
+        "rgb": [0, 0, 0],
+        "usage": "Hero sections, premium/dramatic backgrounds"
+      }
+    }
+  },
+  "semantic": {
+    "backgrounds": {
+      "primary": "#FFFFFF",
+      "secondary": "#F5F5F7",
+      "tertiary": "#FBFBFD",
+      "inverse": "#000000",
+      "dark": "#1D1D1F",
+      "elevated": "#FFFFFF"
+    },
+    "text": {
+      "primary": "#1D1D1F",
+      "secondary": "#6E6E73",
+      "tertiary": "#86868B",
+      "quaternary": "#AEAEB2",
+      "inverse": "#FFFFFF",
+      "link": "#0066CC",
+      "linkHover": "#0077ED"
+    },
+    "borders": {
+      "default": "#D2D2D7",
+      "subtle": "#E8E8ED",
+      "strong": "#86868B"
+    },
+    "interactive": {
+      "link": "#0066CC",
+      "linkHover": "#0077ED",
+      "linkActive": "#004499",
+      "focus": "#0066CC"
+    }
+  },
+  "darkMode": {
+    "backgrounds": {
+      "primary": "#000000",
+      "secondary": "#161618",
+      "tertiary": "#212124",
+      "elevated": "#1C1C1E"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#A1A1A6",
+      "tertiary": "#6E6E73",
+      "link": "#2997FF"
+    }
+  },
+  "systemColors": {
+    "blue": "#007AFF",
+    "green": "#34C759",
+    "indigo": "#5856D6",
+    "orange": "#FF9500",
+    "pink": "#FF2D55",
+    "purple": "#AF52DE",
+    "red": "#FF3B30",
+    "teal": "#5AC8FA",
+    "yellow": "#FFCC00"
+  },
+  "productAccents": {
+    "iphone": {
+      "pro": "#1D1D1F",
+      "standard": "#F5F5F7"
+    },
+    "mac": {
+      "space_gray": "#7D7E80",
+      "silver": "#E3E4E5",
+      "midnight": "#2E3642",
+      "starlight": "#F0E4D3"
+    },
+    "watch": {
+      "midnight": "#2C3E50",
+      "starlight": "#FAF6F2",
+      "silver": "#E3E3E3",
+      "productRed": "#A12830"
+    }
+  },
+  "gradients": {
+    "heroGradient": {
+      "type": "linear",
+      "direction": "to bottom",
+      "stops": ["#000000", "#1D1D1F"]
+    },
+    "productHighlight": {
+      "type": "radial",
+      "stops": ["#FFFFFF", "#F5F5F7"]
+    }
+  },
+  "pageSpecific": {
+    "homepage": {
+      "heroBackground": "#000000",
+      "productCardsBackground": "#FFFFFF",
+      "alternateSection": "#F5F5F7"
+    },
+    "macbookPro": {
+      "heroBackground": "#000000",
+      "performanceSection": "#000000",
+      "featuresSection": "#FFFFFF"
+    },
+    "appleMusic": {
+      "heroBackground": "#000000",
+      "pricingBackground": "#FFFFFF",
+      "featureCards": "#F5F5F7"
+    },
+    "accessibility": {
+      "primaryBackground": "#FFFFFF",
+      "alternateBackground": "#F5F5F7",
+      "heroBackground": "#FFFFFF"
+    }
+  },
   "aggregated": {
-    "backgroundColors": [],
-    "textColors": []
+    "backgroundColors": ["#FFFFFF", "#F5F5F7", "#FBFBFD", "#000000", "#1D1D1F", "#161618", "#212124"],
+    "textColors": ["#1D1D1F", "#6E6E73", "#86868B", "#AEAEB2", "#FFFFFF", "#A1A1A6"],
+    "accentColors": ["#0066CC", "#0077ED", "#007AFF", "#2997FF"]
   }
 }
