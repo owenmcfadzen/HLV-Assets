@@ -949,135 +949,6 @@ const GoodVsWeakProblems = () => {
 };
 
 // ============================================================================
-// GEC ROADMAP
-// ============================================================================
-const GECRoadmap = () => {
-  // Module data with positions along winding path
-  const modules = [
-    { num: 1, name: 'Stakeholder\nMapping', x: 100, y: 180 },
-    { num: 2, name: 'Problem\nIdentification', x: 200, y: 280 },
-    { num: 3, name: 'Customer\nValidation', x: 320, y: 160 },
-    { num: 4, name: 'Problem\nReframing', x: 440, y: 240 },
-    { num: 5, name: 'Solution\nDevelopment', x: 540, y: 340 },
-    { num: 6, name: 'Individual\nPitches', x: 660, y: 260 },
-    { num: 7, name: 'User\nJourney', x: 760, y: 360 },
-    { num: 8, name: 'Lean\nCanvas', x: 880, y: 260 },
-    { num: 9, name: 'Lean Product\nPlan', x: 980, y: 340 },
-    { num: 10, name: 'Pitch\nDay', x: 1100, y: 260 },
-  ];
-
-  // Checkpoints with colors
-  const checkpoints = [
-    { label: 'Vlog #1', date: 'Nov 25', x: 130, y: 340, type: 'vlog', targetModule: 1 },
-    { label: 'Quick Pitch', date: 'Jan 6', x: 610, y: 120, type: 'submit', targetModule: 6 },
-    { label: 'Call #2', date: 'Jan 13', x: 660, y: 420, type: 'call', targetModule: 6 },
-    { label: 'Vlog #2', date: 'Feb 3', x: 940, y: 140, type: 'vlog', targetModule: 8 },
-    { label: 'Call #3', date: 'Feb 24', x: 850, y: 420, type: 'call', targetModule: 8 },
-    { label: 'Vlog #3', date: 'Mar 17', x: 1050, y: 440, type: 'vlog', targetModule: 9 },
-    { label: 'Pitch Day', date: 'May 22', x: 1150, y: 180, type: 'pitch', targetModule: 10 },
-  ];
-
-  const checkpointColors = {
-    vlog: '#EC4899',    // Pink
-    call: T.emerald,    // Green
-    submit: '#3B82F6',  // Blue
-    pitch: '#EF4444',   // Red
-  };
-
-  // Simple icons as SVG paths
-  const icons = {
-    1: <g transform="translate(-12,-12)"><circle cx={12} cy={8} r={4} fill={T.gray}/><circle cx={6} cy={14} r={3} fill={T.gray}/><circle cx={18} cy={14} r={3} fill={T.gray}/><circle cx={12} cy={20} r={3} fill={T.gray}/></g>,
-    2: <g transform="translate(-10,-10)"><circle cx={10} cy={10} r={8} fill="none" stroke={T.gray} strokeWidth={2}/><line x1={15} y1={15} x2={20} y2={20} stroke={T.gray} strokeWidth={2}/></g>,
-    3: <g transform="translate(-12,-8)"><circle cx={12} cy={4} r={3} fill={T.gray}/><circle cx={6} cy={4} r={3} fill={T.gray}/><circle cx={18} cy={4} r={3} fill={T.gray}/><path d="M6,10 L18,10 L18,16 L6,16 Z" fill={T.gray}/></g>,
-    4: <g transform="translate(-10,-10)"><rect x={2} y={2} width={8} height={8} fill={T.gray}/><rect x={10} y={10} width={8} height={8} fill={T.gray}/><path d="M6,10 L10,6" stroke={T.gray} strokeWidth={2}/></g>,
-    5: <g transform="translate(-10,-10)"><circle cx={10} cy={10} r={6} fill="none" stroke={T.gray} strokeWidth={2}/><circle cx={10} cy={10} r={2} fill={T.gray}/><line x1={10} y1={4} x2={10} y2={1} stroke={T.gray} strokeWidth={2}/><line x1={10} y1={16} x2={10} y2={19} stroke={T.gray} strokeWidth={2}/></g>,
-    6: <g transform="translate(-10,-10)"><rect x={3} y={3} width={14} height={10} rx={2} fill="none" stroke={T.gray} strokeWidth={2}/><polygon points="10,8 8,6 12,6" fill={T.gray}/></g>,
-    7: <g transform="translate(-10,-10)"><circle cx={6} cy={10} r={3} fill={T.gray}/><path d="M9,10 Q12,5 15,10 Q18,15 20,10" fill="none" stroke={T.gray} strokeWidth={2}/></g>,
-    8: <g transform="translate(-10,-10)"><rect x={2} y={2} width={16} height={16} fill="none" stroke={T.gray} strokeWidth={2}/><line x1={2} y1={8} x2={18} y2={8} stroke={T.gray} strokeWidth={1}/><line x1={10} y1={2} x2={10} y2={18} stroke={T.gray} strokeWidth={1}/></g>,
-    9: <g transform="translate(-10,-10)"><rect x={3} y={2} width={14} height={16} rx={1} fill="none" stroke={T.gray} strokeWidth={2}/><line x1={6} y1={6} x2={14} y2={6} stroke={T.gray} strokeWidth={1}/><line x1={6} y1={9} x2={14} y2={9} stroke={T.gray} strokeWidth={1}/><line x1={6} y1={12} x2={14} y2={12} stroke={T.gray} strokeWidth={1}/></g>,
-    10: <g transform="translate(-12,-12)"><circle cx={12} cy={4} r={3} fill={T.gray}/><line x1={6} y1={8} x2={18} y2={8} stroke={T.gray} strokeWidth={2}/><line x1={4} y1={12} x2={8} y2={20} stroke={T.gray} strokeWidth={2}/><line x1={20} y1={12} x2={16} y2={20} stroke={T.gray} strokeWidth={2}/><line x1={10} y1={12} x2={10} y2={22} stroke={T.gray} strokeWidth={2}/><line x1={14} y1={12} x2={14} y2={22} stroke={T.gray} strokeWidth={2}/></g>,
-  };
-
-  // Generate winding path through all module points
-  const pathD = `M 30,${modules[0].y} 
-    Q 65,${modules[0].y} ${modules[0].x},${modules[0].y}
-    Q ${(modules[0].x + modules[1].x)/2},${modules[0].y + 30} ${modules[1].x},${modules[1].y}
-    Q ${(modules[1].x + modules[2].x)/2},${modules[1].y - 80} ${modules[2].x},${modules[2].y}
-    Q ${(modules[2].x + modules[3].x)/2},${modules[2].y + 60} ${modules[3].x},${modules[3].y}
-    Q ${(modules[3].x + modules[4].x)/2},${modules[3].y + 60} ${modules[4].x},${modules[4].y}
-    Q ${(modules[4].x + modules[5].x)/2},${modules[4].y - 60} ${modules[5].x},${modules[5].y}
-    Q ${(modules[5].x + modules[6].x)/2},${modules[5].y + 80} ${modules[6].x},${modules[6].y}
-    Q ${(modules[6].x + modules[7].x)/2},${modules[6].y - 80} ${modules[7].x},${modules[7].y}
-    Q ${(modules[7].x + modules[8].x)/2},${modules[7].y + 60} ${modules[8].x},${modules[8].y}
-    Q ${(modules[8].x + modules[9].x)/2},${modules[8].y - 60} ${modules[9].x},${modules[9].y}`;
-
-  return (
-    <svg viewBox="0 0 1200 520" style={{ width: '100%', maxWidth: 1200, fontFamily: T.font }}>
-      {/* Title */}
-      <text x={1100} y={40} textAnchor="end" style={{ fontFamily: T.font, fontSize: 14, fontWeight: 800, fill: T.navy }}>GEC</text>
-      <text x={1100} y={60} textAnchor="end" style={{ fontFamily: T.font, fontSize: 14, fontWeight: 800, fill: '#3B82F6' }}>ROADMAP</text>
-
-      {/* START pill */}
-      <rect x={20} y={modules[0].y - 20} width={60} height={40} rx={20} fill={T.white} stroke={T.navy} strokeWidth={2}/>
-      <text x={50} y={modules[0].y + 5} textAnchor="middle" style={{ fontFamily: T.font, fontSize: 12, fontWeight: 700, fill: T.navy }}>START</text>
-
-      {/* Winding path */}
-      <path d={pathD} fill="none" stroke={T.navy} strokeWidth={3} strokeLinecap="round"/>
-
-      {/* Module nodes */}
-      {modules.map((m, i) => (
-        <g key={m.num}>
-          {/* Node circle */}
-          <circle cx={m.x} cy={m.y} r={28} fill={T.white} stroke={T.navy} strokeWidth={2}/>
-          <text x={m.x} y={m.y + 5} textAnchor="middle" style={{ fontFamily: T.font, fontSize: 16, fontWeight: 600, fill: T.navy }}>{m.num}</text>
-          
-          {/* Module name below */}
-          {m.name.split('\n').map((line, li) => (
-            <text key={li} x={m.x} y={m.y + 50 + li * 14} textAnchor="middle" 
-              style={{ fontFamily: T.font, fontSize: 11, fontWeight: 600, fill: T.navy }}>{line}</text>
-          ))}
-          
-          {/* Icon above (for odd-numbered modules) or below for visual balance */}
-          <g transform={`translate(${m.x}, ${m.y - 55})`}>
-            {icons[m.num]}
-          </g>
-        </g>
-      ))}
-
-      {/* Checkpoint callouts */}
-      {checkpoints.map((cp, i) => {
-        const color = checkpointColors[cp.type];
-        const targetModule = modules.find(m => m.num === cp.targetModule);
-        
-        return (
-          <g key={i}>
-            {/* Arrow line to module */}
-            <line 
-              x1={cp.x} y1={cp.y + (cp.y < targetModule.y ? 20 : -20)} 
-              x2={targetModule.x} y2={targetModule.y + (cp.y < targetModule.y ? -35 : 35)}
-              stroke={color} strokeWidth={2} markerEnd="none"
-            />
-            {/* Arrowhead */}
-            <polygon 
-              points="-5,-5 5,0 -5,5" 
-              fill={color}
-              transform={`translate(${targetModule.x}, ${targetModule.y + (cp.y < targetModule.y ? -32 : 32)}) rotate(${cp.y < targetModule.y ? 90 : -90})`}
-            />
-            
-            {/* Label */}
-            <text x={cp.x} y={cp.y} textAnchor="middle" style={{ fontFamily: T.font, fontSize: 13, fontWeight: 700, fill: color }}>{cp.label}</text>
-            <text x={cp.x} y={cp.y + 16} textAnchor="middle" style={{ fontFamily: T.font, fontSize: 11, fontWeight: 500, fill: color }}>{cp.date}</text>
-          </g>
-        );
-      })}
-
-      {/* Footer */}
-      <text x={600} y={500} textAnchor="middle" style={S.caption}>Global Entrepreneurship Challenge 2025-2026 • Belonging, Support, and Connection</text>
-    </svg>
-  );
-};
-
-// ============================================================================
 // DIAGRAM REGISTRY
 // ============================================================================
 
@@ -1272,6 +1143,87 @@ const AffinityMapping = () => {
   );
 };
 
+// ============================================================================
+// NOTION SYSTEM OVERVIEW
+// ============================================================================
+const NotionSystemOverview = () => {
+  const databases = [
+    { key: 'timeline', name: '📅 Timeline', desc: 'Programs, Projects, Initiatives', x: 120, y: 180, color: T.navy },
+    { key: 'tasks', name: '✅ Tasks', desc: 'Action items & assignments', x: 340, y: 180, color: '#3B82F6' },
+    { key: 'knowledge', name: '📚 Knowledge', desc: 'Curriculum, Methods, Activities', x: 560, y: 180, color: '#8B5CF6' },
+    { key: 'assets', name: '🎨 Assets', desc: 'Diagrams, Templates, Media', x: 780, y: 180, color: T.emerald }
+  ];
+  
+  return (
+    <svg viewBox="0 0 1000 520" style={{ width: '100%', maxWidth: 1000, fontFamily: T.font }}>
+      {/* Title */}
+      <text x={500} y={40} textAnchor="middle" style={S.title}>HLV Notion System</text>
+      <text x={500} y={65} textAnchor="middle" style={S.subtitle}>Team workspace architecture for operations and curriculum</text>
+      
+      {/* Hub */}
+      <rect x={400} y={95} width={200} height={50} rx={8} fill={T.navy} />
+      <text x={500} y={126} textAnchor="middle" style={{ ...S.heading, fontSize: 16 }}>🚀 HLV Team</text>
+      
+      {/* Connector lines from hub to databases */}
+      <line x1={430} y1={145} x2={180} y2={175} stroke={T.border} strokeWidth={2} />
+      <line x1={470} y1={145} x2={400} y2={175} stroke={T.border} strokeWidth={2} />
+      <line x1={530} y1={145} x2={620} y2={175} stroke={T.border} strokeWidth={2} />
+      <line x1={570} y1={145} x2={840} y2={175} stroke={T.border} strokeWidth={2} />
+      
+      {/* Database boxes */}
+      {databases.map((db) => (
+        <g key={db.key}>
+          <rect x={db.x - 80} y={db.y} width={160} height={90} rx={8} fill={T.white} stroke={db.color} strokeWidth={2} />
+          <rect x={db.x - 80} y={db.y} width={160} height={32} rx={8} fill={db.color} />
+          <rect x={db.x - 80} y={db.y + 24} width={160} height={8} fill={db.color} />
+          <text x={db.x} y={db.y + 22} textAnchor="middle" style={{ ...S.tag, fontSize: 12 }}>{db.name}</text>
+          <text x={db.x} y={db.y + 55} textAnchor="middle" style={S.labelSm}>{db.desc.split(',')[0]}</text>
+          {db.desc.includes(',') && <text x={db.x} y={db.y + 72} textAnchor="middle" style={S.labelSm}>{db.desc.split(',')[1]}</text>}
+        </g>
+      ))}
+      
+      {/* Relations arrows */}
+      <defs>
+        <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill={T.gray} />
+        </marker>
+      </defs>
+      
+      {/* Timeline → Tasks relation */}
+      <path d="M 200 270 Q 200 310 280 310 L 320 310 Q 340 310 340 290" fill="none" stroke={T.gray} strokeWidth={1.5} markerEnd="url(#arrowhead)" />
+      <text x={270} y={328} textAnchor="middle" style={{ ...S.caption, fontSize: 9 }}>Parent</text>
+      
+      {/* Timeline → Knowledge relation */}
+      <path d="M 200 270 Q 200 350 400 350 L 540 350 Q 560 350 560 290" fill="none" stroke={T.gray} strokeWidth={1.5} strokeDasharray="4,2" markerEnd="url(#arrowhead)" />
+      <text x={380} y={368} textAnchor="middle" style={{ ...S.caption, fontSize: 9 }}>References</text>
+      
+      {/* Knowledge → Assets relation */}
+      <path d="M 640 270 Q 640 310 720 310 L 760 310 Q 780 310 780 290" fill="none" stroke={T.gray} strokeWidth={1.5} strokeDasharray="4,2" markerEnd="url(#arrowhead)" />
+      <text x={710} y={328} textAnchor="middle" style={{ ...S.caption, fontSize: 9 }}>Uses</text>
+      
+      {/* Resources page */}
+      <rect x={380} y={400} width={240} height={60} rx={8} fill={T.lightGray} stroke={T.border} strokeWidth={1} />
+      <text x={500} y={425} textAnchor="middle" style={S.labelBold}>📦 Resources</text>
+      <text x={500} y={445} textAnchor="middle" style={S.labelSm}>Templates, Influencer Prospects, Tools</text>
+      
+      {/* Arrow from hub area to resources */}
+      <line x1={500} y1={145} x2={500} y2={395} stroke={T.border} strokeWidth={1} strokeDasharray="4,4" />
+      
+      {/* Legend */}
+      <g transform="translate(60, 420)">
+        <text x={0} y={0} style={{ ...S.captionBold, fontSize: 10 }}>RELATIONS</text>
+        <line x1={0} y1={15} x2={40} y2={15} stroke={T.gray} strokeWidth={1.5} markerEnd="url(#arrowhead)" />
+        <text x={50} y={19} style={{ ...S.caption, fontSize: 9 }}>Linked</text>
+        <line x1={0} y1={35} x2={40} y2={35} stroke={T.gray} strokeWidth={1.5} strokeDasharray="4,2" markerEnd="url(#arrowhead)" />
+        <text x={50} y={39} style={{ ...S.caption, fontSize: 9 }}>Reference</text>
+      </g>
+      
+      {/* Footer */}
+      <text x={500} y={500} textAnchor="middle" style={S.caption}>All databases linked via bi-directional relations • Hub page shows filtered views of each</text>
+    </svg>
+  );
+};
+
 const DIAGRAMS = {
   'three-boxes': { name: 'Three Boxes of Innovation', usage: 'Introduces Box 3 thinking - finding new problems rather than improving existing solutions', viewBox: '0 0 800 400' },
   'build-measure-learn': { name: 'Build-Measure-Learn Loop', usage: 'Lean Startup cycle - emphasizes MVP and rapid iteration', viewBox: '0 0 600 520' },
@@ -1292,15 +1244,15 @@ const DIAGRAMS = {
   'four-steps-epiphany': { name: 'Four Steps to Epiphany', usage: 'Steve Blank customer development - Discovery to Company Building', viewBox: '0 0 900 400' },
   'interview-note-grid': { name: 'Interview Note-Taking Grid', usage: 'Capture stakeholder insights: Needs, Challenges, Bright Spots', viewBox: '0 0 900 480' },
   'affinity-mapping': { name: 'Affinity Mapping Process', usage: 'Synthesize interview data into clustered themes and key learnings', viewBox: '0 0 900 500' },
-  'gec-roadmap': { name: 'GEC Roadmap', usage: 'Visual overview of 10-module GEC journey with checkpoints and deliverables', viewBox: '0 0 1200 520' },
+  'notion-system': { name: 'HLV Notion System', usage: 'Team workspace architecture showing 4 databases and their relations', viewBox: '0 0 1000 520' },
 
 };
 
 const UPCOMING = [
+  { name: 'ORID Framework', priority: 'P2' },
   { name: 'Specific Target Behavior (Verb+Noun)', priority: 'P2' },
-  { name: 'Interview Flow Diagram', priority: 'P2' },
-  { name: 'Lean Canvas Template', priority: 'P2' },
-  { name: 'User Journey Map Template', priority: 'P3' },
+  { name: 'Four Steps to Epiphany', priority: 'P3' },
+  { name: 'Interview Flow Diagram', priority: 'P3' },
 ];
 
 // ============================================================================
@@ -1326,7 +1278,7 @@ const RENDERERS = {
   'four-steps-epiphany': FourStepsEpiphany,
   'interview-note-grid': InterviewNoteGrid,
   'affinity-mapping': AffinityMapping,
-  'gec-roadmap': GECRoadmap,
+  'notion-system': NotionSystemOverview,
 
 };
 
@@ -1342,7 +1294,7 @@ export default function App() {
     <div style={{ fontFamily: T.font, background: '#FAFAFA', minHeight: '100vh', padding: 20 }}>
       <div style={{ borderBottom: `2px solid ${T.navy}`, paddingBottom: 12, marginBottom: 20 }}>
         <h1 style={{ fontSize: 22, fontWeight: 700, color: T.navy, margin: 0 }}>HLV Asset Library</h1>
-        <p style={{ fontSize: 12, color: T.gray, margin: '4px 0 0' }}>Design Tokens + Diagrams • v9.0</p>
+        <p style={{ fontSize: 12, color: T.gray, margin: '4px 0 0' }}>Design Tokens + Diagrams Ã¢â‚¬Â¢ v9.0</p>
       </div>
       
       <div style={{ display: 'flex', gap: 6, marginBottom: 16 }}>
