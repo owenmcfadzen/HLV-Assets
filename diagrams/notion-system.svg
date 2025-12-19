@@ -1,0 +1,83 @@
+<svg viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Manrope', system-ui, sans-serif;">
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#6B7280" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" style="font-size: 24px; font-weight: 700; fill: #182D53;">HLV Notion System</text>
+  <text x="500" y="65" text-anchor="middle" style="font-size: 14px; font-weight: 500; fill: #6B7280;">Team workspace architecture for operations and curriculum</text>
+  
+  <!-- Hub -->
+  <rect x="400" y="95" width="200" height="50" rx="8" fill="#182D53" />
+  <text x="500" y="126" text-anchor="middle" style="font-size: 16px; font-weight: 700; fill: #FFFFFF;">🚀 HLV Team</text>
+  
+  <!-- Connector lines from hub to databases -->
+  <line x1="430" y1="145" x2="180" y2="175" stroke="#D1D5DB" stroke-width="2" />
+  <line x1="470" y1="145" x2="400" y2="175" stroke="#D1D5DB" stroke-width="2" />
+  <line x1="530" y1="145" x2="620" y2="175" stroke="#D1D5DB" stroke-width="2" />
+  <line x1="570" y1="145" x2="840" y2="175" stroke="#D1D5DB" stroke-width="2" />
+  
+  <!-- Timeline Database -->
+  <rect x="40" y="180" width="160" height="90" rx="8" fill="#FFFFFF" stroke="#182D53" stroke-width="2" />
+  <rect x="40" y="180" width="160" height="32" rx="8" fill="#182D53" />
+  <rect x="40" y="204" width="160" height="8" fill="#182D53" />
+  <text x="120" y="202" text-anchor="middle" style="font-size: 12px; font-weight: 600; fill: #FFFFFF;">📅 Timeline</text>
+  <text x="120" y="235" text-anchor="middle" style="font-size: 12px; font-weight: 400; fill: #6B7280;">Programs, Projects</text>
+  <text x="120" y="252" text-anchor="middle" style="font-size: 12px; font-weight: 400; fill: #6B7280;">Initiatives, Milestones</text>
+  
+  <!-- Tasks Database -->
+  <rect x="260" y="180" width="160" height="90" rx="8" fill="#FFFFFF" stroke="#3B82F6" stroke-width="2" />
+  <rect x="260" y="180" width="160" height="32" rx="8" fill="#3B82F6" />
+  <rect x="260" y="204" width="160" height="8" fill="#3B82F6" />
+  <text x="340" y="202" text-anchor="middle" style="font-size: 12px; font-weight: 600; fill: #FFFFFF;">✅ Tasks</text>
+  <text x="340" y="235" text-anchor="middle" style="font-size: 12px; font-weight: 400; fill: #6B7280;">Action items</text>
+  <text x="340" y="252" text-anchor="middle" style="font-size: 12px; font-weight: 400; fill: #6B7280;">Assignments</text>
+  
+  <!-- Knowledge Database -->
+  <rect x="480" y="180" width="160" height="90" rx="8" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="2" />
+  <rect x="480" y="180" width="160" height="32" rx="8" fill="#8B5CF6" />
+  <rect x="480" y="204" width="160" height="8" fill="#8B5CF6" />
+  <text x="560" y="202" text-anchor="middle" style="font-size: 12px; font-weight: 600; fill: #FFFFFF;">📚 Knowledge</text>
+  <text x="560" y="235" text-anchor="middle" style="font-size: 12px; font-weight: 400; fill: #6B7280;">Curriculum, Methods</text>
+  <text x="560" y="252" text-anchor="middle" style="font-size: 12px; font-weight: 400; fill: #6B7280;">Activities</text>
+  
+  <!-- Assets Database -->
+  <rect x="700" y="180" width="160" height="90" rx="8" fill="#FFFFFF" stroke="#00D866" stroke-width="2" />
+  <rect x="700" y="180" width="160" height="32" rx="8" fill="#00D866" />
+  <rect x="700" y="204" width="160" height="8" fill="#00D866" />
+  <text x="780" y="202" text-anchor="middle" style="font-size: 12px; font-weight: 600; fill: #FFFFFF;">🎨 Assets</text>
+  <text x="780" y="235" text-anchor="middle" style="font-size: 12px; font-weight: 400; fill: #6B7280;">Diagrams, Templates</text>
+  <text x="780" y="252" text-anchor="middle" style="font-size: 12px; font-weight: 400; fill: #6B7280;">Media</text>
+  
+  <!-- Timeline → Tasks relation -->
+  <path d="M 120 270 Q 120 310 200 310 L 260 310 Q 280 310 280 290" fill="none" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  <text x="200" y="328" text-anchor="middle" style="font-size: 9px; font-weight: 500; fill: #6B7280;">Parent</text>
+  
+  <!-- Timeline → Knowledge relation -->
+  <path d="M 120 270 Q 120 360 340 360 L 500 360 Q 520 360 520 290" fill="none" stroke="#6B7280" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowhead)" />
+  <text x="320" y="378" text-anchor="middle" style="font-size: 9px; font-weight: 500; fill: #6B7280;">References</text>
+  
+  <!-- Knowledge → Assets relation -->
+  <path d="M 640 270 Q 640 310 700 310 L 740 310 Q 760 310 760 290" fill="none" stroke="#6B7280" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowhead)" />
+  <text x="700" y="328" text-anchor="middle" style="font-size: 9px; font-weight: 500; fill: #6B7280;">Uses</text>
+  
+  <!-- Resources page -->
+  <rect x="380" y="410" width="240" height="60" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1" />
+  <text x="500" y="435" text-anchor="middle" style="font-size: 14px; font-weight: 600; fill: #182D53;">📦 Resources</text>
+  <text x="500" y="455" text-anchor="middle" style="font-size: 12px; font-weight: 400; fill: #6B7280;">Templates, Influencer Prospects, Tools</text>
+  
+  <!-- Arrow from hub area to resources -->
+  <line x1="500" y1="145" x2="500" y2="405" stroke="#D1D5DB" stroke-width="1" stroke-dasharray="4,4" />
+  
+  <!-- Legend -->
+  <text x="60" y="420" style="font-size: 10px; font-weight: 600; fill: #182D53;">RELATIONS</text>
+  <line x1="60" y1="435" x2="100" y2="435" stroke="#6B7280" stroke-width="1.5" marker-end="url(#arrowhead)" />
+  <text x="110" y="439" style="font-size: 9px; font-weight: 500; fill: #6B7280;">Linked</text>
+  <line x1="60" y1="455" x2="100" y2="455" stroke="#6B7280" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowhead)" />
+  <text x="110" y="459" style="font-size: 9px; font-weight: 500; fill: #6B7280;">Reference</text>
+  
+  <!-- Footer -->
+  <text x="500" y="500" text-anchor="middle" style="font-size: 11px; font-weight: 500; fill: #6B7280;">All databases linked via bi-directional relations • Hub page shows filtered views of each</text>
+</svg>
