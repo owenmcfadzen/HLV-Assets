@@ -1,0 +1,92 @@
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap');
+    text { font-family: 'Manrope', system-ui, sans-serif; }
+  </style>
+  
+  <text x="500" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#182D53">Journey Map Template</text>
+  <text x="500" y="65" text-anchor="middle" font-size="14" font-weight="500" fill="#6B7280">Map the stakeholder experience across key moments</text>
+  
+  <!-- Header row -->
+  <rect x="40" y="95" width="120" height="40" rx="4" fill="#182D53"/>
+  <text x="100" y="120" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">STAGES →</text>
+  
+  <rect x="170" y="95" width="150" height="40" rx="4" fill="#182D53"/>
+  <text x="245" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">Awareness</text>
+  
+  <rect x="330" y="95" width="150" height="40" rx="4" fill="#182D53"/>
+  <text x="405" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">Consideration</text>
+  
+  <rect x="490" y="95" width="150" height="40" rx="4" fill="#182D53"/>
+  <text x="565" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">Decision</text>
+  
+  <rect x="650" y="95" width="150" height="40" rx="4" fill="#182D53"/>
+  <text x="725" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">Use</text>
+  
+  <rect x="810" y="95" width="150" height="40" rx="4" fill="#182D53"/>
+  <text x="885" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">Advocacy</text>
+  
+  <!-- Row 1: Actions -->
+  <rect x="40" y="150" width="120" height="75" rx="4" fill="#F3F4F6" stroke="#D1D5DB"/>
+  <text x="100" y="182" text-anchor="middle" font-size="14" font-weight="600" fill="#182D53">Actions</text>
+  <text x="100" y="200" text-anchor="middle" font-size="9" font-weight="500" fill="#6B7280">What does the</text>
+  <text x="100" y="212" text-anchor="middle" font-size="9" font-weight="500" fill="#6B7280">stakeholder do?</text>
+  
+  <rect x="170" y="150" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-dasharray="4,2"/>
+  <rect x="330" y="150" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-dasharray="4,2"/>
+  <rect x="490" y="150" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-dasharray="4,2"/>
+  <rect x="650" y="150" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-dasharray="4,2"/>
+  <rect x="810" y="150" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-dasharray="4,2"/>
+  
+  <!-- Row 2: Thinking -->
+  <rect x="40" y="235" width="120" height="75" rx="4" fill="#F3F4F6" stroke="#D1D5DB"/>
+  <text x="100" y="267" text-anchor="middle" font-size="14" font-weight="600" fill="#182D53">Thinking</text>
+  <text x="100" y="285" text-anchor="middle" font-size="9" font-weight="500" fill="#6B7280">What are they</text>
+  <text x="100" y="297" text-anchor="middle" font-size="9" font-weight="500" fill="#6B7280">considering?</text>
+  
+  <rect x="170" y="235" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-dasharray="4,2"/>
+  <rect x="330" y="235" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-dasharray="4,2"/>
+  <rect x="490" y="235" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-dasharray="4,2"/>
+  <rect x="650" y="235" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-dasharray="4,2"/>
+  <rect x="810" y="235" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-dasharray="4,2"/>
+  
+  <!-- Row 3: Feeling -->
+  <rect x="40" y="320" width="120" height="75" rx="4" fill="#F3F4F6" stroke="#D1D5DB"/>
+  <text x="100" y="352" text-anchor="middle" font-size="14" font-weight="600" fill="#182D53">Feeling</text>
+  <text x="100" y="370" text-anchor="middle" font-size="9" font-weight="500" fill="#6B7280">What emotions</text>
+  <text x="100" y="382" text-anchor="middle" font-size="9" font-weight="500" fill="#6B7280">arise?</text>
+  
+  <rect x="170" y="320" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-dasharray="4,2"/>
+  <rect x="330" y="320" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-dasharray="4,2"/>
+  <rect x="490" y="320" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-dasharray="4,2"/>
+  <rect x="650" y="320" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-dasharray="4,2"/>
+  <rect x="810" y="320" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-dasharray="4,2"/>
+  
+  <!-- Row 4: Pain Points (highlighted) -->
+  <rect x="40" y="405" width="120" height="75" rx="4" fill="#ECFDF5" stroke="#00D866"/>
+  <text x="100" y="437" text-anchor="middle" font-size="14" font-weight="600" fill="#182D53">Pain Points</text>
+  <text x="100" y="455" text-anchor="middle" font-size="9" font-weight="500" fill="#6B7280">What frustrates</text>
+  <text x="100" y="467" text-anchor="middle" font-size="9" font-weight="500" fill="#6B7280">them?</text>
+  
+  <rect x="170" y="405" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB"/>
+  <rect x="330" y="405" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB"/>
+  <rect x="490" y="405" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB"/>
+  <rect x="650" y="405" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB"/>
+  <rect x="810" y="405" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB"/>
+  
+  <!-- Row 5: Opportunities (highlighted) -->
+  <rect x="40" y="490" width="120" height="75" rx="4" fill="#ECFDF5" stroke="#00D866"/>
+  <text x="100" y="522" text-anchor="middle" font-size="14" font-weight="600" fill="#182D53">Opportunities</text>
+  <text x="100" y="540" text-anchor="middle" font-size="9" font-weight="500" fill="#6B7280">Where can</text>
+  <text x="100" y="552" text-anchor="middle" font-size="9" font-weight="500" fill="#6B7280">we help?</text>
+  
+  <rect x="170" y="490" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB"/>
+  <rect x="330" y="490" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB"/>
+  <rect x="490" y="490" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB"/>
+  <rect x="650" y="490" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB"/>
+  <rect x="810" y="490" width="150" height="75" rx="4" fill="#FFFFFF" stroke="#D1D5DB"/>
+  
+  <!-- Footer - moved up -->
+  <rect x="40" y="572" width="920" height="24" rx="4" fill="#F3F4F6"/>
+  <text x="500" y="588" text-anchor="middle" font-size="10" font-weight="500" fill="#6B7280">Fill in each cell with observations from stakeholder interviews — pain points and opportunities are where innovation happens</text>
+</svg>
