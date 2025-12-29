@@ -1,0 +1,98 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap');
+    text { font-family: 'Manrope', system-ui, sans-serif; }
+  </style>
+  
+  <text x="450" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#182D53">Lean Product Plan Structure</text>
+  <text x="450" y="65" text-anchor="middle" font-size="14" font-weight="500" fill="#6B7280">16-20 slides organized by the questions investors ask</text>
+  
+  <!-- WHY Section -->
+  <g>
+    <rect x="40" y="100" width="80" height="90" rx="8" fill="#3B82F6"/>
+    <text x="80" y="140" text-anchor="middle" font-size="20" font-weight="700" fill="#FFFFFF">WHY</text>
+    <text x="80" y="160" text-anchor="middle" font-size="10" font-weight="600" fill="#FFFFFF" opacity="0.8">1-2</text>
+    <text x="140" y="120" font-size="12" font-weight="400" fill="#6B7280">The opportunity you discovered</text>
+    
+    <rect x="140" y="135" width="130" height="45" rx="4" fill="#FFFFFF" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="205" y="163" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Insight</text>
+    
+    <rect x="280" y="135" width="130" height="45" rx="4" fill="#FFFFFF" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="345" y="163" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Problem</text>
+  </g>
+  
+  <!-- WHAT Section -->
+  <g>
+    <rect x="40" y="220" width="80" height="90" rx="8" fill="#8B5CF6"/>
+    <text x="80" y="260" text-anchor="middle" font-size="20" font-weight="700" fill="#FFFFFF">WHAT</text>
+    <text x="80" y="280" text-anchor="middle" font-size="10" font-weight="600" fill="#FFFFFF" opacity="0.8">3-7</text>
+    <text x="140" y="240" font-size="12" font-weight="400" fill="#6B7280">Your solution and value proposition</text>
+    
+    <rect x="140" y="255" width="110" height="45" rx="4" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="1.5"/>
+    <text x="195" y="283" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Introducing</text>
+    
+    <rect x="258" y="255" width="110" height="45" rx="4" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="1.5"/>
+    <text x="313" y="283" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">What It Does</text>
+    
+    <rect x="376" y="255" width="110" height="45" rx="4" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="1.5"/>
+    <text x="431" y="283" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">How It Works</text>
+    
+    <rect x="494" y="255" width="110" height="45" rx="4" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="1.5"/>
+    <text x="549" y="278" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">What It</text>
+    <text x="549" y="290" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Looks Like</text>
+    
+    <rect x="612" y="255" width="110" height="45" rx="4" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="1.5"/>
+    <text x="667" y="278" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">What User</text>
+    <text x="667" y="290" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Achieves</text>
+  </g>
+  
+  <!-- HOW Section -->
+  <g>
+    <rect x="40" y="340" width="80" height="90" rx="8" fill="#F59E0B"/>
+    <text x="80" y="380" text-anchor="middle" font-size="20" font-weight="700" fill="#FFFFFF">HOW</text>
+    <text x="80" y="400" text-anchor="middle" font-size="10" font-weight="600" fill="#FFFFFF" opacity="0.8">8-12</text>
+    <text x="140" y="360" font-size="12" font-weight="400" fill="#6B7280">Business viability and scale</text>
+    
+    <rect x="140" y="375" width="110" height="45" rx="4" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.5"/>
+    <text x="195" y="398" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Business</text>
+    <text x="195" y="410" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Model</text>
+    
+    <rect x="258" y="375" width="110" height="45" rx="4" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.5"/>
+    <text x="313" y="398" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Market</text>
+    <text x="313" y="410" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Opportunity</text>
+    
+    <rect x="376" y="375" width="110" height="45" rx="4" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.5"/>
+    <text x="431" y="398" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Revenue</text>
+    <text x="431" y="410" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Projections</text>
+    
+    <rect x="494" y="375" width="110" height="45" rx="4" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.5"/>
+    <text x="549" y="403" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Competition</text>
+    
+    <rect x="612" y="375" width="110" height="45" rx="4" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.5"/>
+    <text x="667" y="403" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Expansion</text>
+  </g>
+  
+  <!-- WHEN Section -->
+  <g>
+    <rect x="40" y="460" width="80" height="90" rx="8" fill="#00D866"/>
+    <text x="80" y="500" text-anchor="middle" font-size="20" font-weight="700" fill="#FFFFFF">WHEN</text>
+    <text x="80" y="520" text-anchor="middle" font-size="10" font-weight="600" fill="#FFFFFF" opacity="0.8">13-16</text>
+    <text x="140" y="480" font-size="12" font-weight="400" fill="#6B7280">Execution plan and timeline</text>
+    
+    <rect x="140" y="495" width="130" height="45" rx="4" fill="#FFFFFF" stroke="#00D866" stroke-width="1.5"/>
+    <text x="205" y="523" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">MVP</text>
+    
+    <rect x="280" y="495" width="130" height="45" rx="4" fill="#FFFFFF" stroke="#00D866" stroke-width="1.5"/>
+    <text x="345" y="523" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Resources</text>
+    
+    <rect x="420" y="495" width="130" height="45" rx="4" fill="#FFFFFF" stroke="#00D866" stroke-width="1.5"/>
+    <text x="485" y="523" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Go-to-Market</text>
+    
+    <rect x="560" y="495" width="130" height="45" rx="4" fill="#FFFFFF" stroke="#00D866" stroke-width="1.5"/>
+    <text x="625" y="523" text-anchor="middle" font-size="10" font-weight="400" fill="#6B7280">Vision</text>
+  </g>
+  
+  <!-- Footer -->
+  <rect x="40" y="560" width="820" height="30" rx="4" fill="#F3F4F6"/>
+  <text x="450" y="580" text-anchor="middle" font-size="11" font-weight="500" fill="#6B7280">Each section answers a fundamental investor question — build the story in this order</text>
+</svg>
