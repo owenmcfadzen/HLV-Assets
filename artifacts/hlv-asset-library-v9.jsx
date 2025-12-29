@@ -949,6 +949,200 @@ const GoodVsWeakProblems = () => {
 };
 
 // ============================================================================
+// MVP TYPES
+// ============================================================================
+const MVPTypes = () => {
+  const types = [
+    { name: 'Concierge', desc: 'Deliver manually what will later be automated', example: 'Personal shopping service before algorithm', color: '#3B82F6' },
+    { name: 'Wizard of Oz', desc: 'Human behind the curtain mimics the product', example: 'Human answers pretending to be chatbot', color: '#8B5CF6' },
+    { name: 'Single-Feature', desc: 'Build only the one critical feature', example: 'Dropbox: just file sync, nothing else', color: '#F59E0B' },
+    { name: 'Pre-Order', desc: 'Sell before building to test demand', example: 'Kickstarter campaign before production', color: '#EF4444' },
+    { name: 'Piecemeal', desc: 'Combine existing tools to simulate product', example: 'Google Forms + Zapier + Airtable', color: '#10B981' },
+    { name: 'Smoke Test', desc: 'Landing page to measure interest', example: 'Sign-up page before building anything', color: T.navy },
+  ];
+  
+  return (
+    <svg viewBox="0 0 900 600" style={{ width: '100%', maxWidth: 900, fontFamily: T.font }}>
+      <text x={450} y={40} textAnchor="middle" style={S.title}>Six MVP Types</text>
+      <text x={450} y={65} textAnchor="middle" style={S.subtitle}>Choose the smallest experiment to test your riskiest assumption</text>
+      
+      {types.map((type, i) => {
+        const col = i % 3;
+        const row = Math.floor(i / 3);
+        const x = 50 + col * 280;
+        const y = 100 + row * 240;
+        return (
+          <g key={type.name}>
+            <rect x={x} y={y} width={260} height={200} rx={8} fill={T.white} stroke={type.color} strokeWidth={2} />
+            <rect x={x} y={y} width={260} height={44} rx={8} fill={type.color} />
+            <rect x={x} y={y + 36} width={260} height={8} fill={type.color} />
+            <text x={x + 130} y={y + 28} textAnchor="middle" style={{ ...S.heading, fontSize: 16 }}>{type.name}</text>
+            <text x={x + 20} y={y + 70} style={S.labelBold} textAnchor="start">{type.desc.split(' ').slice(0, 4).join(' ')}</text>
+            <text x={x + 20} y={y + 88} style={S.labelBold} textAnchor="start">{type.desc.split(' ').slice(4).join(' ')}</text>
+            <rect x={x + 16} y={y + 110} width={228} height={70} rx={4} fill={T.lightGray} />
+            <text x={x + 24} y={y + 130} style={{ ...S.caption, fontStyle: 'italic' }}>Example:</text>
+            <text x={x + 24} y={y + 150} style={S.labelSm}>{type.example.split(' ').slice(0, 5).join(' ')}</text>
+            <text x={x + 24} y={y + 166} style={S.labelSm}>{type.example.split(' ').slice(5).join(' ')}</text>
+          </g>
+        );
+      })}
+      
+      <text x={450} y={575} textAnchor="middle" style={S.caption}>The best MVP is the one that tests your riskiest assumption with the least effort</text>
+    </svg>
+  );
+};
+
+// ============================================================================
+// VERB + NOUN EXAMPLES
+// ============================================================================
+const VerbNounExamples = () => {
+  const examples = [
+    { verb: 'Watch', noun: 'Movies', product: 'Netflix', color: '#E50914' },
+    { verb: 'Find', noun: 'Rides', product: 'Uber', color: '#000000' },
+    { verb: 'Share', noun: 'Photos', product: 'Instagram', color: '#E1306C' },
+    { verb: 'Send', noun: 'Money', product: 'Venmo', color: '#3D95CE' },
+    { verb: 'Book', noun: 'Rooms', product: 'Airbnb', color: '#FF5A5F' },
+    { verb: 'Order', noun: 'Food', product: 'DoorDash', color: '#FF3008' },
+  ];
+  
+  return (
+    <svg viewBox="0 0 900 520" style={{ width: '100%', maxWidth: 900, fontFamily: T.font }}>
+      <text x={450} y={40} textAnchor="middle" style={S.title}>Verb + Noun</text>
+      <text x={450} y={65} textAnchor="middle" style={S.subtitle}>Define your product in two words: what action + what object</text>
+      
+      <rect x={280} y={100} width={340} height={80} rx={12} fill={T.navy} />
+      <text x={450} y={130} textAnchor="middle" style={{ ...S.heading, fontSize: 14 }}>THE FORMULA</text>
+      <text x={450} y={160} textAnchor="middle" style={{ ...S.heading, fontSize: 24 }}>[VERB] + [NOUN]</text>
+      
+      {examples.map((ex, i) => {
+        const col = i % 3;
+        const row = Math.floor(i / 3);
+        const x = 70 + col * 270;
+        const y = 220 + row * 130;
+        return (
+          <g key={ex.product}>
+            <rect x={x} y={y} width={240} height={100} rx={8} fill={T.white} stroke={T.border} strokeWidth={1} />
+            <rect x={x + 16} y={y + 16} width={80} height={32} rx={4} fill={T.emerald} />
+            <text x={x + 56} y={y + 38} textAnchor="middle" style={{ ...S.tag, fontSize: 14 }}>{ex.verb}</text>
+            <text x={x + 108} y={y + 38} textAnchor="middle" style={{ ...S.headingNavy, fontSize: 18 }}>+</text>
+            <rect x={x + 120} y={y + 16} width={104} height={32} rx={4} fill={T.navy} />
+            <text x={x + 172} y={y + 38} textAnchor="middle" style={{ ...S.tag, fontSize: 14 }}>{ex.noun}</text>
+            <circle cx={x + 36} cy={y + 74} r={12} fill={ex.color} />
+            <text x={x + 60} y={y + 78} style={S.labelSm}>{ex.product}</text>
+          </g>
+        );
+      })}
+      
+      <rect x={280} y={460} width={340} height={40} rx={8} fill={T.successBg} stroke={T.emerald} strokeWidth={2} />
+      <text x={450} y={486} textAnchor="middle" style={S.captionBold}>If you can't say it in two words, you don't know it yet</text>
+    </svg>
+  );
+};
+
+// ============================================================================
+// LPP STRUCTURE (WHY-WHAT-HOW-WHEN)
+// ============================================================================
+const LPPStructure = () => {
+  const sections = [
+    { name: 'WHY', color: '#3B82F6', slides: ['Insight', 'Problem'], desc: 'The opportunity you discovered' },
+    { name: 'WHAT', color: '#8B5CF6', slides: ['Introducing', 'What It Does', 'How It Works', 'What It Looks Like', 'What User Achieves'], desc: 'Your solution and value proposition' },
+    { name: 'HOW', color: '#F59E0B', slides: ['Business Model', 'Market Opportunity', 'Revenue Projections', 'Competition', 'Expansion'], desc: 'Business viability and scale' },
+    { name: 'WHEN', color: T.emerald, slides: ['MVP', 'Resources', 'Go-to-Market', 'Vision'], desc: 'Execution plan and timeline' },
+  ];
+  
+  let slideNum = 1;
+  
+  return (
+    <svg viewBox="0 0 900 600" style={{ width: '100%', maxWidth: 900, fontFamily: T.font }}>
+      <text x={450} y={40} textAnchor="middle" style={S.title}>Lean Product Plan Structure</text>
+      <text x={450} y={65} textAnchor="middle" style={S.subtitle}>16-20 slides organized by the questions investors ask</text>
+      
+      {sections.map((sec, i) => {
+        const y = 100 + i * 120;
+        const startSlide = slideNum;
+        slideNum += sec.slides.length;
+        return (
+          <g key={sec.name}>
+            <rect x={40} y={y} width={80} height={90} rx={8} fill={sec.color} />
+            <text x={80} y={y + 40} textAnchor="middle" style={{ ...S.heading, fontSize: 20 }}>{sec.name}</text>
+            <text x={80} y={y + 60} textAnchor="middle" style={{ ...S.tag, fontSize: 10, opacity: 0.8 }}>{startSlide}-{startSlide + sec.slides.length - 1}</text>
+            
+            <text x={140} y={y + 20} style={S.labelSm}>{sec.desc}</text>
+            
+            <g transform={`translate(140, ${y + 35})`}>
+              {sec.slides.map((slide, si) => (
+                <g key={slide} transform={`translate(${si * 140}, 0)`}>
+                  <rect x={0} y={0} width={130} height={45} rx={4} fill={T.white} stroke={sec.color} strokeWidth={1.5} />
+                  <text x={65} y={28} textAnchor="middle" style={{ ...S.labelSm, fontSize: 10 }}>{slide}</text>
+                </g>
+              ))}
+            </g>
+          </g>
+        );
+      })}
+      
+      <g transform="translate(40, 545)">
+        <rect x={0} y={0} width={820} height={40} rx={8} fill={T.lightGray} />
+        <text x={410} y={25} textAnchor="middle" style={S.caption}>Each section answers a fundamental investor question — build the story in this order</text>
+      </g>
+    </svg>
+  );
+};
+
+// ============================================================================
+// JOURNEY MAP TEMPLATE
+// ============================================================================
+const JourneyMapTemplate = () => {
+  const stages = ['Awareness', 'Consideration', 'Decision', 'Use', 'Advocacy'];
+  const rows = [
+    { label: 'Actions', desc: 'What does the stakeholder do?', icon: '→' },
+    { label: 'Thinking', desc: 'What are they considering?', icon: '💭' },
+    { label: 'Feeling', desc: 'What emotions arise?', icon: '♥' },
+    { label: 'Pain Points', desc: 'What frustrates them?', icon: '⚡' },
+    { label: 'Opportunities', desc: 'Where can we help?', icon: '★' },
+  ];
+  
+  return (
+    <svg viewBox="0 0 1000 600" style={{ width: '100%', maxWidth: 1000, fontFamily: T.font }}>
+      <text x={500} y={40} textAnchor="middle" style={S.title}>Journey Map Template</text>
+      <text x={500} y={65} textAnchor="middle" style={S.subtitle}>Map the stakeholder experience across key moments</text>
+      
+      <rect x={40} y={95} width={120} height={40} rx={4} fill={T.navy} />
+      <text x={100} y={120} textAnchor="middle" style={S.heading}>STAGES →</text>
+      
+      {stages.map((stage, i) => (
+        <g key={stage}>
+          <rect x={170 + i * 160} y={95} width={150} height={40} rx={4} fill={T.navy} />
+          <text x={245 + i * 160} y={120} textAnchor="middle" style={{ ...S.tag, fontSize: 12 }}>{stage}</text>
+        </g>
+      ))}
+      
+      {rows.map((row, ri) => {
+        const y = 150 + ri * 85;
+        const isHighlight = row.label === 'Pain Points' || row.label === 'Opportunities';
+        return (
+          <g key={row.label}>
+            <rect x={40} y={y} width={120} height={75} rx={4} fill={isHighlight ? T.successBg : T.lightGray} stroke={isHighlight ? T.emerald : T.border} />
+            <text x={100} y={y + 32} textAnchor="middle" style={S.labelBold}>{row.label}</text>
+            <text x={100} y={y + 50} textAnchor="middle" style={{ ...S.caption, fontSize: 9 }}>{row.desc.split(' ').slice(0, 3).join(' ')}</text>
+            <text x={100} y={y + 62} textAnchor="middle" style={{ ...S.caption, fontSize: 9 }}>{row.desc.split(' ').slice(3).join(' ')}</text>
+            
+            {stages.map((_, si) => (
+              <rect key={si} x={170 + si * 160} y={y} width={150} height={75} rx={4} fill={T.white} stroke={T.border} strokeDasharray={isHighlight ? "0" : "4,2"} />
+            ))}
+          </g>
+        );
+      })}
+      
+      <g transform="translate(40, 560)">
+        <rect x={0} y={0} width={920} height={30} rx={4} fill={T.lightGray} />
+        <text x={460} y={20} textAnchor="middle" style={S.caption}>Fill in each cell with observations from stakeholder interviews — pain points and opportunities are where innovation happens</text>
+      </g>
+    </svg>
+  );
+};
+
+// ============================================================================
 // DIAGRAM REGISTRY
 // ============================================================================
 
@@ -1143,87 +1337,6 @@ const AffinityMapping = () => {
   );
 };
 
-// ============================================================================
-// NOTION SYSTEM OVERVIEW
-// ============================================================================
-const NotionSystemOverview = () => {
-  const databases = [
-    { key: 'timeline', name: '📅 Timeline', desc: 'Programs, Projects, Initiatives', x: 120, y: 180, color: T.navy },
-    { key: 'tasks', name: '✅ Tasks', desc: 'Action items & assignments', x: 340, y: 180, color: '#3B82F6' },
-    { key: 'knowledge', name: '📚 Knowledge', desc: 'Curriculum, Methods, Activities', x: 560, y: 180, color: '#8B5CF6' },
-    { key: 'assets', name: '🎨 Assets', desc: 'Diagrams, Templates, Media', x: 780, y: 180, color: T.emerald }
-  ];
-  
-  return (
-    <svg viewBox="0 0 1000 520" style={{ width: '100%', maxWidth: 1000, fontFamily: T.font }}>
-      {/* Title */}
-      <text x={500} y={40} textAnchor="middle" style={S.title}>HLV Notion System</text>
-      <text x={500} y={65} textAnchor="middle" style={S.subtitle}>Team workspace architecture for operations and curriculum</text>
-      
-      {/* Hub */}
-      <rect x={400} y={95} width={200} height={50} rx={8} fill={T.navy} />
-      <text x={500} y={126} textAnchor="middle" style={{ ...S.heading, fontSize: 16 }}>🚀 HLV Team</text>
-      
-      {/* Connector lines from hub to databases */}
-      <line x1={430} y1={145} x2={180} y2={175} stroke={T.border} strokeWidth={2} />
-      <line x1={470} y1={145} x2={400} y2={175} stroke={T.border} strokeWidth={2} />
-      <line x1={530} y1={145} x2={620} y2={175} stroke={T.border} strokeWidth={2} />
-      <line x1={570} y1={145} x2={840} y2={175} stroke={T.border} strokeWidth={2} />
-      
-      {/* Database boxes */}
-      {databases.map((db) => (
-        <g key={db.key}>
-          <rect x={db.x - 80} y={db.y} width={160} height={90} rx={8} fill={T.white} stroke={db.color} strokeWidth={2} />
-          <rect x={db.x - 80} y={db.y} width={160} height={32} rx={8} fill={db.color} />
-          <rect x={db.x - 80} y={db.y + 24} width={160} height={8} fill={db.color} />
-          <text x={db.x} y={db.y + 22} textAnchor="middle" style={{ ...S.tag, fontSize: 12 }}>{db.name}</text>
-          <text x={db.x} y={db.y + 55} textAnchor="middle" style={S.labelSm}>{db.desc.split(',')[0]}</text>
-          {db.desc.includes(',') && <text x={db.x} y={db.y + 72} textAnchor="middle" style={S.labelSm}>{db.desc.split(',')[1]}</text>}
-        </g>
-      ))}
-      
-      {/* Relations arrows */}
-      <defs>
-        <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-          <polygon points="0 0, 8 3, 0 6" fill={T.gray} />
-        </marker>
-      </defs>
-      
-      {/* Timeline → Tasks relation */}
-      <path d="M 200 270 Q 200 310 280 310 L 320 310 Q 340 310 340 290" fill="none" stroke={T.gray} strokeWidth={1.5} markerEnd="url(#arrowhead)" />
-      <text x={270} y={328} textAnchor="middle" style={{ ...S.caption, fontSize: 9 }}>Parent</text>
-      
-      {/* Timeline → Knowledge relation */}
-      <path d="M 200 270 Q 200 350 400 350 L 540 350 Q 560 350 560 290" fill="none" stroke={T.gray} strokeWidth={1.5} strokeDasharray="4,2" markerEnd="url(#arrowhead)" />
-      <text x={380} y={368} textAnchor="middle" style={{ ...S.caption, fontSize: 9 }}>References</text>
-      
-      {/* Knowledge → Assets relation */}
-      <path d="M 640 270 Q 640 310 720 310 L 760 310 Q 780 310 780 290" fill="none" stroke={T.gray} strokeWidth={1.5} strokeDasharray="4,2" markerEnd="url(#arrowhead)" />
-      <text x={710} y={328} textAnchor="middle" style={{ ...S.caption, fontSize: 9 }}>Uses</text>
-      
-      {/* Resources page */}
-      <rect x={380} y={400} width={240} height={60} rx={8} fill={T.lightGray} stroke={T.border} strokeWidth={1} />
-      <text x={500} y={425} textAnchor="middle" style={S.labelBold}>📦 Resources</text>
-      <text x={500} y={445} textAnchor="middle" style={S.labelSm}>Templates, Influencer Prospects, Tools</text>
-      
-      {/* Arrow from hub area to resources */}
-      <line x1={500} y1={145} x2={500} y2={395} stroke={T.border} strokeWidth={1} strokeDasharray="4,4" />
-      
-      {/* Legend */}
-      <g transform="translate(60, 420)">
-        <text x={0} y={0} style={{ ...S.captionBold, fontSize: 10 }}>RELATIONS</text>
-        <line x1={0} y1={15} x2={40} y2={15} stroke={T.gray} strokeWidth={1.5} markerEnd="url(#arrowhead)" />
-        <text x={50} y={19} style={{ ...S.caption, fontSize: 9 }}>Linked</text>
-        <line x1={0} y1={35} x2={40} y2={35} stroke={T.gray} strokeWidth={1.5} strokeDasharray="4,2" markerEnd="url(#arrowhead)" />
-        <text x={50} y={39} style={{ ...S.caption, fontSize: 9 }}>Reference</text>
-      </g>
-      
-      {/* Footer */}
-      <text x={500} y={500} textAnchor="middle" style={S.caption}>All databases linked via bi-directional relations • Hub page shows filtered views of each</text>
-    </svg>
-  );
-};
-
 const DIAGRAMS = {
   'three-boxes': { name: 'Three Boxes of Innovation', usage: 'Introduces Box 3 thinking - finding new problems rather than improving existing solutions', viewBox: '0 0 800 400' },
   'build-measure-learn': { name: 'Build-Measure-Learn Loop', usage: 'Lean Startup cycle - emphasizes MVP and rapid iteration', viewBox: '0 0 600 520' },
@@ -1244,15 +1357,16 @@ const DIAGRAMS = {
   'four-steps-epiphany': { name: 'Four Steps to Epiphany', usage: 'Steve Blank customer development - Discovery to Company Building', viewBox: '0 0 900 400' },
   'interview-note-grid': { name: 'Interview Note-Taking Grid', usage: 'Capture stakeholder insights: Needs, Challenges, Bright Spots', viewBox: '0 0 900 480' },
   'affinity-mapping': { name: 'Affinity Mapping Process', usage: 'Synthesize interview data into clustered themes and key learnings', viewBox: '0 0 900 500' },
-  'notion-system': { name: 'HLV Notion System', usage: 'Team workspace architecture showing 4 databases and their relations', viewBox: '0 0 1000 520' },
-
+  'mvp-types': { name: 'Six MVP Types', usage: 'Choose the smallest experiment to test your riskiest assumption', viewBox: '0 0 900 600' },
+  'verb-noun': { name: 'Verb + Noun', usage: 'Define your product in two words: what action + what object', viewBox: '0 0 900 520' },
+  'lpp-structure': { name: 'LPP Structure', usage: 'WHY-WHAT-HOW-WHEN framework for Lean Product Plan presentations', viewBox: '0 0 900 600' },
+  'journey-map-template': { name: 'Journey Map Template', usage: 'Blank template for mapping stakeholder experience across stages', viewBox: '0 0 1000 600' },
 };
 
 const UPCOMING = [
-  { name: 'ORID Framework', priority: 'P2' },
-  { name: 'Specific Target Behavior (Verb+Noun)', priority: 'P2' },
-  { name: 'Four Steps to Epiphany', priority: 'P3' },
   { name: 'Interview Flow Diagram', priority: 'P3' },
+  { name: 'Team Agreement Questions', priority: 'P3' },
+  { name: 'Pitch Deck Structure', priority: 'P3' },
 ];
 
 // ============================================================================
@@ -1278,7 +1392,10 @@ const RENDERERS = {
   'four-steps-epiphany': FourStepsEpiphany,
   'interview-note-grid': InterviewNoteGrid,
   'affinity-mapping': AffinityMapping,
-  'notion-system': NotionSystemOverview,
+  'mvp-types': MVPTypes,
+  'verb-noun': VerbNounExamples,
+  'lpp-structure': LPPStructure,
+  'journey-map-template': JourneyMapTemplate,
 
 };
 
@@ -1294,7 +1411,7 @@ export default function App() {
     <div style={{ fontFamily: T.font, background: '#FAFAFA', minHeight: '100vh', padding: 20 }}>
       <div style={{ borderBottom: `2px solid ${T.navy}`, paddingBottom: 12, marginBottom: 20 }}>
         <h1 style={{ fontSize: 22, fontWeight: 700, color: T.navy, margin: 0 }}>HLV Asset Library</h1>
-        <p style={{ fontSize: 12, color: T.gray, margin: '4px 0 0' }}>Design Tokens + Diagrams Ã¢â‚¬Â¢ v9.0</p>
+        <p style={{ fontSize: 12, color: T.gray, margin: '4px 0 0' }}>Design Tokens + Diagrams • v9.0</p>
       </div>
       
       <div style={{ display: 'flex', gap: 6, marginBottom: 16 }}>
