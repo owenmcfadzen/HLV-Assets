@@ -1,0 +1,92 @@
+<svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap');
+    text { font-family: 'Manrope', system-ui, sans-serif; }
+  </style>
+  
+  <text x="450" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#182D53">Verb + Noun</text>
+  <text x="450" y="65" text-anchor="middle" font-size="14" font-weight="500" fill="#6B7280">Define your product in two words: what action + what object</text>
+  
+  <!-- Formula box -->
+  <rect x="280" y="100" width="340" height="80" rx="12" fill="#182D53"/>
+  <text x="450" y="130" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">THE FORMULA</text>
+  <text x="450" y="160" text-anchor="middle" font-size="24" font-weight="700" fill="#FFFFFF">[VERB] + [NOUN]</text>
+  
+  <!-- Row 1 -->
+  <!-- Netflix -->
+  <g>
+    <rect x="70" y="220" width="240" height="100" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="86" y="236" width="80" height="32" rx="4" fill="#00D866"/>
+    <text x="126" y="258" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Watch</text>
+    <text x="178" y="258" text-anchor="middle" font-size="18" font-weight="700" fill="#182D53">+</text>
+    <rect x="190" y="236" width="104" height="32" rx="4" fill="#182D53"/>
+    <text x="242" y="258" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Movies</text>
+    <circle cx="106" cy="294" r="12" fill="#E50914"/>
+    <text x="130" y="298" font-size="12" font-weight="400" fill="#6B7280">Netflix</text>
+  </g>
+  
+  <!-- Uber -->
+  <g>
+    <rect x="340" y="220" width="240" height="100" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="356" y="236" width="80" height="32" rx="4" fill="#00D866"/>
+    <text x="396" y="258" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Find</text>
+    <text x="448" y="258" text-anchor="middle" font-size="18" font-weight="700" fill="#182D53">+</text>
+    <rect x="460" y="236" width="104" height="32" rx="4" fill="#182D53"/>
+    <text x="512" y="258" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Rides</text>
+    <circle cx="376" cy="294" r="12" fill="#000000"/>
+    <text x="400" y="298" font-size="12" font-weight="400" fill="#6B7280">Uber</text>
+  </g>
+  
+  <!-- Instagram -->
+  <g>
+    <rect x="610" y="220" width="240" height="100" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="626" y="236" width="80" height="32" rx="4" fill="#00D866"/>
+    <text x="666" y="258" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Share</text>
+    <text x="718" y="258" text-anchor="middle" font-size="18" font-weight="700" fill="#182D53">+</text>
+    <rect x="730" y="236" width="104" height="32" rx="4" fill="#182D53"/>
+    <text x="782" y="258" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Photos</text>
+    <circle cx="646" cy="294" r="12" fill="#E1306C"/>
+    <text x="670" y="298" font-size="12" font-weight="400" fill="#6B7280">Instagram</text>
+  </g>
+  
+  <!-- Row 2 -->
+  <!-- Venmo -->
+  <g>
+    <rect x="70" y="350" width="240" height="100" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="86" y="366" width="80" height="32" rx="4" fill="#00D866"/>
+    <text x="126" y="388" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Send</text>
+    <text x="178" y="388" text-anchor="middle" font-size="18" font-weight="700" fill="#182D53">+</text>
+    <rect x="190" y="366" width="104" height="32" rx="4" fill="#182D53"/>
+    <text x="242" y="388" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Money</text>
+    <circle cx="106" cy="424" r="12" fill="#3D95CE"/>
+    <text x="130" y="428" font-size="12" font-weight="400" fill="#6B7280">Venmo</text>
+  </g>
+  
+  <!-- Airbnb -->
+  <g>
+    <rect x="340" y="350" width="240" height="100" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="356" y="366" width="80" height="32" rx="4" fill="#00D866"/>
+    <text x="396" y="388" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Book</text>
+    <text x="448" y="388" text-anchor="middle" font-size="18" font-weight="700" fill="#182D53">+</text>
+    <rect x="460" y="366" width="104" height="32" rx="4" fill="#182D53"/>
+    <text x="512" y="388" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Rooms</text>
+    <circle cx="376" cy="424" r="12" fill="#FF5A5F"/>
+    <text x="400" y="428" font-size="12" font-weight="400" fill="#6B7280">Airbnb</text>
+  </g>
+  
+  <!-- DoorDash -->
+  <g>
+    <rect x="610" y="350" width="240" height="100" rx="8" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <rect x="626" y="366" width="80" height="32" rx="4" fill="#00D866"/>
+    <text x="666" y="388" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Order</text>
+    <text x="718" y="388" text-anchor="middle" font-size="18" font-weight="700" fill="#182D53">+</text>
+    <rect x="730" y="366" width="104" height="32" rx="4" fill="#182D53"/>
+    <text x="782" y="388" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">Food</text>
+    <circle cx="646" cy="424" r="12" fill="#FF3008"/>
+    <text x="670" y="428" font-size="12" font-weight="400" fill="#6B7280">DoorDash</text>
+  </g>
+  
+  <!-- Bottom callout -->
+  <rect x="280" y="460" width="340" height="40" rx="8" fill="#ECFDF5" stroke="#00D866" stroke-width="2"/>
+  <text x="450" y="486" text-anchor="middle" font-size="12" font-weight="600" fill="#182D53">If you can't say it in two words, you don't know it yet</text>
+</svg>
