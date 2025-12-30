@@ -1,0 +1,73 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Manrope', system-ui, sans-serif;">
+  <style>
+    .title { font-size: 24px; font-weight: 700; fill: #182D53; }
+    .subtitle { font-size: 14px; font-weight: 500; fill: #6B7280; }
+    .letter { font-size: 32px; font-weight: 800; fill: #FFFFFF; }
+    .name { font-size: 16px; font-weight: 700; fill: #182D53; }
+    .desc { font-size: 12px; font-weight: 400; fill: #374151; }
+    .question { font-size: 11px; font-weight: 400; fill: #6B7280; }
+    .caption { font-size: 11px; font-weight: 500; fill: #6B7280; }
+  </style>
+  
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" class="title">AEIOU Framework</text>
+  <text x="450" y="62" text-anchor="middle" class="subtitle">Structured Observation for Field Research</text>
+  
+  <!-- A - Activities -->
+  <g transform="translate(90, 100)">
+    <circle cx="40" cy="40" r="40" fill="#182D53"/>
+    <text x="40" y="52" text-anchor="middle" class="letter">A</text>
+    <text x="100" y="30" class="name">Activities</text>
+    <text x="100" y="48" class="desc">What are people doing?</text>
+    <text x="100" y="68" class="question">• What's the goal of the activity?</text>
+    <text x="100" y="84" class="question">• What steps are involved?</text>
+  </g>
+  
+  <!-- E - Environments -->
+  <g transform="translate(90, 180)">
+    <circle cx="40" cy="40" r="40" fill="#3B82F6"/>
+    <text x="40" y="52" text-anchor="middle" class="letter">E</text>
+    <text x="100" y="30" class="name">Environments</text>
+    <text x="100" y="48" class="desc">What's the physical space like?</text>
+    <text x="100" y="68" class="question">• How is the space organized?</text>
+    <text x="100" y="84" class="question">• What's the atmosphere?</text>
+  </g>
+  
+  <!-- I - Interactions -->
+  <g transform="translate(90, 260)">
+    <circle cx="40" cy="40" r="40" fill="#8B5CF6"/>
+    <text x="40" y="52" text-anchor="middle" class="letter">I</text>
+    <text x="100" y="30" class="name">Interactions</text>
+    <text x="100" y="48" class="desc">How do people interact?</text>
+    <text x="100" y="68" class="question">• With each other?</text>
+    <text x="100" y="84" class="question">• With objects and systems?</text>
+  </g>
+  
+  <!-- O - Objects -->
+  <g transform="translate(480, 140)">
+    <circle cx="40" cy="40" r="40" fill="#F59E0B"/>
+    <text x="40" y="52" text-anchor="middle" class="letter">O</text>
+    <text x="100" y="30" class="name">Objects</text>
+    <text x="100" y="48" class="desc">What tools and artifacts are present?</text>
+    <text x="100" y="68" class="question">• What's being used? Modified?</text>
+    <text x="100" y="84" class="question">• What's missing or broken?</text>
+  </g>
+  
+  <!-- U - Users -->
+  <g transform="translate(480, 220)">
+    <circle cx="40" cy="40" r="40" fill="#00D866"/>
+    <text x="40" y="52" text-anchor="middle" class="letter">U</text>
+    <text x="100" y="30" class="name">Users</text>
+    <text x="100" y="48" class="desc">Who is here? What are their roles?</text>
+    <text x="100" y="68" class="question">• What are they trying to accomplish?</text>
+    <text x="100" y="84" class="question">• What challenges do they face?</text>
+  </g>
+  
+  <!-- Key Insight Box -->
+  <rect x="90" y="360" width="720" height="70" rx="8" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="450" y="388" text-anchor="middle" style="font-size: 13px; font-weight: 600; fill: #182D53;">Key Insight</text>
+  <text x="450" y="410" text-anchor="middle" class="question">Observe what happens — don't interpret why. Description is observable. Interpretation is added later.</text>
+  
+  <!-- Caption -->
+  <text x="450" y="460" text-anchor="middle" class="caption">Use AEIOU to structure observations during field research</text>
+</svg>
