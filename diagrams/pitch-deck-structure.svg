@@ -1,0 +1,149 @@
+<svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Manrope', system-ui, sans-serif;">
+  <style>
+    .title { font-size: 24px; font-weight: 700; fill: #182D53; }
+    .subtitle { font-size: 14px; font-weight: 500; fill: #6B7280; }
+    .slide-num { font-size: 18px; font-weight: 800; fill: #FFFFFF; }
+    .slide-title { font-size: 13px; font-weight: 700; fill: #182D53; }
+    .slide-desc { font-size: 11px; font-weight: 400; fill: #6B7280; }
+    .caption { font-size: 11px; font-weight: 500; fill: #6B7280; }
+    .phase { font-size: 10px; font-weight: 600; fill: #FFFFFF; }
+  </style>
+  
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" class="title">Pitch Deck Structure</text>
+  <text x="450" y="56" text-anchor="middle" class="subtitle">The 9-Slide Framework for Early-Stage Ventures</text>
+  
+  <!-- Phase Labels -->
+  <rect x="60" y="75" width="240" height="22" rx="4" fill="#182D53"/>
+  <text x="180" y="90" text-anchor="middle" class="phase">PROBLEM SPACE</text>
+  
+  <rect x="330" y="75" width="240" height="22" rx="4" fill="#3B82F6"/>
+  <text x="450" y="90" text-anchor="middle" class="phase">SOLUTION SPACE</text>
+  
+  <rect x="600" y="75" width="240" height="22" rx="4" fill="#00D866"/>
+  <text x="720" y="90" text-anchor="middle" class="phase">EXECUTION</text>
+  
+  <!-- Row 1 -->
+  <!-- Slide 1 -->
+  <g transform="translate(60, 110)">
+    <rect x="0" y="0" width="110" height="90" rx="6" fill="#F3F4F6" stroke="#D1D5DB"/>
+    <circle cx="20" cy="20" r="14" fill="#182D53"/>
+    <text x="20" y="25" text-anchor="middle" class="slide-num">1</text>
+    <text x="55" y="20" class="slide-title">Hook</text>
+    <text x="8" y="45" class="slide-desc">One compelling</text>
+    <text x="8" y="58" class="slide-desc">statement that</text>
+    <text x="8" y="71" class="slide-desc">grabs attention</text>
+  </g>
+  
+  <!-- Slide 2 -->
+  <g transform="translate(190, 110)">
+    <rect x="0" y="0" width="110" height="90" rx="6" fill="#F3F4F6" stroke="#D1D5DB"/>
+    <circle cx="20" cy="20" r="14" fill="#182D53"/>
+    <text x="20" y="25" text-anchor="middle" class="slide-num">2</text>
+    <text x="55" y="20" class="slide-title">Problem</text>
+    <text x="8" y="45" class="slide-desc">Pain point with</text>
+    <text x="8" y="58" class="slide-desc">evidence of</text>
+    <text x="8" y="71" class="slide-desc">severity</text>
+  </g>
+  
+  <!-- Slide 3 -->
+  <g transform="translate(330, 110)">
+    <rect x="0" y="0" width="110" height="90" rx="6" fill="#F3F4F6" stroke="#3B82F6" stroke-width="2"/>
+    <circle cx="20" cy="20" r="14" fill="#3B82F6"/>
+    <text x="20" y="25" text-anchor="middle" class="slide-num">3</text>
+    <text x="55" y="20" class="slide-title">Solution</text>
+    <text x="8" y="45" class="slide-desc">What you're</text>
+    <text x="8" y="58" class="slide-desc">building and</text>
+    <text x="8" y="71" class="slide-desc">how it works</text>
+  </g>
+  
+  <!-- Row 2 -->
+  <!-- Slide 4 -->
+  <g transform="translate(460, 110)">
+    <rect x="0" y="0" width="110" height="90" rx="6" fill="#F3F4F6" stroke="#3B82F6" stroke-width="2"/>
+    <circle cx="20" cy="20" r="14" fill="#3B82F6"/>
+    <text x="20" y="25" text-anchor="middle" class="slide-num">4</text>
+    <text x="55" y="20" class="slide-title">Demo</text>
+    <text x="8" y="45" class="slide-desc">Show don't tell</text>
+    <text x="8" y="58" class="slide-desc">— prototype or</text>
+    <text x="8" y="71" class="slide-desc">walkthrough</text>
+  </g>
+  
+  <!-- Slide 5 -->
+  <g transform="translate(600, 110)">
+    <rect x="0" y="0" width="110" height="90" rx="6" fill="#F3F4F6" stroke="#00D866" stroke-width="2"/>
+    <circle cx="20" cy="20" r="14" fill="#00D866"/>
+    <text x="20" y="25" text-anchor="middle" class="slide-num">5</text>
+    <text x="55" y="20" class="slide-title">Traction</text>
+    <text x="8" y="45" class="slide-desc">Evidence people</text>
+    <text x="8" y="58" class="slide-desc">want this —</text>
+    <text x="8" y="71" class="slide-desc">interviews, tests</text>
+  </g>
+  
+  <!-- Slide 6 -->
+  <g transform="translate(730, 110)">
+    <rect x="0" y="0" width="110" height="90" rx="6" fill="#F3F4F6" stroke="#00D866" stroke-width="2"/>
+    <circle cx="20" cy="20" r="14" fill="#00D866"/>
+    <text x="20" y="25" text-anchor="middle" class="slide-num">6</text>
+    <text x="55" y="20" class="slide-title">Market</text>
+    <text x="8" y="45" class="slide-desc">Who is this for</text>
+    <text x="8" y="58" class="slide-desc">and how big</text>
+    <text x="8" y="71" class="slide-desc">is the need?</text>
+  </g>
+  
+  <!-- Row 3 -->
+  <!-- Slide 7 -->
+  <g transform="translate(60, 220)">
+    <rect x="0" y="0" width="110" height="90" rx="6" fill="#F3F4F6" stroke="#D1D5DB"/>
+    <circle cx="20" cy="20" r="14" fill="#6B7280"/>
+    <text x="20" y="25" text-anchor="middle" class="slide-num">7</text>
+    <text x="55" y="20" class="slide-title">Business</text>
+    <text x="8" y="45" class="slide-desc">How you make</text>
+    <text x="8" y="58" class="slide-desc">money or create</text>
+    <text x="8" y="71" class="slide-desc">sustainability</text>
+  </g>
+  
+  <!-- Slide 8 -->
+  <g transform="translate(190, 220)">
+    <rect x="0" y="0" width="110" height="90" rx="6" fill="#F3F4F6" stroke="#D1D5DB"/>
+    <circle cx="20" cy="20" r="14" fill="#6B7280"/>
+    <text x="20" y="25" text-anchor="middle" class="slide-num">8</text>
+    <text x="55" y="20" class="slide-title">Team</text>
+    <text x="8" y="45" class="slide-desc">Why you're the</text>
+    <text x="8" y="58" class="slide-desc">right people</text>
+    <text x="8" y="71" class="slide-desc">to solve this</text>
+  </g>
+  
+  <!-- Slide 9 -->
+  <g transform="translate(330, 220)">
+    <rect x="0" y="0" width="110" height="90" rx="6" fill="#F3F4F6" stroke="#182D53" stroke-width="2"/>
+    <circle cx="20" cy="20" r="14" fill="#182D53"/>
+    <text x="20" y="25" text-anchor="middle" class="slide-num">9</text>
+    <text x="55" y="20" class="slide-title">Ask</text>
+    <text x="8" y="45" class="slide-desc">What you need</text>
+    <text x="8" y="58" class="slide-desc">— be specific</text>
+    <text x="8" y="71" class="slide-desc">and actionable</text>
+  </g>
+  
+  <!-- Flow arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#D1D5DB"/>
+    </marker>
+  </defs>
+  
+  <!-- Key Principles Box -->
+  <rect x="500" y="220" width="340" height="90" rx="8" fill="#F3F4F6" stroke="#D1D5DB"/>
+  <text x="670" y="245" text-anchor="middle" style="font-size: 13px; font-weight: 600; fill: #182D53;">Key Principles</text>
+  <text x="520" y="268" class="slide-desc">• 1 idea per slide — simplicity wins</text>
+  <text x="520" y="283" class="slide-desc">• Story arc: Problem → Solution → Evidence → Ask</text>
+  <text x="520" y="298" class="slide-desc">• 3 minutes max — every word earns its place</text>
+  
+  <!-- Caption -->
+  <text x="450" y="345" text-anchor="middle" class="caption">Slides 1-2 establish stakes. Slides 3-6 prove value. Slides 7-9 build confidence.</text>
+  
+  <!-- Bottom note -->
+  <rect x="60" y="370" width="780" height="60" rx="8" fill="#ECFDF5" stroke="#00D866"/>
+  <text x="450" y="395" text-anchor="middle" style="font-size: 12px; font-weight: 600; fill: #182D53;">For HLV Programs</text>
+  <text x="450" y="415" text-anchor="middle" class="slide-desc">Focus on slides 1-5 for Quick Pitches. Full 9-slide deck for Final Presentations.</text>
+</svg>
